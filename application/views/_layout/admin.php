@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
@@ -18,6 +14,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url() . 'asset/dist/css/adminlte.min.css' ?> ">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.dataTables.min.css' ?>">
+  <!-- Sweetalert -->
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/sweetalert2/dark.css' ?>">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/toastr/toastr.min.css' ?>">
+
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?> "></script>
+  <!-- Bootstrap 4 -->
+  <script src=" <?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
+  <!-- DataTables -->
+  <script src="<?= base_url() . 'asset/plugins/datatables/jquery.dataTables.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-responsive/js/dataTables.responsive.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-buttons/js/dataTables.buttons.min.js' ?>"></script>
+  <!-- Sweetalert -->
+  <script src="<?= base_url() . 'asset/plugins/sweetalert2/sweetalert2.min.js' ?>"></script>
+  <!-- Toastr -->
+  <script src="<?= base_url() . 'asset/plugins/toastr/toastr.min.js' ?>"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -58,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="<?= base_url() . 'asset/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">A_so</a>
+            <a href="#" class="d-block">Administrator</a>
           </div>
         </div>
 
@@ -66,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url() ?>" class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -74,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('user') ?>" class="nav-link <?= $this->uri->segment(1) == 'user' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                   Data Pemilih
@@ -82,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('event') ?>" class="nav-link">
                 <i class="nav-icon fa fa-calendar-check"></i>
                 <p>
                   Pemilihan
@@ -90,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('report') ?>" class="nav-link">
                 <i class="nav-icon fa fa-check-double"></i>
                 <p>
                   Hasil Pemilihan
@@ -106,43 +133,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Selamat Datang</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <div class="content">
-        <div class="container-fluid">
-          <?= $contents ?>
-
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content -->
+      <?= $contents; ?>
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-      <div class="p-3">
-        <h5>Title</h5>
-        <p>Sidebar content</p>
-      </div>
-    </aside>
-    <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
     <footer class="main-footer">
@@ -155,15 +149,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </footer>
   </div>
   <!-- ./wrapper -->
+  <!-- Alert Config -->
+  <script type="text/javascript">
+    $(function() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 10000
+      });
+      <?php if ($this->session->flashdata('success')) { ?>
+        Toast.fire({
+          icon: 'success',
+          title: '<?= $this->session->flashdata('success'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('error')) {  ?>
+        Toast.fire({
+          icon: 'error',
+          title: '<?= $this->session->flashdata('error'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('warning')) {  ?>
+        Toast.fire({
+          icon: 'warning',
+          title: '<?= $this->session->flashdata('warning'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('info')) {  ?>
+        Toast.fire({
+          icon: 'info',
+          title: '<?= $this->session->flashdata('info'); ?>'
+        });
+      <?php } ?>
+    });
+  </script>
 
-  <!-- REQUIRED SCRIPTS -->
-
-  <!-- jQuery -->
-  <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?> "></script>
-  <!-- Bootstrap 4 -->
-  <script src=" <?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-  <!-- AdminLTE App -->
-  <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
 </body>
 
 </html>
