@@ -38,7 +38,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    
+                    <li class="nav-item">
+                        <a href="index3.html" class="btn btn-primary btn-sm">Masuk</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -52,64 +54,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="row">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
+                            
                             <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
                             <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
                         </div>
                         <div class="col-lg-4 pt-5">
-                            <div class="card ">
+                            <div class="card">
                             <div class="card-header bg-success shadow">
     <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60" >
                     <span class="brand-text font-weight-light mx-3 font-weight-bold" >E-Voting</span>
                 </a>
                                 </div>
-                            <div class="card-body login-card-body ">
-                                    <p class="login-box-msg"></p>
+                                <div class="card-body login-card-body">
+                                    <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
 
-                                    <form action=" <?= base_url('Landing/login')?> " method="post">
+                                    <form action="<?= base_url('landing/register') ?> " method="post">
                                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder="Email" name="femail">
-                                            
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                <?= form_error('femail') ?>
-                                            </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fnik">NIK</label>
+                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik" >
+                                            <div class="invalid-feedback" >
+                                                <?= form_error('fnik') ?>
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" placeholder=" Password" name="fpassword">
-                                            
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
+                                        <div class="form-group mb-2">
+                                            <label for="femail">Email</label>
+                                            <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="Alamat email" name="femail">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('femail') ?>
                                             </div>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fusername">Username</label>
+                                            <input type="text" class="form-control <?= form_error('fusername') ? 'is-invalid' : '' ?>" id="fusername" placeholder="Username" name="fusername">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('fusername') ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fpassword">Password</label>
+                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
                                             <div class="invalid-feedback">
                                                 <?= form_error('fpassword') ?>
                                             </div>
                                         </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fconfpassword">Ulangi Password</label>
+                                            <input type="password" class="form-control <?= form_error('fconfpassword') ? 'is-invalid' : '' ?>" id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('fconfpassword') ?>
+                                            </div>
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary btn-block">SIG IN</button>
+                                                <button type="submit" name="submit" class="btn btn-primary btn-block mt-2">Register Account</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
                                     </form>
 
-                                    <p class="mt-2 text-center">
-                                        
-                                        <a href="  <?= base_url('Landing/register') ?> ">forgot password</a>
-                                    </p>
                                     <p class="mt-3 mb-1">
-                                        <span class="text-muted">Don't have an account? </span>
-                                        <a href="  <?= base_url('Landing/register') ?> ">click here</a>
+                                        <span class="text-muted">have an account ? </span>
+                                        <a href="<?= base_url('Landing/index') ?>">click here</a>
                                     </p>
-                                    
                                 </div>
-
                                 <!-- /.login-card-body -->
                             </div>
                         </div>
