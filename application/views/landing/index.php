@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <div class="col-lg-4 pt-5">
                             <div class="card ">
-                            <div class="card-header bg-success shadow">
+                            <div class="card-header" style="background-color: #20B2AA;">
     <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60" >
                     <span class="brand-text font-weight-light mx-3 font-weight-bold" >E-Voting</span>
                 </a>
@@ -92,8 +92,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12">
-                                                <button type="submit" class="btn btn-primary btn-block">SIG IN</button>
+                                            <div class="col-12 mx-auto">
+                                                <button type="submit" class="btn btn btn  btn-block"style="background-color: #20B2AA;" name="submit">SIG IN</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>

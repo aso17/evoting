@@ -5,6 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,64 +55,67 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="row">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
-                            
+
                             <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
                             <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
                         </div>
-                        <div class="col-lg-4 pt-5">
+                        <div class="col-lg-4 pt-3 ">
                             <div class="card">
-                            <div class="card-header bg-success shadow">
-    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60" >
-                    <span class="brand-text font-weight-light mx-3 font-weight-bold" >E-Voting</span>
-                </a>
+                                <div class="card-header" style="background-color: #20B2AA;">
+                                    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60">
+                                    <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
+                                    </a>
                                 </div>
-                                <div class="card-body login-card-body">
+                                <div class="card-body login-card-body " style="font-family: serif;">
                                     <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
+                                    <div style=" height:367px;width:346px; overflow:auto;">
+                                        <form action="<?= base_url('landing/process_Reg') ?> " method="post">
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
-                                    <form action="<?= base_url('landing/register') ?> " method="post">
-                                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
-                                        <div class="form-group mb-2">
-                                            <label for="fnik">NIK</label>
-                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik" >
-                                            <div class="invalid-feedback" >
-                                                <?= form_error('fnik') ?>
+                                            <div class="form-group mb-2">
+                                                <label for="fnik">NIK</label>
+                                                <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('fnik') ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group mb-2">
-                                            <label for="femail">Email</label>
-                                            <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="Alamat email" name="femail">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('femail') ?>
+                                            <div class="form-group mb-2">
+                                                <label for="femail">Email</label>
+                                                <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="Alamat email" name="femail">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('femail') ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group mb-2">
-                                            <label for="fusername">Username</label>
-                                            <input type="text" class="form-control <?= form_error('fusername') ? 'is-invalid' : '' ?>" id="fusername" placeholder="Username" name="fusername">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('fusername') ?>
+                                            <div class="form-group mb-2">
+                                                <label for="user_name">Username</label>
+                                                <input type="text" class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>" id="user_name" placeholder="Username" name="user_name">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('user_name') ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group mb-2">
-                                            <label for="fpassword">Password</label>
-                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('fpassword') ?>
+                                            <div class="form-group mb-2">
+                                                <label for="fpassword">Password</label>
+                                                <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
+                                                <div class="invalid-feedback">
+                                                    <?= form_error('fpassword') ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group mb-2">
-                                            <label for="fconfpassword">Ulangi Password</label>
-                                            <input type="password" class="form-control <?= form_error('fconfpassword') ? 'is-invalid' : '' ?>" id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('fconfpassword') ?>
+                                            <div class="form-group mb-2">
+                                                <label for="fconfpassword">Ulangi Password</label>
+                                                <input type="password" class="form-control " id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
+                                                
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <button type="submit" name="submit" class="btn btn-primary btn-block mt-2">Register Account</button>
-                                            </div>
+
                                             <!-- /.col -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button type="submit" name="submit" class=" btn btn btn-block mt-2" style="background-color: #20B2AA;">Register Account</button>
                                         </div>
+                                        <!-- /.col -->
+                                    </div>
+
                                     </form>
 
                                     <p class="mt-3 mb-1">

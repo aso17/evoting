@@ -29,17 +29,20 @@
                         <table id="nik" class="table  table-striped">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>NIK</th>
-                                    <th>Aksi</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
+                                $i=1;
                                 foreach ($nik_terdaftar as $dt) { ?>
                                     <tr>
+                                        <td><?= $i++?>.</td>
                                         <td><?= $dt->nik ?></td>
                                         <td>
-                                            <button class="btn btn-danger btn-sm" onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')">hapus</button>
+                                            <button class="btn btn-danger btn-sm float-right" onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')">hapus</button>
                                         </td>
                                     </tr>
                                 <?php } ?>

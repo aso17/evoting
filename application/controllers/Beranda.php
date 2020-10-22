@@ -6,7 +6,7 @@ class Beranda extends CI_Controller
 
     public function index()
     {
-        $this->load->view('_layout/user');
+        $this->template->load('_layout/user','beranda/index');
     }
 }
 

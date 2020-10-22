@@ -25,10 +25,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-            <div class="container">
+            <div class="container" style="font-weight: bold; font-family:serif">
                 <a href="#" class="navbar-brand ">
                     <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="evoting Logo" class="brand-image img-circle ">
-                    <span class="brand-text font-weight-light mx-3">E-Voting</span>
+                    <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,13 +39,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="home.html" class="nav-link">Beranda</a>
+                            <a href=<?= base_url('Beranda/index') ?> class="nav-link">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="profile.html" class="nav-link">Profile</a>
+                            <a href="<?=base_url('Profile/index') ?>" class="nav-link">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pemilihan.html" class="nav-link">Pemilihan</a>
+                            <a href="<?=base_url('Pemilihan/index') ?>" class="nav-link">Pemilihan</a>
                         </li>
                     </ul>
                 </div>
@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                     <li class="nav-item">
-                        <a href="index3.html" class="nav-link">Keluar</a>
+                        <a href="index3.html" class="btn btn-danger ">Keluar</a>
                     </li>
                 </ul>
             </div>
@@ -63,88 +63,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Selamat datang</h1>
-                        </div><!-- /.col -->
-                        <!-- <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                <li class="breadcrumb-item active">Top Navigation</li>
-              </ol>
-            </div>-->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
+            <?= $contents; ?>
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card card-primary card-outline">
-                                <div class="card-body box-profile">
-                                    <div class="text-center">
-                                        <img class="profile-user-img img-fluid img-circle" src="<?= base_url() . 'asset/dist/img/user2-160x160.jpg' ?>" alt="User profile picture">
-                                    </div>
-
-                                    <h3 class="profile-username text-center">Nina Mcintire</h3>
-
-                                    <p class="text-muted text-center">82371236184517</p>
-
-                                    <ul class="list-group list-group-unbordered mb-3">
-                                        <li class="list-group-item">
-                                            <b>Email</b> <a class="float-right">nina.tire@gmail.com</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <b>Telpon</b> <a class="float-right">08112236725</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div><!-- /.card -->
-                        </div>
-                        <!-- /.col-md-6 -->
-                        <div class="col-lg-8">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Pemilihan yang sedang berlangsung</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="vote.html" class="link">Pemilihan ketua RW kadujaya 2020</a>
-                                            <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="vote.html" class="link">Pemilihan ketua RT 002</a>
-                                            <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="vote.html" class="link">Pemilihan ketua DKM masjid al-hikmah</a>
-                                            <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="vote.html" class="link">Pemilihan karang taruna </a>
-                                            <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="vote.html" class="link">Pemilihan Ketua PKK </a>
-                                            <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col-md-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
+                        <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
