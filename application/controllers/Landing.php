@@ -71,13 +71,13 @@ class Landing extends CI_Controller
             $user = $this->Auth_m->_login(null,true);
 
             if ($user != null) {
-                // $pass = $this->input->post('fpassword');
-                // if (password_verify($pass, $user['password'])) {
+                $pass = $this->input->post('fpassword');
+                if (sha1($pass, $user['password'])) {
                      redirect('Beranda/index');
-                // } else {
-                //     $this->session->flashdata('error', 'Password Salah');
-                //     redirect('Landing/index');
-                // }
+                } else {
+                    $this->session->flashdata('error', 'Password Salah');
+                    redirect('Landing/index');
+                }
             } else {
                 $this->session->flashdata('error', 'email Belum terdaftar');
                 redirect('Landing/index');
