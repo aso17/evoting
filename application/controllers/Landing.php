@@ -27,9 +27,9 @@ class Landing extends CI_Controller
 
         $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email');
         $this->form_validation->set_rules('user_name', 'username', 'trim|required');
-        $this->form_validation->set_rules('fpassword', 'Pasword', 'trim|required|min_length[4]|matches[fconfpassword]',[
-            'matches'=>'password tidak sama',
-            'min_length'=>'pasword terlalu pendek',
+        $this->form_validation->set_rules('fpassword', 'Pasword', 'trim|required|min_length[4]|matches[fconfpassword]', [
+            'matches' => 'password tidak sama',
+            'min_length' => 'pasword terlalu pendek',
         ]);
         $this->form_validation->set_rules('fconfpassword', 'Password', 'trim|required|matches[fpassword]');
         if ($this->form_validation->run() ==  FALSE) {
@@ -40,16 +40,20 @@ class Landing extends CI_Controller
             $post = $this->input->post(null, TRUE);
 
             if (isset($post['submit'])) {
-                $data = $this->Auth_m->getAll($post);
-                if ($data->num_rows() > 0) {
+                $data_email = $this->Auth_m->getByemail_auth($post);
+                if ($data_email->num_rows() > 0) {
+                    $this->session->set_flashdata('info', 'Anda sudah pernah melakukan Registrasi.. silahkan Login');
+                    redirect('Landing/register');
 
-                    $this->Auth_m->creat_user($post);
-                    redirect('landing/index');
-                    $this->session->set_flashdata('success', 'Registrasi berhasil');
-                }else{
-                    redirect('landing/register');
-                    $this->session->set_flashdata('filed', 'nik tidak terdaftar');
-                    
+                    $data = $this->Auth_m->getBynik_user($post);
+                    if ($data->num_rows() > 0) {
+                        $this->Auth_m->creat_user($post);
+                        $this->session->set_flashdata('success', 'Registrasi Berhasil');
+                        redirect('landing/index');
+                    } else {
+                        $this->session->set_flashdata('warning', 'nik tidak terdaftar');
+                        redirect('landing/register');
+                    }
                 }
             }
         }
@@ -57,25 +61,38 @@ class Landing extends CI_Controller
 
 
 
-
-
-
-
-
-
-
-
-
     public function login()
     {
-        $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email is_unique[auth.email]');
-        $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|max_length[4] |');
+        $this->form_validation->set_rules('femail', 'email', 'trim|required');
+        $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|max_length[4]');
         if ($this->form_validation->run() ==  FALSE) {
-
             $this->load->view('landing/index');
         } else {
+            $user = $this->Auth_m->_login(null,true);
+
+            if ($user != null) {
+                // $pass = $this->input->post('fpassword');
+                // if (password_verify($pass, $user['password'])) {
+                     redirect('Beranda/index');
+                // } else {
+                //     $this->session->flashdata('error', 'Password Salah');
+                //     redirect('Landing/index');
+                // }
+            } else {
+                $this->session->flashdata('error', 'email Belum terdaftar');
+                redirect('Landing/index');
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 /* End of file Landing.php */

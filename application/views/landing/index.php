@@ -15,8 +15,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/fontawesome-free/css/all.min.css' ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() . 'asset/dist/css/adminlte.min.css' ?>">
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/sweetalert2/dark.css' ?>">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/toastr/toastr.min.css' ?>">
+
+
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?>"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
+    <!-- Sweetalert -->
+    <script src="<?= base_url() . 'asset/plugins/sweetalert2/sweetalert2.min.js' ?>"></script>
+    <!-- Toastr -->
+    <script src="<?= base_url() . 'asset/plugins/toastr/toastr.min.js' ?>"></script>
+
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -38,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    
+
                 </ul>
             </div>
         </nav>
@@ -57,31 +76,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                         <div class="col-lg-4 pt-5">
                             <div class="card ">
-                            <div class="card-header" style="background-color: #20B2AA;">
-    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60" >
-                    <span class="brand-text font-weight-light mx-3 font-weight-bold" >E-Voting</span>
-                </a>
+                                <div class="card-header" style="background-color: #20B2AA;">
+                                    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60">
+                                    <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
+                                    </a>
                                 </div>
-                            <div class="card-body login-card-body ">
+
+                                <div class="card-body login-card-body ">
                                     <p class="login-box-msg"></p>
 
-                                    <form action=" <?= base_url('Landing/login')?> " method="post">
-                                    <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                                    <form action=" <?= base_url('Landing/login') ?> " method="post">
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                                         <div class="input-group mb-3">
-                                            <input type="password" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder="Email" name="femail">
-                                            
+                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : ''  ?> " placeholder="Email" name="femail" value="<?= set_value('femail'); ?>">
+
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                <?= form_error('femail') ?>
-                                            </div>
+                                                    <?= form_error('femail') ?>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" placeholder=" Password" name="fpassword">
-                                            
+
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
@@ -93,21 +113,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mx-auto">
-                                                <button type="submit" class="btn btn btn  btn-block"style="background-color: #20B2AA;" name="submit">SIG IN</button>
+                                                <button type="submit" class="btn btn btn  btn-block" style="background-color: #20B2AA;" name="submit">SIG IN</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
                                     </form>
 
                                     <p class="mt-2 text-center">
-                                        
+
                                         <a href="  <?= base_url('Landing/register') ?> ">forgot password</a>
                                     </p>
                                     <p class="mt-3 mb-1">
                                         <span class="text-muted">Don't have an account? </span>
                                         <a href="  <?= base_url('Landing/register') ?> ">click here</a>
                                     </p>
-                                    
+
                                 </div>
 
                                 <!-- /.login-card-body -->
@@ -138,15 +158,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </footer>
     </div>
     <!-- ./wrapper -->
+    <script type="text/javascript">
+        $(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 10000
+            });
+            <?php if ($this->session->flashdata('success')) { ?>
+                Toast.fire({
+                    icon: 'success',
+                    title: '<?= $this->session->flashdata('success'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('error')) {  ?>
+                Toast.fire({
+                    icon: 'error',
+                    title: '<?= $this->session->flashdata('error'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('warning')) {  ?>
+                Toast.fire({
+                    icon: 'warning',
+                    title: '<?= $this->session->flashdata('warning'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('info')) {  ?>
+                Toast.fire({
+                    icon: 'info',
+                    title: '<?= $this->session->flashdata('info'); ?>'
+                });
+            <?php } ?>
+        });
+    </script>
 
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
 </body>
 
 </html>

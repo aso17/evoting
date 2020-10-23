@@ -18,6 +18,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url() . 'asset/dist/css/adminlte.min.css' ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.dataTables.min.css' ?>">
+  <!-- Sweetalert -->
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/sweetalert2/dark.css' ?>">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/toastr/toastr.min.css' ?>">
+
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?> "></script>
+  <!-- Bootstrap 4 -->
+  <script src=" <?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
+  <!-- DataTables -->
+  <script src="<?= base_url() . 'asset/plugins/datatables/jquery.dataTables.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-responsive/js/dataTables.responsive.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' ?>"></script>
+  <script src="<?= base_url() . 'asset/plugins/datatables-buttons/js/dataTables.buttons.min.js' ?>"></script>
+  <!-- Sweetalert -->
+  <script src="<?= base_url() . 'asset/plugins/sweetalert2/sweetalert2.min.js' ?>"></script>
+  <!-- Toastr -->
+  <script src="<?= base_url() . 'asset/plugins/toastr/toastr.min.js' ?>"></script>
+
 </head>
 
 <body class="hold-transition layout-top-nav ">
@@ -90,14 +120,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
+    
 
-    <!-- jQuery -->
-    <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url() . 'asset/dist/js/adminlte.min.js' ?>"></script>
+
+    <script type="text/javascript">
+    $(function() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 10000
+      });
+      <?php if ($this->session->flashdata('success')) { ?>
+        Toast.fire({
+          icon: 'success',
+          title: '<?= $this->session->flashdata('success'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('error')) {  ?>
+        Toast.fire({
+          icon: 'error',
+          title: '<?= $this->session->flashdata('error'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('warning')) {  ?>
+        Toast.fire({
+          icon: 'warning',
+          title: '<?= $this->session->flashdata('warning'); ?>'
+        });
+      <?php } else if ($this->session->flashdata('info')) {  ?>
+        Toast.fire({
+          icon: 'info',
+          title: '<?= $this->session->flashdata('info'); ?>'
+        });
+      <?php } ?>
+    });
+  </script>
 </body>
 
 </html>

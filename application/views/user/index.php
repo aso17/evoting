@@ -29,7 +29,7 @@
                         <table id="nik" class="table  table-striped">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th style="width: 4%;">No</th>
                                     <th>NIK</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
