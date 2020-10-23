@@ -13,7 +13,7 @@ class  Auth_m extends CI_Model
         $this->db->from('users');
         $this->db->where('nik', $post['fnik']);
         $query = $this->db->get();
-        return $query;
+        return $query->row_array();;
     }
     public function creat_user()
     {
@@ -31,7 +31,7 @@ class  Auth_m extends CI_Model
         $this->db->from('auth');
         $this->db->where('email', $post['femail']);
         $query = $this->db->get();
-        return $query;
+        return $query->row_array();
     }
 
     public function _login($post)

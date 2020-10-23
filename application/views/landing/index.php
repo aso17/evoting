@@ -77,26 +77,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-lg-4 pt-5">
                             <div class="card ">
                                 <div class="card-header" style="background-color: #20B2AA;">
-                                    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60">
+                                    <img src=" <?=base_url().'/asset/images/logo.png'?>" alt="Evoting Logo" class="brand-image img-circle " width="60">
                                     <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
                                     </a>
                                 </div>
 
-                                <div class="card-body login-card-body ">
+                                <div class="card-body login-card-body " style="font-family:serif;">
                                     <p class="login-box-msg"></p>
 
                                     <form action=" <?= base_url('Landing/login') ?> " method="post">
-                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none  ">
+                                        
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : ''  ?> " placeholder="Email" name="femail" value="<?= set_value('femail'); ?>">
+                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder=" masukan Email" name="femail">
 
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
                                                 </div>
-                                                <div class="invalid-feedback">
-                                                    <?= form_error('femail') ?>
-                                                </div>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <?= form_error('femail') ?>
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
@@ -113,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mx-auto">
-                                                <button type="submit" class="btn btn btn  btn-block" style="background-color: #20B2AA;" name="submit">SIG IN</button>
+                                                <button type="submit" class="btn btn btn  btn-block" style="background-color: #20B2AA;" name="submit">Login</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
@@ -121,11 +122,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     <p class="mt-2 text-center">
 
-                                        <a href="  <?= base_url('Landing/register') ?> ">forgot password</a>
+                                        <a href="  <?= base_url('Landing/register') ?> ">Lupa password</a>
                                     </p>
                                     <p class="mt-3 mb-1">
-                                        <span class="text-muted">Don't have an account? </span>
-                                        <a href="  <?= base_url('Landing/register') ?> ">click here</a>
+                                        <span class="text-muted font-weight-bold">Belum Punya Akun? </span>
+                                        <a href="  <?= base_url('Landing/register') ?> ">Klik di Sini</a>
                                     </p>
 
                                 </div>

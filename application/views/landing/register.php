@@ -73,13 +73,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-lg-4 pt-3 ">
                             <div class="card">
                                 <div class="card-header" style="background-color: #20B2AA;">
-                                    <img src="http://localhost/evoting/asset/images/logo.png" alt="Evoting Logo" class="brand-image img-circle " width="60">
+                                    <img src="<?= base_url().'/asset/images/logo.png '?>" alt="Evoting Logo" class="brand-image img-circle " width="60">
                                     <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
                                     </a>
                                 </div>
                                 <div class="card-body login-card-body " style="font-family: serif;">
                                     <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
-                                    <div style=" height:367px;width:346px; overflow:auto;">
+                                    <div style="">
                                         <form action="<?= base_url('landing/process_Reg') ?> " method="post">
                                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="femail">Email</label>
-                                                <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="Alamat email" name="femail">
+                                                <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="email pribadi" name="femail">
                                                 <div class="invalid-feedback">
                                                     <?= form_error('femail') ?>
                                                 </div>
@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <button type="submit" name="submit" class=" btn btn btn-block mt-2" style="background-color: #20B2AA;">Register Account</button>
+                                            <button type="submit" name="submit" class=" btn btn btn-block mt-2" style="background-color: #20B2AA;">Registrasi</button>
                                         </div>
                                         <!-- /.col -->
                                     </div>
@@ -130,8 +130,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </form>
 
                                     <p class="mt-3 mb-1">
-                                        <span class="text-muted">have an account ? </span>
-                                        <a href="<?= base_url('Landing/index') ?>">click here</a>
+                                        <span class="text-muted font-weight-bold">Sudah Punya Akun? </span>
+                                        <a href="<?= base_url('Landing/index') ?>">klik di sini</a>
                                     </p>
                                 </div>
                                 <!-- /.login-card-body -->

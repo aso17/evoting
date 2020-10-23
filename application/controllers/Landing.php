@@ -40,20 +40,20 @@ class Landing extends CI_Controller
             $post = $this->input->post(null, TRUE);
 
             if (isset($post['submit'])) {
-                $data_email = $this->Auth_m->getByemail_auth($post);
-                if ($data_email->num_rows() > 0) {
-                    $this->session->set_flashdata('info', 'Anda sudah pernah melakukan Registrasi.. silahkan Login');
-                    redirect('Landing/register');
-
-                    $data = $this->Auth_m->getBynik_user($post);
-                    if ($data->num_rows() > 0) {
+                $data = $this->Auth_m->getBynik_user($post);
+                if ($data != null) {
+                    $data_email = $this->Auth_m->getByemail_auth($post);
+                    if ($data_email != null) {
+                        $this->session->set_flashdata('warning', 'Anda sudah Pernah melakukan Registrasi silakan Login!');
+                        redirect('landing/register');
+                    } else {
                         $this->Auth_m->creat_user($post);
                         $this->session->set_flashdata('success', 'Registrasi Berhasil');
                         redirect('landing/index');
-                    } else {
-                        $this->session->set_flashdata('warning', 'nik tidak terdaftar');
-                        redirect('landing/register');
                     }
+                } else {
+                    $this->session->set_flashdata('warning', 'nik tidak terdaftar');
+                    redirect('landing/register');
                 }
             }
         }
@@ -66,21 +66,21 @@ class Landing extends CI_Controller
         $this->form_validation->set_rules('femail', 'email', 'trim|required');
         $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|max_length[4]');
         if ($this->form_validation->run() ==  FALSE) {
-            $this->load->view('landing/index');
+            $this->load->view('landing');
         } else {
-            $user = $this->Auth_m->_login(null,true);
+            $user = $this->Auth_m->_login(null, true);
 
             if ($user != null) {
                 $pass = $this->input->post('fpassword');
                 if (sha1($pass, $user['password'])) {
-                     redirect('Beranda/index');
+                    redirect('Beranda');
                 } else {
                     $this->session->flashdata('error', 'Password Salah');
                     redirect('Landing/index');
                 }
             } else {
                 $this->session->flashdata('error', 'email Belum terdaftar');
-                redirect('Landing/index');
+                redirect('Landing');
             }
         }
     }
