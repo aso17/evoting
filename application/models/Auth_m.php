@@ -20,7 +20,7 @@ class  Auth_m extends CI_Model
         $post = $this->input->post();
         $this->id_auth = uniqid('us');
         $this->username = $post['user_name'];
-        $this->password = sha1($post['fpassword']);
+        $this->password = password_hash($post['fpassword'],PASSWORD_BCRYPT);
         $this->email = $post['femail'];
         $this->db->insert($this->_table, $this);
     }

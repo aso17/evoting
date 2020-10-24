@@ -66,33 +66,37 @@ class Landing extends CI_Controller
         $this->form_validation->set_rules('femail', 'email', 'trim|required');
         $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|max_length[4]');
         if ($this->form_validation->run() ==  FALSE) {
-            $this->load->view('landing');
+            $this->load->view('landing/index');
         } else {
             $user = $this->Auth_m->_login(null, true);
 
             if ($user != null) {
                 $pass = $this->input->post('fpassword');
-                if (sha1($pass, $user['password'])) {
-                    redirect('Beranda');
+                if (password_verify($pass, $user['password'])) {
+                    redirect('Beranda/index');
                 } else {
-                    $this->session->flashdata('error', 'Password Salah');
+                    $this->session->set_flashdata('error', 'Password Salah!');
                     redirect('Landing/index');
                 }
             } else {
-                $this->session->flashdata('error', 'email Belum terdaftar');
-                redirect('Landing');
+                $this->session->set_flashdata('info', ' Email Anda Belum terdaftar Silahkan Lakukan Regitrasi');
+                redirect('Landing/index');
             }
         }
     }
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('Landing');
+    }
+   
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
 
 /* End of file Landing.php */
