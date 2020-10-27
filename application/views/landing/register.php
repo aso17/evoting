@@ -19,15 +19,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/sweetalert2/dark.css' ?>">
-  <!-- Toastr -->
-  <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/toastr/toastr.min.css' ?>">
-  <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?> "></script>
-  <!-- Bootstrap 4 -->
-  <script src=" <?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-   <!-- Sweetalert -->
-   <script src="<?= base_url() . 'asset/plugins/sweetalert2/sweetalert2.min.js' ?>"></script>
-  <!-- Toastr -->
-  <script src="<?= base_url() . 'asset/plugins/toastr/toastr.min.js' ?>"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/toastr/toastr.min.css' ?>">
+    <script src="<?= base_url() . 'asset/plugins/jquery/jquery.min.js' ?> "></script>
+    <!-- Bootstrap 4 -->
+    <script src=" <?= base_url() . 'asset/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
+    <!-- Sweetalert -->
+    <script src="<?= base_url() . 'asset/plugins/sweetalert2/sweetalert2.min.js' ?>"></script>
+    <!-- Toastr -->
+    <script src="<?= base_url() . 'asset/plugins/toastr/toastr.min.js' ?>"></script>
 
 </head>
 
@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                     <li class="nav-item">
-                        <a href="index3.html" class="btn btn-primary btn-sm">Masuk</a>
+                        <a href="<?= base_url('landing') ?>" class="btn btn-info btn-sm">Masuk</a>
                     </li>
                 </ul>
             </div>
@@ -66,66 +66,58 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="row">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
-
                             <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
                             <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
                         </div>
                         <div class="col-lg-4 pt-3 ">
                             <div class="card">
-                                <div class="card-header" style="background-color: #20B2AA;">
-                                    <img src="<?= base_url().'/asset/images/logo.png '?>" alt="Evoting Logo" class="brand-image img-circle " width="60">
-                                    <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
-                                    </a>
-                                </div>
-                                <div class="card-body login-card-body " style="font-family: serif;">
+                                <div class="card-body login-card-body ">
                                     <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
-                                    <div style="">
-                                        <form action="<?= base_url('landing/process_Reg') ?> " method="post">
+                                    <form action="<?= base_url('landing/process_Reg') ?> " method="post">
                                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
-                                            <div class="form-group mb-2">
-                                                <label for="fnik">NIK</label>
-                                                <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik">
-                                                <div class="invalid-feedback">
-                                                    <?= form_error('fnik') ?>
-                                                </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fnik">NIK</label>
+                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('fnik') ?>
                                             </div>
-                                            <div class="form-group mb-2">
-                                                <label for="femail">Email</label>
-                                                <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="email pribadi" name="femail">
-                                                <div class="invalid-feedback">
-                                                    <?= form_error('femail') ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mb-2">
-                                                <label for="user_name">Username</label>
-                                                <input type="text" class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>" id="user_name" placeholder="Username" name="user_name">
-                                                <div class="invalid-feedback">
-                                                    <?= form_error('user_name') ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mb-2">
-                                                <label for="fpassword">Password</label>
-                                                <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
-                                                <div class="invalid-feedback">
-                                                    <?= form_error('fpassword') ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mb-2">
-                                                <label for="fconfpassword">Ulangi Password</label>
-                                                <input type="password" class="form-control " id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
-                                                
-                                            </div>
-
-
-                                            <!-- /.col -->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <button type="submit" name="submit" class=" btn btn btn-block mt-2" style="background-color: #20B2AA;">Registrasi</button>
                                         </div>
+                                        <div class="form-group mb-2">
+                                            <label for="femail">Email</label>
+                                            <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="email pribadi" name="femail">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('femail') ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="user_name">Username</label>
+                                            <input type="text" class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>" id="user_name" placeholder="Username" name="user_name">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('user_name') ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fpassword">Password</label>
+                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('fpassword') ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="fconfpassword">Ulangi Password</label>
+                                            <input type="password" class="form-control " id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
+
+                                        </div>
+
+
                                         <!-- /.col -->
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <button type="submit" name="submit" class=" btn btn-info btn-block mt-2">Registrasi</button>
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
 
                                     </form>
 
@@ -164,38 +156,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
-<!-- Alert Config -->
-<script type="text/javascript">
-    $(function() {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 10000
-      });
-      <?php if ($this->session->flashdata('success')) { ?>
-        Toast.fire({
-          icon: 'success',
-          title: '<?= $this->session->flashdata('success'); ?>'
+    <!-- Alert Config -->
+    <script type="text/javascript">
+        $(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 10000
+            });
+            <?php if ($this->session->flashdata('success')) { ?>
+                Toast.fire({
+                    icon: 'success',
+                    title: '<?= $this->session->flashdata('success'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('error')) {  ?>
+                Toast.fire({
+                    icon: 'error',
+                    title: '<?= $this->session->flashdata('error'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('warning')) {  ?>
+                Toast.fire({
+                    icon: 'warning',
+                    title: '<?= $this->session->flashdata('warning'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('info')) {  ?>
+                Toast.fire({
+                    icon: 'info',
+                    title: '<?= $this->session->flashdata('info'); ?>'
+                });
+            <?php } ?>
         });
-      <?php } else if ($this->session->flashdata('error')) {  ?>
-        Toast.fire({
-          icon: 'error',
-          title: '<?= $this->session->flashdata('error'); ?>'
-        });
-      <?php } else if ($this->session->flashdata('warning')) {  ?>
-        Toast.fire({
-          icon: 'warning',
-          title: '<?= $this->session->flashdata('warning'); ?>'
-        });
-      <?php } else if ($this->session->flashdata('info')) {  ?>
-        Toast.fire({
-          icon: 'info',
-          title: '<?= $this->session->flashdata('info'); ?>'
-        });
-      <?php } ?>
-    });
-  </script>
+    </script>
 </body>
 
 </html>

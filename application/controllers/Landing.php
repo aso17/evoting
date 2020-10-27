@@ -63,8 +63,8 @@ class Landing extends CI_Controller
 
     public function login()
     {
-        $this->form_validation->set_rules('femail', 'email', 'trim|required');
-        $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|max_length[4]');
+        $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|min_length[4]');
         if ($this->form_validation->run() ==  FALSE) {
             $this->load->view('landing/index');
         } else {
@@ -84,19 +84,11 @@ class Landing extends CI_Controller
             }
         }
     }
-    public function logout(){
+    public function logout()
+    {
         $this->session->sess_destroy();
         redirect('Landing');
     }
-   
-
-
-
-
-
-
-
-
 }
 
 /* End of file Landing.php */

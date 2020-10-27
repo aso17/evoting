@@ -57,7 +57,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
+                    <li class="nav-item">
+                        <a href="<?= base_url('landing/register') ?>" class="btn btn-info btn-sm">Daftar</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -67,66 +69,48 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="content">
-                <div class="container">
+                <div class="container pt-5">
 
-                    <div class="row">
+                    <div class="row pt-5">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
                             <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
                             <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
                         </div>
                         <div class="col-lg-4 pt-5">
                             <div class="card ">
-                                <div class="card-header" style="background-color: #20B2AA;">
-                                    <img src=" <?=base_url().'/asset/images/logo.png'?>" alt="Evoting Logo" class="brand-image img-circle " width="60">
-                                    <span class="brand-text font-weight-light mx-3 font-weight-bold">E-Voting</span>
-                                    </a>
-                                </div>
-
-                                <div class="card-body login-card-body " style="font-family:serif;">
+                                <div class="card-body login-card-body ">
                                     <p class="login-box-msg"></p>
-
-                                    <form action=" <?= base_url('Landing/login') ?> " method="post">
+                                    <form action=" <?= base_url('Landing/login') ?> " method="post" autocomplete="off">
                                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none  ">
-                                        
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder=" masukan Email" name="femail">
-
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
-                                            </div>
+                                        <div class="form-group mb-3">
+                                            <label for="femail">Email</label>
+                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder=" masukan Email" name="femail" id="femail">
                                             <div class="invalid-feedback">
                                                 <?= form_error('femail') ?>
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
+                                        <div class="form-group mb-3">
+                                            <label for="fnik">Password</label>
+
                                             <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" placeholder=" Password" name="fpassword">
 
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
-                                            </div>
+
                                             <div class="invalid-feedback">
                                                 <?= form_error('fpassword') ?>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mx-auto">
-                                                <button type="submit" class="btn btn btn  btn-block" style="background-color: #20B2AA;" name="submit">Login</button>
+                                                <button type="submit" class="btn btn-info  btn-block" name="submit">Login</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
                                     </form>
 
-                                    <p class="mt-2 text-center">
 
-                                        <a href="  <?= base_url('Landing/register') ?> ">Lupa password</a>
-                                    </p>
                                     <p class="mt-3 mb-1">
-                                        <span class="text-muted font-weight-bold">Belum Punya Akun? </span>
-                                        <a href="  <?= base_url('Landing/register') ?> ">Klik di Sini</a>
+                                        <span class="text-muted ">Belum Punya Akun? </span>
+                                        <a href="  <?= base_url('Landing/register') ?> ">Daftar disini</a>
                                     </p>
 
                                 </div>
