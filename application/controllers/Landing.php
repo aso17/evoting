@@ -79,7 +79,7 @@ class Landing extends CI_Controller
                     redirect('Landing/index');
                 }
             } else {
-                $this->session->set_flashdata('info', ' Email Anda Belum terdaftar Silahkan Lakukan Regitrasi');
+                $this->session->set_flashdata('info', ' Email Anda Belum Terdaftar Silahkan Lakukan Regitrasi');
                 redirect('Landing/index');
             }
         }
