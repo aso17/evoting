@@ -109,7 +109,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('event') ?>" class="nav-link">
+              <a href="<?= base_url('Event') ?>" class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>">
                 <i class="nav-icon fa fa-calendar-check"></i>
                 <p>
                   Pemilihan
