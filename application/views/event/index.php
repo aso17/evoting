@@ -21,7 +21,7 @@
                  <div class="col-lg-12">
                      <div class="card">
                          <div class="card-header">
-                             <h4 class="font-weight-bold text-center">Daftar Event Desa Kadujaya</h4>
+                             <h4 class=" text-center">Daftar Event Desa Kadujaya</h4>
                              <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url() ?>" class="text-light   ">Tambahkan Event</a></button>
                          </div>
                          <div class="card-body">
@@ -32,6 +32,7 @@
                                          <th>Pemilihan</th>
                                          <th>Tgl Mulai</th>
                                          <th>Tgl Akhir</th>
+                                         <th>Priode </th>
                                          <th class="text-center">Aksi</th>
                                      </tr>
                                  </thead>
@@ -44,6 +45,7 @@
                                              <td><a href="#" class="text-info font-weight-bold"><?= $ev['nama_event']; ?></a></td>
                                              <td><?= $ev['tgl_mulai']; ?></td>
                                              <td><?= $ev['tgl_berahir']; ?></td>
+                                             <td><?= $ev['priode']; ?></td>
 
                                              <td><button class="badge badge-info  mt-1  float-right "><i class="fa fa-pen"></i>Ubah</button></td>
                                              <td><button class="badge badge-danger  mt-1"><i class="fa fa-trash-alt"></i>hapus</button></td>
