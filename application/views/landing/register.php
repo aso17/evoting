@@ -75,10 +75,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
                                     <form action="<?= base_url('landing/process_Reg') ?> " method="post">
                                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                                        <input type="hidden" name="id_user" value="" style="display: none">
+                                        
 
                                         <div class="form-group mb-2">
                                             <label for="fnik">NIK</label>
-                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik">
+                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik" value="">
                                             <div class="invalid-feedback">
                                                 <?= form_error('fnik') ?>
                                             </div>
