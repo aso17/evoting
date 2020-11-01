@@ -37,7 +37,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td><a href="#" class="link">Pemilihan ketua RW kadujaya 2020</a></td>
+                                                <td><a href="<?= base_url('Pemilihan/vote') ?>" class="link">Pemilihan ketua RW kadujaya 2020</a></td>
                                                 <td>20 Oktober 2020</td>
                                                 <td>23 Oktober 2020</td>
                                                 <td><button class="btn btn-info btn-sm"><i

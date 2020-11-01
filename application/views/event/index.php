@@ -44,10 +44,10 @@
                                              <td><a href="#" class="text-info font-weight-bold"><?= $ev['nama_event']; ?></a></td>
                                              <td><?= $ev['tgl_mulai']; ?></td>
                                              <td><?= $ev['tgl_berahir']; ?></td>
-                                             <td><?= $ev['priode']; ?></td>
+                                             <td><?= $ev['Priode']; ?></td>
 
-                                             <td><button class="badge badge-info  mt-1  float-right "><i class="fa fa-pen"></i>Ubah</button></td>
-                                             <td><button class="badge badge-danger  mt-1"><i class="fa fa-trash-alt"></i>hapus</button></td>
+                                             <td><button class="badge badge-info  mt-1  float-right "><i class="fa fa-pen"></i></button></td>
+                                             <td><button class="badge badge-danger  mt-1"><i class="fa fa-trash-alt"></i></button></td>
                                          </tr>
                                      <?php endforeach; ?>
                                  </tbody>

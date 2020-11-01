@@ -4,4 +4,8 @@ class Pemilihan extends CI_Controller{
     {
         $this->template->load('_layout/user','pemilihan/index');
     }
+    public function vote()
+    {
+        $this->template->load('_layout/user','pemilihan/vote');
+    }
 }

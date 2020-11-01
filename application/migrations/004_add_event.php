@@ -29,7 +29,7 @@ class Migration_Add_event extends CI_Migration
                 'type' => 'date',
                 'constraint' =>null,
             ),
-            'Priode' => array(
+            'priode' => array(
                 'type' => 'VARCHAR',
                 'constraint' =>50,
             ),

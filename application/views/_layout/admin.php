@@ -108,14 +108,32 @@
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="<?= base_url('Event') ?>" class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>">
-                <i class="nav-icon fa fa-calendar-check"></i>
-                <p>
-                  Pemilihan
-                </p>
-              </a>
-            </li>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          
+          <li class="nav-item ">
+            <a href="" class="nav-link ">
+              <i class="nav-icon fa fa-calendar-check"></i>
+              <p>
+                Pemilihan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url('Event') ?>" class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>" class="nav-link">
+                <i class="fas fa-tasks"></i>
+                  <p>Event</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('kandidat') ?>" class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>" class="nav-link ">
+                <i class="fas fa-tasks"></i>
+                  <p>Kelola Kandidat</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+            
             <li class="nav-item">
               <a href="<?= base_url('report') ?>" class="nav-link">
                 <i class="nav-icon fa fa-check-double"></i>

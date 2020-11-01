@@ -76,6 +76,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
             <li class="nav-item">
               <a href="<?= base_url('Pemilihan/index') ?>" class="nav-link">Pemilihan</a>
+              
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('Pemilihan/index') ?>" class="nav-link">Bantuan</a>
             </li>
           </ul>
         </div>
