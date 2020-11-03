@@ -7,19 +7,28 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form role="form" action="" method="post"> 
+        <?= form_open_multipart('Kandidat/upload');?>
+
+                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+
                 <div class="row">
                     <div class="col-sm-4">
-                        <!-- text input -->
+
                         <div class="form-group">
                             <label>*Nomer urut</label>
-                            <input type="text" class="form-control"  name="no_urut" >
+                            <input type="text" class="form-control <?= form_error('nomer_urut') ? 'is-invalid' : '' ?> " name="nomer_urut">
+                            <div class="invalid-feedback">
+                                <?= form_error('nomer_urut') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>*Nama Lengkap</label>
-                            <input type="text" class="form-control"  name="nm_lengkap">
+                            <input type="text" class="form-control <?= form_error('nm_lengkap') ? 'is-invalid' : '' ?> " name="nm_lengkap">
+                            <div class="invalid-feedback">
+                                <?= form_error('nm_lengkap') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -28,13 +37,19 @@
                         <!-- text input -->
                         <div class="form-group">
                             <label>*Tempat Lahir</label>
-                            <input type="text" class="form-control" name="tempat_lahir" >
+                            <input type="text" class="form-control <?= form_error('tempat_lahir') ? 'is-invalid' : '' ?>" name="tempat_lahir">
+                            <div class="invalid-feedback">
+                                <?= form_error('tempat_lahir') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>*Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tgl_lahir">
+                            <input type="date" class="form-control <?= form_error('tgl_lahir') ? 'is-invalid' : '' ?>" name="tgl_lahir">
+                            <div class="invalid-feedback">
+                                <?= form_error('tgl_lahir') ?>
+                            </div>
                         </div>
                     </div>
 
@@ -45,7 +60,7 @@
                         <!-- select -->
                         <div class="form-group ">
                             <label>*Pilih agama</label>
-                            <select class="form-control " name="agama">
+                            <select class="form-control  <?= form_error('agama') ? 'is-invalid' : '' ?> " name="agama">
                                 <option>pilih</option>
                                 <option value="islam">Islam</option>
                                 <option value="kristen">Kristen</option>
@@ -54,12 +69,18 @@
                                 <option value="konghucu">Konghucu</option>
                             </select>
                         </div>
+                        <div class="invalid-feedback">
+                            <?= form_error('agama') ?>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>*Alamat </label>
-                            <textarea class="form-control" rows="2"  name="alamat"></textarea>
+                            <textarea class="form-control <?= form_error('alamat') ? 'is-invalid' : '' ?>" rows="2" name="alamat"></textarea>
+                            <div class="invalid-feedback">
+                                <?= form_error('alamat') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,13 +89,19 @@
                         <!-- text input -->
                         <div class="form-group">
                             <label>*Pekerjaan</label>
-                            <input type="text" class="form-control" name="pekerjaan" >
+                            <input type="text" class="form-control <?= form_error('pekerjaan') ? 'is-invalid' : '' ?>" name="pekerjaan">
+                            <div class="invalid-feedback">
+                                <?= form_error('pekerjaan') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>*Pendidikan Terahir</label>
-                            <input type="text" class="form-control" name="pendidikan_terahir" >
+                            <input type="text" class="form-control <?= form_error('pendidikan') ? 'is-invalid' : '' ?>" name="pendidikan">
+                            <div class="invalid-feedback">
+                                <?= form_error('pendidikan') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,7 +121,10 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>*Pengalaman</label>
-                            <input type="text" class="form-control" name="pengalaman">
+                            <input type="text" class="form-control <?= form_error('pengalaman') ? 'is-invalid' : '' ?>" name="pengalaman">
+                            <div class="invalid-feedback">
+                                <?= form_error('pengalaman') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,29 +133,35 @@
 
                         <div class="form-group ">
                             <label>*Visi </label>
-                            <textarea class="form-control" rows="3" name="visi"></textarea>
+                            <textarea class="form-control <?= form_error('visi') ? 'is-invalid' : '' ?>" rows="3" name="visi"></textarea>
+                            <div class="invalid-feedback">
+                                <?= form_error('visi') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>*Misi</label>
-                            <textarea class="form-control" rows="3" name="misi"></textarea>
+                            <textarea class="form-control <?= form_error('misi') ? 'is-invalid' : '' ?>" rows="3" name="misi"></textarea>
+                            <div class="invalid-feedback">
+                                <?= form_error('misi') ?>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-10">
 
-                        
+
                         <div class="card-footer">
-                          <button type="submit" class="btn btn-info"><i class="fas fa-paper-plane"></i>Save</button>
-                          <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                            <button type="submit" class="btn btn-info"><i class="fas fa-paper-plane"></i>Save</button>
+                            <button type="submit" class="btn btn-danger float-right">Cancel</button>
                         </div>
                     </div>
                 </div>
-            
-            </form>
-        </div>
+
+            </div>
+        </form>
     </div>
 </div>

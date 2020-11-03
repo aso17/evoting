@@ -10,7 +10,7 @@
                     
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url('Kandidat/tambah_kandidat') ?>" class="text-light   ">Tambahkan Event</a></button>
+                    <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url('Kandidat/tambah_kandidat') ?>" class="text-light   ">Tambah Kandidat</a></button>
                         <table id="nik" class="table  table-striped">
                             <thead>
                                 <tr>
@@ -19,20 +19,22 @@
                                     <th>Nama lengkap</th>
                                     <th>Image</th>
                                     <th>Pekerjaan</th>
-                                    <th>Pendidikan terahir</th>
+                                    <th style="width:200px ;" >Pendidikan terahir</th>
 
                                     <th style="width: 15%;" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $i=1; ?>
+                                <?php foreach($kandidat as $kand): ?>
 
                                 <tr>
-                                    <td>1</td>
-                                    <td>001</td>
-                                    <td>jajang Sudrajat</td>
-                                    <td>jpg</td>
-                                    <td>ASN</td>
-                                    <td>Sarjanax</td>
+                                    <td> <?= $i++; ?> </td>
+                                    <td><?= $kand->nomer_urut?></td>
+                                    <td><?= $kand->nama_lengkap?></td>
+                                    <td><img src="<?= base_url().'asset/images/kandidat/'.$kand->foto; ?>" alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
+                                    <td><?= $kand->pekerjaan ?></td>
+                                    <td ><?= $kand->pendidikan_terahir?></td>
                                     <td>
                                         <button class="badge badge-danger   float-right  ml-2" onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
                                         <button class="badge badge-info float-right ml-2"><a href="#" class=" text-light "><i class="fa fa-eye"></i></a></button>
@@ -40,25 +42,7 @@
 
                                     </td>
                                 </tr>
-
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>001</td>
-                                    <td>jajang Sudrajat</td>
-                                    <td>jpg</td>
-                                    <td>ASN</td>
-                                    <td>Sarjanax</td>
-                                    <td>
-                                        <button class="badge badge-danger   float-right  ml-2" onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
-                                        <button class="badge badge-info float-right ml-2"><a href="#" class=" text-light "><i class="fa fa-eye"></i></a></button>
-                                        <button class="badge badge-primary float-right  ml-2"><a href="#" class=" text-light "><i class="fa fa-pen"></i></a></button>
-
-                                    </td>
-                                </tr>
-
-
-
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

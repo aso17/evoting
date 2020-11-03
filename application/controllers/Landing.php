@@ -37,7 +37,7 @@ class Landing extends CI_Controller
         $this->form_validation->set_rules('fconfpassword', 'Password', 'trim|required|matches[fpassword]');
         if ($this->form_validation->run() ==  FALSE) {
             $this->load->view('landing/register');
-            $this->session->set_flashdata('success', 'ok');
+            
         } else {
 
             $post = $this->input->post(null, TRUE);
