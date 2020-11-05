@@ -17,9 +17,10 @@
                                     <th style="width: 4%;">No</th>
                                     <th>Nomer urut</th>
                                     <th>Nama lengkap</th>
-                                    <th>Image</th>
+                                    <th class="text-center">Foto Kndidat</th>
                                     <th>Pekerjaan</th>
                                     <th style="width:200px ;" >Pendidikan terahir</th>
+                                    <th style="width:200px ;" >Status jabatan</th>
 
                                     <th style="width: 15%;" class="text-center">Aksi</th>
                                 </tr>
@@ -30,15 +31,16 @@
 
                                 <tr>
                                     <td> <?= $i++; ?> </td>
-                                    <td><?= $kand->nomer_urut?></td>
-                                    <td><?= $kand->nama_lengkap?></td>
-                                    <td><img src="<?= base_url().'asset/images/kandidat/'.$kand->foto; ?>" alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
-                                    <td><?= $kand->pekerjaan ?></td>
-                                    <td ><?= $kand->pendidikan_terahir?></td>
+                                    <td><?= $kand['nomer_urut']?></td>
+                                    <td><?=  $kand['nama_lengkap']?></td>
+                                    <td><img src="<?= base_url().'asset/images/kandidat/'.$kand['foto']; ?>" alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
+                                    <td><?=  $kand['pekerjaan'] ?></td>
+                                    <td ><?=  $kand['pendidikan_terahir']?></td>
+                                    <td ><?=  $kand['st_jabatan']?></td>
                                     <td>
                                         <button class="badge badge-danger   float-right  ml-2" onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
-                                        <button class="badge badge-info float-right ml-2"><a href="#" class=" text-light "><i class="fa fa-eye"></i></a></button>
-                                        <button class="badge badge-primary float-right  ml-2"><a href="#" class=" text-light "><i class="fa fa-pen"></i></a></button>
+                                        <button class="badge badge-info float-right ml-2"><a href="<?=base_url('Kandidat/ubah').'/'.$kand['id_kandidat'];?>" class=" text-light "><i class="fa fa-eye"></i></a></button>
+                                        <button class="badge badge-primary float-right  ml-2"><a href=" <?=base_url('Kandidat/ubah').'/'.$kand['id_kandidat']?>" class=" text-light "><i class="fa fa-pen"></i></a></button>
 
                                     </td>
                                 </tr>

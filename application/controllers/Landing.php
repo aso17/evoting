@@ -19,10 +19,10 @@ class Landing extends CI_Controller
     public function register()
     {
 
-        $id=$this->Auth_m->getBynik_user($post=null);
-        
-       
-        $this->load->view('landing/register',$id);
+        $id = $this->Auth_m->getBynik_user($post = null);
+
+
+        $this->load->view('landing/register', $id);
     }
     public function process_Reg()
     {
@@ -37,23 +37,23 @@ class Landing extends CI_Controller
         $this->form_validation->set_rules('fconfpassword', 'Password', 'trim|required|matches[fpassword]');
         if ($this->form_validation->run() ==  FALSE) {
             $this->load->view('landing/register');
-            
         } else {
 
             $post = $this->input->post(null, TRUE);
 
             if (isset($post['submit'])) {
                 $data = $this->Auth_m->getBynik_user($post);
-               
+
                 if ($data != null) {
                     $data_email = $this->Auth_m->getByemail_auth($post);
                     if ($data_email != null) {
                         $this->session->set_flashdata('warning', 'Anda sudah Pernah melakukan Registrasi silakan Login!');
                         redirect('landing/register');
                     } else {
-                        $id= $this->Auth_m->getIdUser($post['fnik']);
-                        
+                        $id = $this->Auth_m->getIdUser($post['fnik']);
+
                         $this->Auth_m->creat_user($post, $id);
+                        $this->Auth_m->set_role_user($post, $id);
                         $this->session->set_flashdata('success', 'Registrasi Berhasil');
                         redirect('landing/index');
                     }

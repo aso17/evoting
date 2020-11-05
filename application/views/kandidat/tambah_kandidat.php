@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-        <?= form_open_multipart('Kandidat/upload');?>
+        <?= form_open_multipart('kandidat/tambah_kandidat')?>
 
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
@@ -22,13 +22,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label>*Nama Lengkap</label>
                             <input type="text" class="form-control <?= form_error('nm_lengkap') ? 'is-invalid' : '' ?> " name="nm_lengkap">
                             <div class="invalid-feedback">
                                 <?= form_error('nm_lengkap') ?>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="form-group ">
+                            <label>*Status Jabatan</label>
+                            <select class="form-control  <?= form_error('st_jabatan') ? 'is-invalid' : '' ?> " name="st_jabatan">
+                                <option>pilih</option>
+                                <option value="Calon Ketua RW">Calon Ketua RW</option>
+                                <option value="Calon Ketua RT">Calon Ketua RT</option>
+                                <option value="Calon Ketua DKM">Calon Ketua DKM</option>
+                                <option value="Calon Ketua Karang Taruna">Calon Ketua Karang Taruna</option>
+                                
+                            </select>
+                        </div>
+                        <div class="invalid-feedback">
+                            <?= form_error('st_jabatan') ?>
                         </div>
                     </div>
                 </div>
@@ -43,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label>*Tanggal Lahir</label>
                             <input type="date" class="form-control <?= form_error('tgl_lahir') ? 'is-invalid' : '' ?>" name="tgl_lahir">
@@ -73,7 +89,7 @@
                             <?= form_error('agama') ?>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>*Alamat </label>
@@ -95,7 +111,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label>*Pendidikan Terahir</label>
                             <input type="text" class="form-control <?= form_error('pendidikan') ? 'is-invalid' : '' ?>" name="pendidikan">
@@ -118,7 +134,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label>*Pengalaman</label>
                             <input type="text" class="form-control <?= form_error('pengalaman') ? 'is-invalid' : '' ?>" name="pengalaman">
@@ -133,17 +149,17 @@
 
                         <div class="form-group ">
                             <label>*Visi </label>
-                            <textarea class="form-control <?= form_error('visi') ? 'is-invalid' : '' ?>" rows="3" name="visi"></textarea>
+                            <textarea class="form-control <?= form_error('visi') ? 'is-invalid' : '' ?>" rows="4" name="visi"></textarea>
                             <div class="invalid-feedback">
                                 <?= form_error('visi') ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <!-- textarea -->
                         <div class="form-group">
                             <label>*Misi</label>
-                            <textarea class="form-control <?= form_error('misi') ? 'is-invalid' : '' ?>" rows="3" name="misi"></textarea>
+                            <textarea class="form-control <?= form_error('misi') ? 'is-invalid' : '' ?>" rows="4" name="misi"></textarea>
                             <div class="invalid-feedback">
                                 <?= form_error('misi') ?>
                             </div>
@@ -151,17 +167,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
 
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-info"><i class="fas fa-paper-plane"></i>Save</button>
+                            <button type="submit" name="submit"class="btn btn-info"><i class="fas fa-paper-plane"></i>Save</button>
                             <button type="submit" class="btn btn-danger float-right">Cancel</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </form>
+        <?= form_close();?>
     </div>
 </div>
