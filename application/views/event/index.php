@@ -21,7 +21,7 @@
                      <div class="card">
                          <div class="card-header">
                              <h4 class=" text-center">Daftar Event Desa Kadujaya</h4>
-                             <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url() ?>" class="text-light   ">Tambahkan Event</a></button>
+                             <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url('Event/tambah_event') ?>" class="text-light   ">Tambahkan Event</a></button>
                          </div>
                          <div class="card-body">
                              <table class="table table-sm">

@@ -29,6 +29,7 @@ class Landing extends CI_Controller
         $nik = $this->input->post('fnik');
 
         $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('no_tlp', 'no telpon', 'trim|required');
         $this->form_validation->set_rules('user_name', 'username', 'trim|required');
         $this->form_validation->set_rules('fpassword', 'Pasword', 'trim|required|min_length[4]|matches[fconfpassword]', [
             'matches' => 'password tidak sama',
@@ -50,8 +51,8 @@ class Landing extends CI_Controller
                         $this->session->set_flashdata('warning', 'Anda sudah Pernah melakukan Registrasi silakan Login!');
                         redirect('landing/register');
                     } else {
-                        $id = $this->Auth_m->getIdUser($post['fnik']);
 
+                        $id = $this->Auth_m->getIdUser($post['fnik']);
                         $this->Auth_m->creat_user($post, $id);
                         $this->Auth_m->set_role_user($post, $id);
                         $this->session->set_flashdata('success', 'Registrasi Berhasil');
@@ -69,6 +70,7 @@ class Landing extends CI_Controller
 
     public function login()
     {
+
         $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email');
         $this->form_validation->set_rules('fpassword', 'pasword', 'trim|required|min_length[4]');
         if ($this->form_validation->run() ==  FALSE) {
@@ -79,6 +81,24 @@ class Landing extends CI_Controller
             if ($user != null) {
                 $pass = $this->input->post('fpassword');
                 if (password_verify($pass, $user['password'])) {
+
+                    $user = $this->Auth_m->_login(null, true);
+                    $auth = $this->user_m->getById($user['id_user']);
+
+                    $data = [
+                        'username' => $user['username'],
+                        'email' => $user['email'],
+                        'no_tlp' => $user['no_tlp'],
+                        'nik' => $auth['nik'],
+                        'images' => $auth['image'],
+                        'nama_lengkap' => $auth['nama_lengkap'],
+                        
+                        'role' => $auth['role']
+                    ];
+
+                    $this->session->set_userdata($data);
+
+
                     redirect('Beranda/index');
                 } else {
                     $this->session->set_flashdata('error', 'Password Salah!');
@@ -92,7 +112,11 @@ class Landing extends CI_Controller
     }
     public function logout()
     {
-        $this->session->sess_destroy();
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('nik');
+        $this->session->unset_userdata('no_tlp');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
         redirect('Landing');
     }
 }

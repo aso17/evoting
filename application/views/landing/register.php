@@ -93,6 +93,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                         </div>
                                         <div class="form-group mb-2">
+                                            <label for="no_tlp">No telpon</label>
+                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="no telpon" name="no_tlp">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('no_tlp') ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-2">
                                             <label for="user_name">Username</label>
                                             <input type="text" class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>" id="user_name" placeholder="Username" name="user_name">
                                             <div class="invalid-feedback">

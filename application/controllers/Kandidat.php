@@ -5,6 +5,7 @@ class Kandidat extends CI_Controller
     {
         parent::__construct();
         $this->load->model('kandidat_m');
+        $this->load->model('event_m');
         $this->load->library('form_validation');
     }
     public function index()
@@ -19,31 +20,36 @@ class Kandidat extends CI_Controller
 
     public function tambah_kandidat()
     {
-
-
-        $this->form_validation->set_rules('nomer_urut', 'Nomer Urut', 'trim|required');
-        $this->form_validation->set_rules('nm_lengkap', 'Nama lengkap', 'trim|required');
-        $this->form_validation->set_rules('st_jabatan', 'setatus', 'trim|required');
-        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'trim|required');
-        $this->form_validation->set_rules('tgl_lahir', 'Tanggal', 'trim|required');
-        $this->form_validation->set_rules('agama', 'Agama', 'trim|required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'trim|required');
-        $this->form_validation->set_rules('pendidikan', 'Pendidikan Terahir', 'trim|required');
+        $data['event'] = $this->event_m->getAllevent();
+        $this->template->load('_layout/admin', 'kandidat/tambah_kandidat', $data);
+    }
+    public function proses()
+    {
         
-        $this->form_validation->set_rules('pengalaman', 'Pengalaman', 'trim|required');
-        $this->form_validation->set_rules('visi', 'Visi', 'trim|required');
-        $this->form_validation->set_rules('misi', 'Misi', 'trim|required');
-        if ($this->form_validation->run() == FALSE) {
-            $this->template->load('_layout/admin', 'kandidat/tambah_kandidat');
+        
+        $validation=$this->form_validation;
+        $validation->set_rules('nomer_urut', 'Nomer Urut', 'trim|required');
+        $validation->set_rules('nm_lengkap', 'Nama lengkap', 'trim|required');
+        $validation->set_rules('tgl_lahir', 'Tanggal', 'trim|required');
+        $validation->set_rules('agama', 'Agama', 'trim|required');
+        $validation->set_rules('alamat', 'Alamat', 'trim|required');
+        $validation->set_rules('pekerjaan', 'Pekerjaan', 'trim|required');
+        $validation->set_rules('pendidikan', 'Pendidikan Terahir', 'trim|required');
+        $validation->set_rules('pengalaman', 'Pengalaman', 'trim|required');
+        $validation->set_rules('visi', 'Visi', 'trim|required');
+        $validation->set_rules('misi', 'Misi', 'trim|required');
+
+        if ($validation->run() == false) {
+            $data['event'] = $this->event_m->getAllevent();
+            $this->template->load('_layout/admin', 'kandidat/tambah_kandidat', $data);
         } else {
 
-            $post = $this->input->post();
-            $upload_foto = $_FILES['foto'];
-            $this->kandidat_m->creat_kandidat($post, $upload_foto);
+            $post = $this->input->post(null, true);
+            $file = $_FILES['foto'];
+            $this->kandidat_m->creat_kandidat($post, $file);
+
             $this->session->set_flashdata('success', 'Data kandidat berhasil di tambah');
             redirect('Kandidat/index');
         }
     }
 }
-

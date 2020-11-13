@@ -1,5 +1,5 @@
 <!-- right column -->
-<div class="col-md-8 pt-3 pl-3">
+<div class="col-md-10 pt-3 pl-3">
     <!-- general form elements disabled -->
     <div class="card card-info">
         <div class="card-header">
@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-        <?= form_open_multipart('kandidat/tambah_kandidat')?>
+        <?= form_open_multipart('kandidat/proses')?>
 
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
 
@@ -33,8 +33,8 @@
                     </div>
                     <div class="col-sm-4">
                     <div class="form-group ">
-                            <label>*Status Jabatan</label>
-                            <select class="form-control  <?= form_error('st_jabatan') ? 'is-invalid' : '' ?> " name="st_jabatan">
+                            <label>*keterangan</label>
+                            <select class="form-control  <?= form_error('keterangan') ? 'is-invalid' : '' ?> " name="keterangan">
                                 <option>pilih</option>
                                 <option value="Calon Ketua RW">Calon Ketua RW</option>
                                 <option value="Calon Ketua RT">Calon Ketua RT</option>
@@ -44,7 +44,7 @@
                             </select>
                         </div>
                         <div class="invalid-feedback">
-                            <?= form_error('st_jabatan') ?>
+                            <?= form_error('keterangan') ?>
                         </div>
                     </div>
                 </div>
@@ -65,6 +65,23 @@
                             <input type="date" class="form-control <?= form_error('tgl_lahir') ? 'is-invalid' : '' ?>" name="tgl_lahir">
                             <div class="invalid-feedback">
                                 <?= form_error('tgl_lahir') ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>*Event</label>
+                            <select class="form-control  <?= form_error('event') ? 'is-invalid' : '' ?> " name="event">
+                                <option>pilih</option>
+                                <?php 
+                                
+                                foreach($event as $ev) :?>
+                                <option value="<?= $ev['id_event'] ?>"><?= $ev['nama_event']?></option>
+                                <?php endforeach;?>
+                                
+                            </select>
+                            <div class="invalid-feedback">
+                                <?= form_error('event') ?>
                             </div>
                         </div>
                     </div>

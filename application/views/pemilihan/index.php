@@ -31,44 +31,23 @@
                                                 <th>Pemilihan</th>
                                                 <th>Tgl Mulai</th>
                                                 <th>Tgl Akhir</th>
+                                                <th>Priode</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $i=1;  ?>
+                                            <?php foreach($event as $ev):  ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td><a href="<?= base_url('Pemilihan/vote') ?>" class="link">Pemilihan ketua RW kadujaya 2020</a></td>
-                                                <td>20 Oktober 2020</td>
-                                                <td>23 Oktober 2020</td>
+                                                <td><?= $i++; ?></td>
+                                                <td><a href="<?= base_url('Pemilihan/vote').'/'.$ev['id_event'] ?>" class="link"><?= $ev['nama_event'] ?></a></td>
+                                                <td><?= date('d-m-Y', strtotime($ev["tgl_mulai"])) ?></td>
+                                                <td><?= date('d-m-Y', strtotime($ev["tgl_berahir"])) ?></td>
+                                                <td><?= $ev['priode'] ?></td>
                                                 <td><button class="btn btn-info btn-sm"><i
                                                             class="fa fa-eye"></i></button></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><a href="#" class="link">Pemilihan ketua RT</a></td>
-                                                <td>29 Oktober 2020</td>
-                                                <td>30 Oktober 2020</td>
-                                                <td><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye"></i></button></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td><a href="#" class="link">Pemilihan ketua DKM</a></td>
-                                                <td>29 Oktober 2020</td>
-                                                <td>30 Oktober 2020</td>
-                                                <td><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye"></i></button></td>
-
-                                            <tr>
-                                                <td>4</td>
-                                                <td><a href="#" class="link">Pemilihan ketua karang taruna</a></td>
-                                                <td>11 November 2020</td>
-                                                <td>14 November 2020</td>
-                                                <td><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye"></i></button></td>
-
-                                            </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

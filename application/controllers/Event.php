@@ -8,7 +8,25 @@ public function __construct()
 
     public function index()
     {
-        $data['event']= $this->event_m->getAll();
+        $data['event']= $this->event_m->getAll_event();
         $this->template->load('_layout/admin', 'event/index',$data);
+    }
+    public function tambah_event()
+    {
+        $validation=$this->form_validation;
+        $validation->set_rules('nm_event','nama event','required|trim');
+        $validation->set_rules('tgl_mulai','tanggal mulai','required|trim');
+        $validation->set_rules('tgl_berahir','tanggal berahir','required|trim');
+        $validation->set_rules('priode','Priode','required|trim');
+        
+        if($validation->run()==false){
+            $this->template->load('_layout/admin', 'event/tambah_event');
+
+        }else{
+            $this->event_m->creat_event();
+            $this->session->set_flashdata('success','Event Baru Berhasil di tambahkan');
+            redirect('event/index');
+        }
+        
     }
 }

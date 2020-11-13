@@ -36,7 +36,7 @@
                                     <td><img src="<?= base_url().'asset/images/kandidat/'.$kand['foto']; ?>" alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
                                     <td><?=  $kand['pekerjaan'] ?></td>
                                     <td ><?=  $kand['pendidikan_terahir']?></td>
-                                    <td ><?=  $kand['st_jabatan']?></td>
+                                    <td ><?=  $kand['keterangan']?></td>
                                     <td>
                                         <button class="badge badge-danger   float-right  ml-2" onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
                                         <button class="badge badge-info float-right ml-2"><a href="<?=base_url('Kandidat/ubah').'/'.$kand['id_kandidat'];?>" class=" text-light "><i class="fa fa-eye"></i></a></button>
