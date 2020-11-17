@@ -8,12 +8,12 @@ class Profile extends CI_Controller
     }
     public function index()
     {
-        $data['users'] = $this->user_m->getid();
+        $data['users'] = $this->user_m->getidBY_session();
         $this->template->load('_layout/user', 'profile/index', $data);
     }
     public function pengaturan()
     {
-        $data['users'] = $this->user_m->getid();
+        $data['users'] = $this->user_m->getidBY_session();
 
         $this->template->load('_layout/user', 'profile/pengaturan', $data);
     }
@@ -35,8 +35,8 @@ class Profile extends CI_Controller
         $validation->set_rules('kab', 'Kabupaten', 'trim|required');
         $validation->set_rules('agama', 'Agama', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
-
-            $data['users'] = $this->user_m->getid();
+            $user = $this->session->userdata('id');
+            $data['users'] = $this->user_m->getById($user);
             $this->template->load('_layout/user', 'profile/update_user', $data);
         } else {
             $this->user_m->updateUser();

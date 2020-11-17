@@ -69,17 +69,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Left navbar links -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href=<?= base_url('Beranda/index') ?> class="nav-link">Beranda</a>
+              <a href=<?= base_url('Beranda') ?> class="nav-link">Beranda</a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('Profile/index') ?>" class="nav-link">Profile</a>
+              <a href="<?= base_url('Profile') ?>" class="nav-link">Profile</a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('Pemilihan/index') ?>" class="nav-link">Pemilihan</a>
-              
+              <a href="<?= base_url('Pemilihan') ?>" class="nav-link">Pemilihan</a>
+                
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('Pemilihan/index') ?>" class="nav-link">Bantuan</a>
+              <a href="<?= base_url('Pemilihan') ?>" class="nav-link">Bantuan</a>
             </li>
           </ul>
         </div>

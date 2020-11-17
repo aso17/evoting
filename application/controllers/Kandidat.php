@@ -20,7 +20,7 @@ class Kandidat extends CI_Controller
 
     public function tambah_kandidat()
     {
-        $data['event'] = $this->event_m->getAllevent();
+        $data['event'] = $this->event_m->getAll_event();
         $this->template->load('_layout/admin', 'kandidat/tambah_kandidat', $data);
     }
     public function proses()

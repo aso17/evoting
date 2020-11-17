@@ -21,7 +21,9 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle mb-3" src="<?= base_url() . '/asset/images/foto_user/' . $this->session->userdata('images') ?>" alt="User profile picture">
+                            <img class="profile-user-img img-fluid img-circle mb-3"
+                                src="<?= base_url() . '/asset/images/foto_user/' . $this->session->userdata('images') ?>"
+                                alt="User profile picture">
                         </div>
 
 
@@ -47,27 +49,14 @@
                         <h5 class="card-title m-0">Pemilihan yang sedang berlangsung</h5>
                     </div>
                     <div class="card-body">
+                        <?php foreach ($event as $ev) : ?>
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="vote.html" class="link">Pemilihan ketua RW kadujaya 2020</a>
+                                <a href="<?= base_url('Pemilihan/vote/') . $ev['id_event'] ?>"
+                                    class="link"><?= $ev['nama_event'] ?></a>
                                 <a href=""><span class="badge badge-primary badge-pill">?</span></a>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="vote.html" class="link">Pemilihan ketua RT 002</a>
-                                <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="vote.html" class="link">Pemilihan ketua DKM masjid al-hikmah</a>
-                                <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="vote.html" class="link">Pemilihan karang taruna </a>
-                                <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="vote.html" class="link">Pemilihan Ketua PKK </a>
-                                <a href=""><span class="badge badge-primary badge-pill">?</span></a>
-                            </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>

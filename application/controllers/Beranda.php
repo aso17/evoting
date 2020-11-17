@@ -6,12 +6,13 @@ class Beranda extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-       
+        $this->load->model('event_m');
     }
 
     public function index()
     {
-        $this->template->load('_layout/user','beranda/index');
+        $data['event'] = $this->event_m->getAll_event();
+        $this->template->load('_layout/user', 'beranda/index', $data);
     }
 }
 

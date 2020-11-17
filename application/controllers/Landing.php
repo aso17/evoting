@@ -90,6 +90,7 @@ class Landing extends CI_Controller
                         'email' => $user['email'],
                         'no_tlp' => $user['no_tlp'],
                         'nik' => $auth['nik'],
+                        'id' => $auth['id_user'],
                         'images' => $auth['image'],
                         'nama_lengkap' => $auth['nama_lengkap'],
                         
@@ -117,6 +118,7 @@ class Landing extends CI_Controller
         $this->session->unset_userdata('no_tlp');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('role');
+        $this->session->unset_userdata('id');
         redirect('Landing');
     }
 }
