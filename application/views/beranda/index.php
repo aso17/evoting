@@ -22,7 +22,7 @@
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle mb-3"
-                                src="<?= base_url() . '/asset/images/foto_user/' . $this->session->userdata('images') ?>"
+                                src="<?= base_url() . '/asset/images/foto_user/' . $user['image']; ?>"
                                 alt="User profile picture">
                         </div>
 
