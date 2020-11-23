@@ -20,6 +20,7 @@ class User extends CI_Controller
     {
         $data['nik_terdaftar'] = $this->user_m->get_nik_terdaftar();
         $user  = $this->user_m;
+
         $validation = $this->form_validation;
         $validation->set_rules($user->rules_nik());
         if ($validation->run() == FALSE) {

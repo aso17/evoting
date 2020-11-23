@@ -93,7 +93,7 @@ class Landing extends CI_Controller
                         'id' => $auth['id_user'],
                         'images' => $auth['image'],
                         'nama_lengkap' => $auth['nama_lengkap'],
-                        
+
                         'role' => $auth['role']
                     ];
 

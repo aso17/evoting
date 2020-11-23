@@ -10,7 +10,8 @@ class event_m extends CI_Model
     public function getByid_event($id = null)
     {
         $query = $this->db->get_where('event', ['id_event' => $id]);
-        return $query->result_array();
+        $result = $query->result();
+        return $result[0];
     }
 
     public function creat_event()

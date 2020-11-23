@@ -24,17 +24,16 @@ class kandidat_m extends CI_Model
         return $query->result_array();
     }
 
+
     public function getAll_kandidat_Byid($id = null)
     {
-           $query = $this->db->get_where('kandidat',['id_event'=>$id])->result_array();
+        $query = $this->db->get_where('kandidat', ['id_event' => $id])->result_array();
         return $query;
-
     }
-    public function getByid_event($kand=null)
+    public function getByid_event($kand = null)
     {
-           $query = $this->db->get_where('kandidat',['id_event'=>$kand])->row_array();
+        $query = $this->db->get_where('kandidat', ['id_event' => $kand])->row_array();
         return $query;
-
     }
 
     public function creat_kandidat($post = null, $file)

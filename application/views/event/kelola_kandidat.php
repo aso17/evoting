@@ -2,10 +2,10 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-11">
+            <div class="col-lg-12">
                 <div class="card mt-3">
-                    <div class="card-header">
-                        <h3 class="card-title">Daftar Kandidat</h3>
+                    <div class="card-header bg-info">
+                        <h3 class="card-title">Kandidat <?= $kandidat[0]['keterangan'] ?></h3>
                     </div>
 
                     <!-- /.card-header -->
@@ -17,12 +17,14 @@
                             <thead>
                                 <tr>
                                     <th style="width: 4%;">No</th>
-                                    <th>Mengikuti event</th>
-                                    <th>Nama lengkap kandidat</th>
-                                    <th class="text-center">Foto Kndidat</th>
-                                    <th>Pekerjaan</th>
-                                    <th style="width:200px ;">Pendidikan terahir</th>
-                                    <th style="width:200px ;">Status jabatan</th>
+                                    <th>Nomer urut</th>
+                                    <th>Nama lengkap</th>
+                                    <th>Tgl lahir</th>
+                                    <th class="text-center">Foto</th>
+
+                                    <th style="width:200px ;">Pendidikan</th>
+
+
 
                                     <th style="width: 15%;" class="text-center">Aksi</th>
                                 </tr>
@@ -35,11 +37,13 @@
                                     <td> <?= $i++; ?> </td>
                                     <td><?= $kand['nomer_urut'] ?></td>
                                     <td><?= $kand['nama_lengkap'] ?></td>
+                                    <td><?= $kand['tgl_lahir'] ?></td>
                                     <td><img src="<?= base_url() . 'asset/images/kandidat/' . $kand['foto']; ?>"
                                             alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
-                                    <td><?= $kand['pekerjaan'] ?></td>
                                     <td><?= $kand['pendidikan_terahir'] ?></td>
-                                    <td><?= $kand['keterangan'] ?></td>
+
+
+
                                     <td>
                                         <button class="badge badge-danger   float-right  ml-2"
                                             onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>

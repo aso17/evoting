@@ -50,6 +50,11 @@ class User_m extends CI_Model
         $query = $this->db->get('users')->row_array();
         return $query;
     }
+    public function get_nik()
+    {
+        $query = $this->db->get('users')->result();
+        return $query;
+    }
     public function getById($id)
     {
         $this->db->select('*');
