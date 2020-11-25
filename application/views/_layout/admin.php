@@ -64,7 +64,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Keluar</a>
+                    <a class="nav-link" href="<?= base_url('admin/logout') ?> ">Keluar</a>
                 </li>
             </ul>
         </nav>
@@ -84,11 +84,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() . 'asset/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="<?= base_url() . 'asset/images/admin/' . $this->session->userdata('image') ?>"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Administrator</a>
+                        <a href="#" class="d-block"><?= $this->session->userdata('nama_role')  ?></a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -97,7 +97,7 @@
                         data-accordion="false">
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>"
-                                class="nav-link bg-info <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
+                                class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
                                 <i class="nav-icon fa fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -155,7 +155,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('Event') ?>"
+                                        <a href="<?= base_url('admin/user_log') ?>"
                                             class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>"
                                             class="nav-link">
                                             <i class="fas fa-user-cog"></i>
