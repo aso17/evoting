@@ -23,7 +23,7 @@
                         <div class="text-center">
                             <img class="profile-user-img img-fluid img-circle mb-3"
                                 src="<?= base_url() . '/asset/images/foto_user/' . $user['image']; ?>"
-                                alt="User profile picture">
+                                alt="User profile picture" style="widht:150px; height:100px ">
                         </div>
 
 
@@ -36,7 +36,7 @@
                                 <b>Email</b> <a class="float-right"><?= $this->session->userdata('email') ?></a>
                             </li>
                             <li class="list-group-item mb-2">
-                                <b>Telpon</b> <a class="float-right"><?= $this->session->userdata('no_tlp'); ?></a>
+                                <b>Username</b> <a class="float-right"><?= $this->session->userdata('username'); ?></a>
                             </li>
                         </ul>
                     </div>

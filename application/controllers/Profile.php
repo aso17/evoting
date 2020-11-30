@@ -32,6 +32,7 @@ class Profile extends CI_Controller
         $validation->set_rules('rw', 'RW', 'trim|required');
         $validation->set_rules('kec', 'kecamatan', 'trim|required');
         $validation->set_rules('kel', 'kelurahan', 'trim|required');
+        $validation->set_rules('no_tlp', 'Nomer telpon', 'trim|required');
         $validation->set_rules('kab', 'Kabupaten', 'trim|required');
         $validation->set_rules('agama', 'Agama', 'trim|required');
         if ($this->form_validation->run() == FALSE) {

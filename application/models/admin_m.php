@@ -9,28 +9,6 @@ class admin_m extends CI_Model
         return $query->row_array();
     }
 
-    public function get_join()
-    {
-        $this->db->select('*');
-        $this->db->from('admin');
-        $this->db->join('role', 'role.id_role=admin.id_role');
-        $query = $this->db->get()->result();
-        return $query;
-    }
-
-    public function get_role()
-    {
-        $query = $this->db->get('role');
-        $result = $query->result();
-        return $result;
-    }
-    public function getByid_role($id = null)
-    {
-        $query = $this->db->get_where('role', ['id_role' => $id]);
-        $result = $query->row_array();
-        return $result;
-    }
-
     public function tambah_login()
     {
         $post = $this->input->post();

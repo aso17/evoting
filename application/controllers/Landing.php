@@ -29,7 +29,6 @@ class Landing extends CI_Controller
         $nik = $this->input->post('fnik');
 
         $this->form_validation->set_rules('femail', 'email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('no_tlp', 'no telpon', 'trim|required');
         $this->form_validation->set_rules('user_name', 'username', 'trim|required');
         $this->form_validation->set_rules('fpassword', 'Pasword', 'trim|required|min_length[4]|matches[fconfpassword]', [
             'matches' => 'password tidak sama',
@@ -53,7 +52,7 @@ class Landing extends CI_Controller
                     } else {
 
                         $id = $this->Auth_m->getIdUser($post['fnik']);
-                        $this->Auth_m->creat_user($post, $id);
+                        $this->Auth_m->creat_auth($post, $id);
                         $this->Auth_m->set_role_user($post, $id);
                         $this->session->set_flashdata('success', 'Registrasi Berhasil');
                         redirect('landing/index');

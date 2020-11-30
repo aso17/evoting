@@ -105,6 +105,7 @@ class User_m extends CI_Model
             "nama_lengkap" => $post['nm_lengkap'],
             "tempat_lahir" => $post['tmp_lahir'],
             "tgl_lahir" => $post['tgl_lahir'],
+            "no_tlp" => $post['no_tlp'],
             "jenis_kelamin" => $post['jenis_kelamin'],
             "alamat" => $post['alamat'],
             "rt" => $post['rt'],

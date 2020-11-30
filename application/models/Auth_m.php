@@ -7,7 +7,7 @@ class  Auth_m extends CI_Model
     public $username;
     public $password;
     public $email;
-    public $no_tlp;
+
 
     public function getAlluser()
     {
@@ -38,7 +38,7 @@ class  Auth_m extends CI_Model
         $iduser = $hasil->ID;
         return $iduser;
     }
-    public function creat_user($post, $id = null)
+    public function creat_auth($post, $id = null)
     {
         $post = $this->input->post();
         $this->id_user = $id;
@@ -46,16 +46,15 @@ class  Auth_m extends CI_Model
         $this->username = $post['user_name'];
         $this->password = password_hash($post['fpassword'], PASSWORD_BCRYPT);
         $this->email = $post['femail'];
-        $this->no_tlp = $post['no_tlp'];
         $this->db->insert($this->_table, $this);
     }
 
     public function getAllauth()
     {
-       $query= $this->db->get('auth')->row_array();
-       return $query;
+        $query = $this->db->get('auth')->row_array();
+        return $query;
     }
-    
+
 
     public function getByemail_Auth($post)
     {

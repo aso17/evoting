@@ -38,11 +38,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="#" class="navbar-brand ">
-                    <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="Evoting Logo" class="brand-image img-circle ">
+                    <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="Evoting Logo"
+                        class="brand-image img-circle ">
                     <span class="brand-text font-weight-light mx-3">E-Voting</span>
                 </a>
 
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -66,56 +69,68 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="row">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
-                            <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
-                            <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
+                            <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui
+                                <strong class="text-info">E-Voting</strong>
+                            </h1>
+                            <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi
+                            </h4>
                         </div>
                         <div class="col-lg-4 pt-3 ">
                             <div class="card">
                                 <div class="card-body login-card-body ">
-                                    <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa memulai vote calon <strong>ketua terbaik</strong> .</p>
+                                    <p class="login-box-msg">Segera <strong>daftarkan</strong> data diri anda untuk bisa
+                                        memulai vote calon <strong>ketua terbaik</strong> .</p>
                                     <form action="<?= base_url('landing/process_Reg') ?> " method="post">
-                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
+                                            value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                                         <input type="hidden" name="id_user" value="" style="display: none">
-                                        
+
 
                                         <div class="form-group mb-2">
                                             <label for="fnik">NIK</label>
-                                            <input type="text" class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik" placeholder="Nomor induk ktp" name="fnik" value="">
+                                            <input type="text"
+                                                class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>"
+                                                id="fnik" placeholder="Nomor induk ktp" name="fnik" value=""
+                                                autocomplete="off">
                                             <div class="invalid-feedback">
                                                 <?= form_error('fnik') ?>
                                             </div>
                                         </div>
                                         <div class="form-group mb-2">
-                                            <label for="femail">Email</label>
-                                            <input type="email" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="email pribadi" name="femail">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('femail') ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-2">
-                                            <label for="no_tlp">No telpon</label>
-                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail" placeholder="no telpon" name="no_tlp">
-                                            <div class="invalid-feedback">
-                                                <?= form_error('no_tlp') ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-2">
                                             <label for="user_name">Username</label>
-                                            <input type="text" class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>" id="user_name" placeholder="Username" name="user_name">
+                                            <input type="text"
+                                                class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>"
+                                                id="user_name" placeholder="Username" name="user_name"
+                                                autocomplete="off">
                                             <div class="invalid-feedback">
                                                 <?= form_error('user_name') ?>
                                             </div>
                                         </div>
                                         <div class="form-group mb-2">
+                                            <label for="femail">Email</label>
+                                            <input type="email"
+                                                class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>"
+                                                id="femail" placeholder="email pribadi" name="femail"
+                                                autocomplete="off">
+                                            <div class="invalid-feedback">
+                                                <?= form_error('femail') ?>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group mb-2">
                                             <label for="fpassword">Password</label>
-                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" id="fpassword" placeholder="Password" name="fpassword">
+                                            <input type="password"
+                                                class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>"
+                                                id="fpassword" placeholder="Password" name="fpassword">
                                             <div class="invalid-feedback">
                                                 <?= form_error('fpassword') ?>
                                             </div>
                                         </div>
                                         <div class="form-group mb-2">
                                             <label for="fconfpassword">Ulangi Password</label>
-                                            <input type="password" class="form-control " id="fconfpassword" placeholder="Ulangi password" name="fconfpassword">
+                                            <input type="password" class="form-control " id="fconfpassword"
+                                                placeholder="Ulangi password" name="fconfpassword">
 
                                         </div>
 
@@ -123,7 +138,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <!-- /.col -->
                                         <div class="row">
                                             <div class="col-12">
-                                                <button type="submit" name="submit" class=" btn btn-info btn-block mt-2">Registrasi</button>
+                                                <button type="submit" name="submit"
+                                                    class=" btn btn-info btn-block mt-2">Registrasi</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
@@ -167,35 +183,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED SCRIPTS -->
     <!-- Alert Config -->
     <script type="text/javascript">
-        $(function() {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 10000
-            });
-            <?php if ($this->session->flashdata('success')) { ?>
-                Toast.fire({
-                    icon: 'success',
-                    title: '<?= $this->session->flashdata('success'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('error')) {  ?>
-                Toast.fire({
-                    icon: 'error',
-                    title: '<?= $this->session->flashdata('error'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('warning')) {  ?>
-                Toast.fire({
-                    icon: 'warning',
-                    title: '<?= $this->session->flashdata('warning'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('info')) {  ?>
-                Toast.fire({
-                    icon: 'info',
-                    title: '<?= $this->session->flashdata('info'); ?>'
-                });
-            <?php } ?>
+    $(function() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 10000
         });
+        <?php if ($this->session->flashdata('success')) { ?>
+        Toast.fire({
+            icon: 'success',
+            title: '<?= $this->session->flashdata('success'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('error')) {  ?>
+        Toast.fire({
+            icon: 'error',
+            title: '<?= $this->session->flashdata('error'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('warning')) {  ?>
+        Toast.fire({
+            icon: 'warning',
+            title: '<?= $this->session->flashdata('warning'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('info')) {  ?>
+        Toast.fire({
+            icon: 'info',
+            title: '<?= $this->session->flashdata('info'); ?>'
+        });
+        <?php } ?>
+    });
     </script>
 </body>
 

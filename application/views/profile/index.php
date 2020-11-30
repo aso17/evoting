@@ -34,16 +34,15 @@
                                             <b>Nama</b> <a class="float-right"><?= $users['nama_lengkap'] ?></a>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Telpon</b> <a
-                                                class="float-right"><?= $this->session->userdata('no_tlp') ?></a>
-                                        </li>
-                                        <li class="list-group-item">
                                             <b>Email</b> <a
                                                 class="float-right"><?= $this->session->userdata('email') ?></a>
                                         </li>
                                         <li class="list-group-item">
                                             <b>Username</b> <a
                                                 class="float-right"><?= $this->session->userdata('username') ?></a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Telpon</b> <a class="float-right"><?= $users['no_tlp'] ?></a>
                                         </li>
                                     </ul>
                                 </div>
