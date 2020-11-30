@@ -36,4 +36,11 @@ class admin_m extends CI_Model
         ];
         $this->db->insert('admin', $data);
     }
+    public function update_user_log($post, $id = null)
+    {
+        $post = $this->input->post('role');
+        $this->db->set('role', $post);
+        $this->db->where('id_user', $id);
+        $this->db->update('users');
+    }
 }

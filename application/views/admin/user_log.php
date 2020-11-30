@@ -26,28 +26,34 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Lengkap</th>
                                     <th>username</th>
-
+                                    <th>Email</th>
                                     <th>Role</th>
+
                                     <th class="text-right">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($admin as $adm) : ?>
+                                <?php foreach ($auth as $aut) : ?>
 
                                 <tr>
                                     <td><?= $i++ ?></td>
-                                    <td><?= $adm->nama_lengkap ?></td>
-                                    <td><?= $adm->username ?></td>
-                                    <td><?= $adm->nama_role ?></td>
+                                    <td><?= $aut->username ?></td>
+                                    <td><?= $aut->email ?></td>
+                                    <td><?= $aut->role ?>
+                                    </td>
                                     <td>
-                                        <button class="badge badge-danger float-right"
-                                            onclick="deleteConfirm('<?= base_url()  ?>')">hapus</button>
+                                        <button class="badge badge-danger float-right ml-2"
+                                            onclick="deleteConfirm('<?= base_url('/')  ?>')">hapus</button>
+                                        <button class="badge badge-info float-right"> <a
+                                                href="<?= base_url('admin/edit_user_log/') . $aut->id_auth . '/' . $aut->id_user ?>"
+                                                class="text-light">ubah</a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>

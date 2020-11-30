@@ -47,7 +47,7 @@ class User_m extends CI_Model
     }
     public function getAlluser()
     {
-        $query = $this->db->get('users')->row_array();
+        $query = $this->db->get('users')->result();
         return $query;
     }
     public function get_nik()
@@ -118,6 +118,15 @@ class User_m extends CI_Model
         ];
         $this->db->where('nik', $post['nik']);
         $this->db->update('users', $data);
+    }
+    public function get_join_auth($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('auth');
+        $this->db->join('users', 'users.id_user = auth.id_user');
+        $this->db->where('id_auth', $id);
+        $query = $this->db->get();
+        return $query->row_array();
     }
 }
 

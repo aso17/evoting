@@ -7,6 +7,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('user_m');
         $this->load->model('admin_m');
+        $this->load->model('auth_m');
     }
     public function index()
     {
@@ -22,22 +23,19 @@ class Admin extends CI_Controller
         if ($validation->run() == false) {
             $this->load->view('admin/index');
         } else {
-            $username = $this->admin_m->login(null, true);
+            $username = $this->auth_m->_login(null, true);
 
             if ($username != null) {
                 $pass = $this->input->post('password');
                 if (password_verify($pass, $username['password'])) {
-                    $id = $username['id_role'];
-                    $role = $this->admin_m->getByid_role($id);
-
-                    $data = [
+                    $user = $this->user_m->getByid($username['id_user']);
+                    $session = [
+                        "role" => $user['role'],
                         "username" => $username['username'],
-                        "id_role" => $username['id_role'],
-                        "image" => $username['image'],
-                        "nama_role" => $role['nama_role']
+                        "image" => $user['image'],
+                        "nik" => $user['nik'],
                     ];
-                    $this->session->set_userdata($data);
-
+                    $this->session->set_userdata($session);
                     redirect('dashboard');
                 } else {
                     $this->session->set_flashdata('error', 'password salah');
@@ -51,7 +49,8 @@ class Admin extends CI_Controller
     }
     public function user_log()
     {
-        $data['admin'] = $this->admin_m->get_join();
+        $data['auth'] = $this->auth_m->getAllauth();
+
         $this->template->load('_layout/admin', 'admin/user_log', $data);
     }
     public function tambah()
@@ -69,6 +68,23 @@ class Admin extends CI_Controller
         } else {
             $this->admin_m->tambah_login();
             $this->session->set_flashdata('success', 'user log berhasil di tambkan');
+            redirect('admin/user_log');
+        }
+    }
+    public function edit_user_log($id_auth = null, $id_user = null)
+    {
+        $post = $this->input->post(null, true);
+        $this->form_validation->set_rules('role', 'role', 'required');
+        if ($this->form_validation->run() == false) {
+
+            $data['auth'] = $this->user_m->get_join_auth($id_auth);
+            $this->template->load('_layout/admin', 'admin/edit_user_log', $data);
+        } else {
+            $post = $this->input->post(null, true);
+            $id = $this->user_m->getByid($id_user);
+            $user = $id['id_user'];
+            $this->admin_m->update_user_log($post, $user);
+            $this->session->set_flashdata('success', 'role user berhasil di ubah');
             redirect('admin/user_log');
         }
     }

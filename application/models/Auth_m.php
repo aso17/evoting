@@ -51,7 +51,10 @@ class  Auth_m extends CI_Model
 
     public function getAllauth()
     {
-        $query = $this->db->get('auth')->row_array();
+        $this->db->select('*');
+        $this->db->from('auth');
+        $this->db->join('users', 'users.id_user=auth.id_user');
+        $query = $this->db->get()->result();
         return $query;
     }
 
@@ -68,11 +71,17 @@ class  Auth_m extends CI_Model
     public function _login()
     {
         $nik = $this->input->post();
+        $username = $this->input->post('user_name');
         $email = $this->input->post('femail');
         $password = $this->input->post('fpassword');
-        $query = $this->db->get_where('auth', ['email' => $email])->row_array();
+
+        $this->db->from('auth');
+        $this->db->where('email', $email);
+        $this->db->or_where('username', $username);
+        $query = $this->db->get()->row_array();
         return $query;
     }
+
     public function set_role_user($post, $id = null)
     {
         $nik = $this->input->post('fnik');
