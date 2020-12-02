@@ -76,7 +76,9 @@ $("#user").DataTable({
     "paging": false,
     dom: 'Bfrtip',
     buttons: [{
-        text: 'Tambah administrator',
+        text: '<i class="fas fa-user-plus mr-2 "></i>' +
+            '<span class="font-weight-bold text-info">User log</span>',
+
 
         action: function() {
             window.location.href = "<?= base_url('admin/tambah') ?>"

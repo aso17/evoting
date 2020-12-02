@@ -2,10 +2,8 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Tambah user login</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
+
+            <div class="col-sm-12">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= base_url('admin/user_log') ?>">User log</a></li>
                     <li class="breadcrumb-item active">Tambah user log
@@ -27,10 +25,22 @@
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
                     value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
                 <div class="card">
+                    <div class="card-header bg-info">
+                        <h3 class="card-title ">Tambah User log</h3>
+                    </div>
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="fnik">Nik</label>
+                                    <input type="text"
+                                        class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?>" id="fnik"
+                                        placeholder="nomer induk ktp" name="fnik">
+                                    <div class="invalid-feedback">
+                                        <?= form_error('fnik') ?>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="nm_lengkap">Nama Lengkap</label>
                                     <input type="text"
@@ -41,12 +51,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="username">Username</label>
+                                    <label for="user_name">username</label>
                                     <input type="text"
-                                        class="form-control <?= form_error('username') ? 'is-invalid' : '' ?>"
-                                        id="username" placeholder="username" name="username">
+                                        class="form-control <?= form_error('user_name') ? 'is-invalid' : '' ?>"
+                                        id="user_name" placeholder="user_name" name="user_name">
                                     <div class="invalid-feedback">
-                                        <?= form_error('username') ?>
+                                        <?= form_error('user_name') ?>
                                     </div>
                                 </div>
 
@@ -54,15 +64,24 @@
                                     <label>role</label>
                                     <select class="form-control  <?= form_error('role') ? 'is-invalid' : '' ?> "
                                         name="role">
-
-                                        <option value="<?= $role[1]->id_role  ?>"><?= $role[1]->nama_role ?>
-                                        <option value="<?= $role[2]->id_role  ?>"><?= $role[2]->nama_role ?>
-                                        </option>
+                                        <option>pilih</option>
+                                        <option value="2">Admin</option>
+                                        <option value="3">Panitia</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        <?= form_error('nm_lengakap') ?>
+                                        <?= form_error('role') ?>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="username">Email</label>
+                                    <input type="femail"
+                                        class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" id="femail"
+                                        placeholder="email" name="femail">
+                                    <div class="invalid-feedback">
+                                        <?= form_error('femail') ?>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputFile">*image</label>
                                     <div class="input-group">
@@ -77,16 +96,18 @@
                                 <div class="form-group">
                                     <label for="password">Pasword</label>
                                     <input type="password"
-                                        class="form-control <?= form_error('password') ? 'is-invalid' : '' ?>"
-                                        id="password" placeholder="" name="password">
+                                        class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>"
+                                        id="fpassword" placeholder="" name="fpassword">
                                     <div class="invalid-feedback">
-                                        <?= form_error('password') ?>
+                                        <?= form_error('fpassword') ?>
                                     </div>
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info btn-sm float-right">Save</button>
+                                    <button type="submit" class="btn btn-info btn-sm">Save</button>
+                                    <button type="submit" class="btn btn-danger btn-sm float-right">Cancel</button>
                                 </div>
+
                             </div>
                         </div>
 

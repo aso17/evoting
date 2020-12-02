@@ -37,6 +37,24 @@ class User_m extends CI_Model
             ],
         ];
     }
+
+    public function set_rules_user()
+    {
+        return [
+            [
+                'field' => 'fnik',
+                'label' => 'Nik',
+                'rules' => 'required|numeric|min_length[16]|max_length[16]|',
+                'errors' => [
+                    'required' => ' %s harus diisi.',
+
+                    'numeric' => '%s harus berisi angka.',
+                    'min_length' => '%s tidak boleh kurang dari 16 karakter.',
+                    'max_length' => '%s tidak boleh lebih dari 16 karakter.',
+                ],
+            ],
+        ];
+    }
     public function create_nik()
     {
         $post = $this->input->post();
@@ -101,7 +119,7 @@ class User_m extends CI_Model
 
 
         $data = [
-            "nik" => $post['nik'],
+            "nik" => $post['fnik'],
             "nama_lengkap" => $post['nm_lengkap'],
             "tempat_lahir" => $post['tmp_lahir'],
             "tgl_lahir" => $post['tgl_lahir'],
@@ -114,9 +132,10 @@ class User_m extends CI_Model
             "kelurahan" => $post['kel'],
             "kabupaten" => $post['kab'],
             "agama" => $post['agama'],
+            "role" => $post['role'],
             "image" => $fot
         ];
-        $this->db->where('nik', $post['nik']);
+        $this->db->where('nik', $post['fnik']);
         $this->db->update('users', $data);
     }
     public function get_join_auth($id = null)
@@ -126,6 +145,11 @@ class User_m extends CI_Model
         $this->db->join('users', 'users.id_user = auth.id_user');
         $this->db->where('id_auth', $id);
         $query = $this->db->get();
+        return $query->row_array();
+    }
+    public function getBy_nik($nik = null)
+    {
+        $query = $this->db->get_where('users', ['nik' => $nik]);
         return $query->row_array();
     }
 }

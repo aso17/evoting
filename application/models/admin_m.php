@@ -43,4 +43,33 @@ class admin_m extends CI_Model
         $this->db->where('id_user', $id);
         $this->db->update('users');
     }
+    public function updateUser()
+    {
+        $post = $this->input->post(null, true);
+        $foto = $_FILES['foto'];
+
+        if ($foto) {
+            $config['upload_path'] = './asset/images/foto_user/';
+            $config['allowed_types'] = 'jpeg|jpg|png';
+            $config['max_size']     = '10000';
+            $config['file_name']     = 'foto_users';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('foto')) {
+                $fot = $this->upload->data('file_name');
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+
+        $data = [
+
+            "nama_lengkap" => $post['nm_lengkap'],
+            "role" => $post['role'],
+            "image" => $fot
+
+        ];
+        $this->db->where('nik', $post['fnik']);
+        $this->db->update('users', $data);
+    }
 }

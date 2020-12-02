@@ -55,18 +55,34 @@ class Admin extends CI_Controller
     }
     public function tambah()
     {
+        $data['nik_terdaftar'] = $this->user_m->get_nik_terdaftar();
+
 
         $validation = $this->form_validation;
+        // $valid = $user = $this->user_m->set_rules_user();
+        // $validation->set_rules($valid);
         $validation->set_rules('nm_lengkap', 'nama lengkap', 'required|trim');
-        $validation->set_rules('username', 'username', 'required|trim');
-
-        $validation->set_rules('password', 'password', 'required|trim');
-
+        $validation->set_rules('user_name', 'username', 'required|trim');
+        $validation->set_rules('femail', 'Email', 'required|trim|valid_email');
+        $validation->set_rules('role', 'role', 'required|trim');
+        $validation->set_rules('fpassword', 'password', 'required|trim');
         if ($validation->run() == false) {
-            $data['role'] = $this->admin_m->get_role();
             $this->template->load('_layout/admin', 'admin/tambah', $data);
         } else {
-            $this->admin_m->tambah_login();
+            $post = $this->input->post(null, true);
+            $nik = $post['fnik'];
+            $user = $this->user_m->getBy_nik($nik);
+            $id_user = $user['id_user'];
+            if ($id_user != null) {
+
+                $this->auth_m->creat_auth($post, $id_user);
+                $this->admin_m->updateUser();
+            } else {
+
+                $this->session->set_flashdata('warning', 'Nik tidak terdaftar');
+                redirect('admin/user_log');
+            }
+
             $this->session->set_flashdata('success', 'user log berhasil di tambkan');
             redirect('admin/user_log');
         }

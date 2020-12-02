@@ -38,8 +38,9 @@ class  Auth_m extends CI_Model
         $iduser = $hasil->ID;
         return $iduser;
     }
-    public function creat_auth($post, $id = null)
+    public function creat_auth($post, $id = null, $id_user = null)
     {
+
         $post = $this->input->post();
         $this->id_user = $id;
         $this->id_auth = uniqid('');

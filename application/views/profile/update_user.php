@@ -37,10 +37,10 @@
                                                     <div class="form-group">
                                                         <label>*Nik</label>
                                                         <input type="text"
-                                                            class="form-control <?= form_error('nik') ? 'is-invalid' : '' ?> "
-                                                            name="nik" value="<?= $users['nik'] ?>" readonly>
+                                                            class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?> "
+                                                            name="fnik" value="<?= $users['fnik'] ?>" readonly>
                                                         <div class="invalid-feedback">
-                                                            <?= form_error('nik') ?>
+                                                            <?= form_error('fnik') ?>
                                                         </div>
                                                     </div>
                                                 </div>
