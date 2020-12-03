@@ -92,8 +92,8 @@ class Landing extends CI_Controller
                         'id' => $auth['id_user'],
                         'images' => $auth['image'],
                         'nama_lengkap' => $auth['nama_lengkap'],
-
                         'role' => $auth['role']
+
                     ];
 
                     $this->session->set_userdata($data);
@@ -113,6 +113,7 @@ class Landing extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('email');
+        $this->session->unset_userdata('id_user');
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('no_tlp');
         $this->session->unset_userdata('username');

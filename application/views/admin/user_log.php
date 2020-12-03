@@ -15,7 +15,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-header bg-info">
                         <h3 class="card-title ">User log</h3>
@@ -30,7 +30,7 @@
                                     <th>Email</th>
                                     <th>Role</th>
 
-                                    <th class="text-right">Aksi</th>
+                                    <th class="text-center ml-2">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,11 +44,12 @@
                                     <td><?= $aut->role ?>
                                     </td>
                                     <td>
-                                        <button class="badge badge-danger float-right ml-2"
-                                            onclick="deleteConfirm('<?= base_url('/')  ?>')">hapus</button>
-                                        <button class="badge badge-info float-right"> <a
+                                        <button class="btn btn-danger float-right ml-2"
+                                            onclick="deleteConfirm('<?= base_url('/')  ?>')"><i
+                                                class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-info float-right"> <a
                                                 href="<?= base_url('admin/edit_user_log/') . $aut->id_auth . '/' . $aut->id_user ?>"
-                                                class="text-light">ubah</a>
+                                                class="text-light"><i class="fas fa-pen-alt"></i></a>
                                         </button>
                                     </td>
                                 </tr>

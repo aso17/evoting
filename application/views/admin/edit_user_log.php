@@ -80,7 +80,8 @@
                                     </div>
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-info btn-sm float-right">Save</button>
+                                        <button type="submit" class="btn btn-info"><i
+                                                class="fas fa-paper-plane"></i>Save</button>
                                     </div>
 
 

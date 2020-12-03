@@ -29,10 +29,11 @@ class Pemilihan extends CI_Controller
     {
         $user = $this->session->userdata('id');
         $user = $this->user_m->getByid($user);
-        if ($user['nama_lengkap'] != null) {
+
+        if ($user['tempat_lahir'] != null) {
 
             $user = $this->session->userdata('id');
-            $has_vote = $this->vote_m->getByIdEventAndUser($event, $user);
+            $has_vote = $this->vote_m->getByIdEventAndUser($user);
             if ($has_vote == 1) {
                 $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan Ketua Rt');
                 redirect('Pemilihan');

@@ -152,6 +152,14 @@ class User_m extends CI_Model
         $query = $this->db->get_where('users', ['nik' => $nik]);
         return $query->row_array();
     }
+    public function get_user_active()
+    {
+        $query = $this->db->query(
+            "SELECT * FROM users WHERE id_user 
+            IN (SELECT id_user FROM vote )"
+        );
+        return $query->result();
+    }
 }
 
 /* End of file User_m.php */

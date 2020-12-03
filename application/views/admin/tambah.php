@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-md-10">
 
                 <?= form_open_multipart('admin/tambah') ?>
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="row">
 
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="fnik">Nik</label>
                                     <input type="text"
@@ -104,8 +104,9 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-info btn-sm">Save</button>
-                                    <button type="submit" class="btn btn-danger btn-sm float-right">Cancel</button>
+                                    <button type="submit" class="btn btn-info  "><i
+                                            class="fas fa-paper-plane"></i>Save</button>
+                                    <button type="submit" class="btn btn-danger float-right">Cancel</button>
                                 </div>
 
                             </div>

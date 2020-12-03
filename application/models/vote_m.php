@@ -8,10 +8,10 @@ class vote_m extends CI_Model
         return $query;
     }
 
-    public function getByIdEventAndUser($event, $user)
+    public function getByIdEventAndUser($user)
     {
 
-        $query = $this->db->get_where('vote', ['id_event' => $event], ['id_user' => $user])->num_rows();
+        $query = $this->db->get_where('vote', ['id_user' => $user])->num_rows();
         return $query;
     }
     public function get_voted($user)

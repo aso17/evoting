@@ -38,7 +38,7 @@
                                                         <label>*Nik</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('fnik') ? 'is-invalid' : '' ?> "
-                                                            name="fnik" value="<?= $users['fnik'] ?>" readonly>
+                                                            name="fnik" value="<?= $users['nik'] ?>" readonly>
                                                         <div class="invalid-feedback">
                                                             <?= form_error('fnik') ?>
                                                         </div>
@@ -99,8 +99,8 @@
                                                             class="form-control  <?= form_error('jenis_kelamin') ? 'is-invalid' : '' ?> "
                                                             name="jenis_kelamin">
                                                             <option>pilih</option>
-                                                            <option value="laki-laki">Laki-laki</option>
-                                                            <option value="Permpuan">Perempuan</option>
+                                                            <option value="L">Laki-laki</option>
+                                                            <option value="P">Perempuan</option>
 
 
                                                         </select>

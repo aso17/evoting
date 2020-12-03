@@ -36,15 +36,16 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $i=1;
+                                $i = 1;
                                 foreach ($nik_terdaftar as $dt) { ?>
-                                    <tr>
-                                        <td><?= $i++?>.</td>
-                                        <td><?= $dt->nik ?></td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm float-right" onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')">hapus</button>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td><?= $i++ ?>.</td>
+                                    <td><?= $dt->nik ?></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-sm float-right"
+                                            onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')">hapus</button>
+                                    </td>
+                                </tr>
                                 <?php } ?>
 
                             </tbody>
@@ -69,37 +70,21 @@
                                     <th>Nama</th>
                                     <th>L/P</th>
                                     <th>Alamat</th>
-                                    <th>Email</th>
+                                    <th>No telpon</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach ($users as $user) : ?>
                                 <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
+                                    <td><?= $user->nik; ?></td>
+                                    <td><?= $user->nama_lengkap; ?></td>
                                     </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
+                                    <td><?= $user->jenis_kelamin; ?></td>
+                                    <td> <?= $user->alamat; ?></td>
+                                    <td><?= $user->no_tlp; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>
@@ -112,33 +97,34 @@
 <!-- /.content -->
 
 <script>
-    $(function() {
-        $("#pemilih").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-            "autoWidth": false,
-        });
-        $("#nik").DataTable({
-
-            "responsive": true,
-            "autoWidth": true,
-            "info": false,
-            "lengthChange": false,
-            "scrollY": 300,
-            "paging": false,
-            dom: 'Bfrtip',
-            buttons: [{
-                text: 'Tambah pemilih',
-                action: function() {
-                    window.location.href = "user/tambah"
-                }
-            }]
-        });
+$(function() {
+    $("#pemilih").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        "autoWidth": false,
     });
+    $("#nik").DataTable({
+
+        "responsive": true,
+        "autoWidth": true,
+        "info": false,
+        "lengthChange": false,
+        "scrollY": 300,
+        "paging": false,
+        dom: 'Bfrtip',
+        buttons: [{
+            text: 'Tambah pemilih',
+            action: function() {
+                window.location.href = "user/tambah"
+            }
+        }]
+    });
+});
 </script>
 
 <!--Delete Confirmation-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -163,8 +149,8 @@
 
 <!-- Delete Confirm -->
 <script type="text/javascript">
-    function deleteConfirm(url) {
-        $('#btn-delete').attr('href', url);
-        $('#deleteModal').modal();
-    }
+function deleteConfirm(url) {
+    $('#btn-delete').attr('href', url);
+    $('#deleteModal').modal();
+}
 </script>

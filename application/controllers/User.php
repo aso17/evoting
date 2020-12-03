@@ -13,6 +13,9 @@ class User extends CI_Controller
 
     public function index()
     {
+        $id = $this->session->userdata('id_user');
+        $data['users'] = $this->user_m->get_user_active();
+
         $data['nik_terdaftar'] = $this->user_m->get_nik_terdaftar();
         $this->template->load('_layout/admin', 'user/index', $data);
     }

@@ -30,6 +30,7 @@ class Admin extends CI_Controller
                 if (password_verify($pass, $username['password'])) {
                     $user = $this->user_m->getByid($username['id_user']);
                     $session = [
+                        "id_user" => $user['id_user'],
                         "role" => $user['role'],
                         "username" => $username['username'],
                         "image" => $user['image'],
@@ -107,7 +108,9 @@ class Admin extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('username');
-        $this->session->unset_userdata('id_role');
+        $this->session->unset_userdata('role');
+        $this->session->unset_userdata('nik');
+        $this->session->unset_userdata('id_user');
         $this->session->unset_userdata('image');
         redirect('admin');
     }
