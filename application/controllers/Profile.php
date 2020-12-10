@@ -4,6 +4,7 @@ class Profile extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_log_user();
         $this->load->model('user_m');
     }
     public function index()

@@ -117,7 +117,7 @@ class User_m extends CI_Model
             }
         }
 
-
+        $role = 1;
         $data = [
             "nik" => $post['fnik'],
             "nama_lengkap" => $post['nm_lengkap'],
@@ -132,7 +132,7 @@ class User_m extends CI_Model
             "kelurahan" => $post['kel'],
             "kabupaten" => $post['kab'],
             "agama" => $post['agama'],
-            "role" => $post['role'],
+            "role" => $role,
             "image" => $fot
         ];
         $this->db->where('nik', $post['fnik']);

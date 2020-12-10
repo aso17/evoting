@@ -4,6 +4,8 @@ class Kandidat extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_log_admin();
+        cek_log_role();
         $this->load->model('kandidat_m');
         $this->load->model('event_m');
         $this->load->library('form_validation');
@@ -25,9 +27,9 @@ class Kandidat extends CI_Controller
     }
     public function proses()
     {
-        
-        
-        $validation=$this->form_validation;
+
+
+        $validation = $this->form_validation;
         $validation->set_rules('nomer_urut', 'Nomer Urut', 'trim|required');
         $validation->set_rules('nm_lengkap', 'Nama lengkap', 'trim|required');
         $validation->set_rules('tgl_lahir', 'Tanggal', 'trim|required');

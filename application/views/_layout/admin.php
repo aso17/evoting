@@ -64,7 +64,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('admin/logout') ?> ">Keluar</a>
+                    <button onclick="logConfirm('<?= base_url('admin/logout') ?>')" class="btn btn" class="nav-link "
+                        id=" logoutmodal" data-toggle="modal" data-target="#logoutmodal">Keluar</button>
                 </li>
             </ul>
         </nav>
@@ -73,7 +74,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= base_url() ?>" class="brand-link">
+            <a href="<?= base_url('dashboard') ?>" class="brand-link">
                 <img src=" <?= base_url() . 'asset/images/logo.png' ?>" alt="AdminLTE Logo"
                     class="brand-image img-circle " style="opacity: .8">
                 <span class="brand-text font-weight-light font-weight-bold shadow">e-Voting</span>
@@ -187,12 +188,43 @@
                 Powered by <a href="https://gisaka.net/">GisakaNet</a>
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; <?= date('Y') ?> <a href="<?= base_url() ?>">e-Voting</a> .</strong> All rights
+            <strong>Copyright &copy; <?= date('Y') ?> <a href="<?= base_url('dashboard') ?>">e-Voting</a> .</strong> All
+            rights
             reserved.
         </footer>
     </div>
+    <div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-3 d-flex justify-content-center">
+                            <i class="fas fa-exclamation" style="font-size: 70px; color:#008B8B;"></i>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <h5>yakin ingin keluar?</h5>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <a id="btn-log" class="btn btn-danger">keluar</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ./wrapper -->
     <!-- Alert Config -->
+    <script type="text/javascript">
+    function logConfirm(url) {
+        $('#btn-log').attr('href', url);
+        $('#logoutmodal').modal();
+    }
+    </script>
     <script type="text/javascript">
     $(function() {
         const Toast = Swal.mixin({
@@ -230,6 +262,7 @@
         $(this).next('.custom-file-label').addClass("selected").html(filename);
     })
     </script>
+
 
 </body>
 

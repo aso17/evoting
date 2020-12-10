@@ -28,14 +28,20 @@ class Pemilihan extends CI_Controller
     public function vote($event)
     {
         $user = $this->session->userdata('id');
-        $user = $this->user_m->getByid($user);
+        $users = $this->user_m->getByid($user);
 
-        if ($user['tempat_lahir'] != null) {
+        if ($users['tempat_lahir'] != null) {
 
-            $user = $this->session->userdata('id');
-            $has_vote = $this->vote_m->getByIdEventAndUser($user);
-            if ($has_vote == 1) {
-                $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan Ketua Rt');
+            $user1 = $this->session->userdata('id');
+            $has_vote = $this->vote_m->getByIdEventAndUser($event, $user1);
+
+            $id_vote = $has_vote['id_vote'];
+            $vote = $this->vote_m->getid_vote($id_vote);
+
+            $ket = $this->event_m->getByid_event($event);
+
+            if ($vote != null) {
+                $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan ' . $ket->nama_event);
                 redirect('Pemilihan');
             } else {
                 $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($event);
@@ -76,5 +82,9 @@ class Pemilihan extends CI_Controller
     public function detail_kandidat()
     {
         $this->template->load('_layout/user', 'pemilihan/detail_kandidat');
+    }
+    public function hasilvote()
+    {
+        $this->template->load('_layout/user', 'pemilihan/hasilvote');
     }
 }

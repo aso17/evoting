@@ -45,6 +45,17 @@ class User extends CI_Controller
             redirect('user', 'refresh');
         }
     }
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+
+        $this->session->unset_userdata('nik');
+        $this->session->unset_userdata('no_tlp');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
+        $this->session->unset_userdata('id');
+        redirect('Landing');
+    }
 }
 
 /* End of file User.php */

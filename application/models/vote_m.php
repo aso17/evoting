@@ -8,10 +8,13 @@ class vote_m extends CI_Model
         return $query;
     }
 
-    public function getByIdEventAndUser($user)
+    public function getByIdEventAndUser($event, $user1)
     {
-
-        $query = $this->db->get_where('vote', ['id_user' => $user])->num_rows();
+        $this->db->select('*');
+        $this->db->from('vote');
+        $this->db->where('id_event', $event);
+        $this->db->where('id_user', $user1);
+        $query = $this->db->get()->row_array();
         return $query;
     }
     public function get_voted($user)
@@ -30,5 +33,10 @@ class vote_m extends CI_Model
             NOT IN (SELECT id_event FROM vote WHERE vote.id_user = '$id')"
         );
         return $query->result();
+    }
+    public function getid_vote($id_vote)
+    {
+        $query = $this->db->get_where('vote', ['id_vote' => $id_vote])->row_array();
+        return $query;
     }
 }

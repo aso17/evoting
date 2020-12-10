@@ -4,6 +4,7 @@ class Event  extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_log();
         $this->load->model('event_m');
         $this->load->model('kandidat_m');
     }

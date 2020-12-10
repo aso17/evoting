@@ -7,6 +7,7 @@ class Landing extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_log();
         $this->load->model('user_m');
         $this->load->model('Auth_m');
     }
@@ -92,7 +93,7 @@ class Landing extends CI_Controller
                         'id' => $auth['id_user'],
                         'images' => $auth['image'],
                         'nama_lengkap' => $auth['nama_lengkap'],
-                        'role' => $auth['role']
+                        'role' => $auth['role'],
 
                     ];
 
@@ -109,17 +110,6 @@ class Landing extends CI_Controller
                 redirect('Landing/index');
             }
         }
-    }
-    public function logout()
-    {
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('id_user');
-        $this->session->unset_userdata('nik');
-        $this->session->unset_userdata('no_tlp');
-        $this->session->unset_userdata('username');
-        $this->session->unset_userdata('role');
-        $this->session->unset_userdata('id');
-        redirect('Landing');
     }
 }
 

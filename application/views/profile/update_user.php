@@ -49,7 +49,7 @@
                                                         <label>*Nama Lengkap</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('nm_lengkap') ? 'is-invalid' : '' ?> "
-                                                            name="nm_lengkap">
+                                                            name="nm_lengkap" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('nm_lengkap') ?>
                                                         </div>
@@ -65,7 +65,7 @@
                                                         <label>Tempat Lahir</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('tmp_lahir') ? 'is-invalid' : '' ?> "
-                                                            name="tmp_lahir">
+                                                            name="tmp_lahir" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('tmp_lahir') ?>
                                                         </div>
@@ -130,7 +130,7 @@
                                                         <label>*RT</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('rt') ? 'is-invalid' : '' ?> "
-                                                            name="rt">
+                                                            name="rt" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('rt') ?>
                                                         </div>
@@ -141,7 +141,7 @@
                                                         <label>*RW</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('rw') ? 'is-invalid' : '' ?> "
-                                                            name="rw">
+                                                            name="rw" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('rw') ?>
                                                         </div>
@@ -156,7 +156,7 @@
                                                         <label>*Kecamatan</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('kec') ? 'is-invalid' : '' ?>"
-                                                            name="kec">
+                                                            name="kec" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('kec') ?>
                                                         </div>
@@ -167,7 +167,7 @@
                                                         <label>*Kelurahan</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('kel') ? 'is-invalid' : '' ?>"
-                                                            name="kel">
+                                                            name="kel" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('kel') ?>
                                                         </div>
@@ -181,7 +181,7 @@
                                                         <label>*Kabupaten</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('kab') ? 'is-invalid' : '' ?>"
-                                                            name="kab">
+                                                            name="kab" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('kab') ?>
                                                         </div>
@@ -227,7 +227,7 @@
                                                         <label>*No telpon</label>
                                                         <input type="text"
                                                             class="form-control <?= form_error('no_tlp') ? 'is-invalid' : '' ?>"
-                                                            name="no_tlp">
+                                                            name="no_tlp" autocomplete="off">
                                                         <div class="invalid-feedback">
                                                             <?= form_error('no_tlp') ?>
                                                         </div>
