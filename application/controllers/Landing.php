@@ -19,11 +19,8 @@ class Landing extends CI_Controller
 
     public function register()
     {
-
-        $id = $this->Auth_m->getBynik_user($post = null);
-
-
-        $this->load->view('landing/register', $id);
+        // $id = $this->Auth_m->getBynik_user($post = null);
+        $this->load->view('landing/register');
     }
     public function process_Reg()
     {

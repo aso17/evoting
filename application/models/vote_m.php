@@ -50,7 +50,7 @@ class vote_m extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-    public function hasil_vote($id_event, $id_kandidat)
+    public function hasil_vote($id_event)
     {
         $query = $this->db->query("SELECT *, COUNT(vote.id_kandidat) as hasil_vote FROM vote  JOIN kandidat ON kandidat.id_kandidat=vote.id_kandidat  WHERE vote.id_event = '$id_event'  GROUP BY vote.id_kandidat");
         $hasil = $query->result();

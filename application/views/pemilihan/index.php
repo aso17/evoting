@@ -41,18 +41,18 @@
 
 
                                      <?php foreach ($event as $ev) : ?>
-                                     <tr>
+                                         <tr>
+                                             <td> <?= $i++; ?></td>
+                                             <td>
+                                                 <a href=" <?= base_url('Pemilihan/vote/') . $ev->id_event ?> " class="link"><?= $ev->nama_event; ?>
+                                                 </a>
+                                             </td>
+                                             <td><?= $ev->tgl_mulai ?></td>
+                                             <td><?= $ev->tgl_berahir; ?></td>
+                                             <td><?= $ev->priode; ?></td>
 
-                                         <td> <?= $i++; ?></td>
-                                         <td><a href=" <?= base_url('Pemilihan/vote/') . $ev->id_event ?> "
-                                                 class="link"><?= $ev->nama_event; ?></a> </td>
-                                         <td><?= $ev->tgl_mulai ?></td>
-                                         <td><?= $ev->tgl_berahir; ?></td>
-                                         <td><?= $ev->priode; ?></td>
-
-                                         <td><button class="btn btn-info btn-sm" type="submit" name=""><i
-                                                     class="fa fa-eye"></i></button></td>
-                                     </tr>
+                                             <td><button class="btn btn-info btn-sm" type="submit" name=""><i class="fa fa-eye"></i></button></td>
+                                         </tr>
 
                                      <?php endforeach; ?>
                                  </tbody>
@@ -80,11 +80,11 @@
                                      <?php
                                         $no = 1;
                                         foreach ($vote as $vt) { ?>
-                                     <tr>
-                                         <td><?= $no++ ?></td>
-                                         <td><?= $vt->nama_event ?></td>
-                                         <td><?= $vt->waktu_vote ?></td>
-                                     </tr>
+                                         <tr>
+                                             <td><?= $no++ ?></td>
+                                             <td><?= $vt->nama_event ?></td>
+                                             <td><?= $vt->waktu_vote ?></td>
+                                         </tr>
                                      <?php } ?>
                                  </tbody>
                              </table>

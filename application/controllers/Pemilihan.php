@@ -35,18 +35,18 @@ class Pemilihan extends CI_Controller
 
             $user1 = $this->session->userdata('id');
             $has_vote = $this->vote_m->getByIdEventAndUser($event, $user1);
-
-            $id_vote = $has_vote['id_vote'];
-            $vote = $this->vote_m->getid_vote($id_vote);
+            // var_dump($has_vote);
+            // die;
+            // $id_vote = $has_vote['id_vote'];
+            // $vote = $this->vote_m->getid_vote($id_vote);
 
             $ket = $this->event_m->getByid_event($event);
 
-            if ($vote != null) {
+            if ($has_vote != null) {
                 $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan ' . $ket->nama_event);
                 redirect('Pemilihan');
             } else {
                 $data['event'] = $this->event_m->getByid($event);
-
                 $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($event);
                 $this->template->load('_layout/user', 'pemilihan/vote', $data);
             }
@@ -81,14 +81,13 @@ class Pemilihan extends CI_Controller
     }
 
 
-    public function hasilvote($id_event, $id_kandidat)
+    public function hasilvote($id_event)
     {
 
 
         $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
-        $data['vote'] = $this->vote_m->hasil_vote($id_event, $id_kandidat);
+        $data['vote'] = $this->vote_m->hasil_vote($id_event);
         // $data['pie'] = $this->kandidat_m->getByid_event($id_event);
-
         // var_dump($data['vote']);
         // die;
 
