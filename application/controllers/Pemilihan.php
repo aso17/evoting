@@ -29,14 +29,14 @@ class Pemilihan extends CI_Controller
     {
         $user = $this->session->userdata('id');
         $users = $this->user_m->getByid($user);
-        // var_dump($users);
-        // die;
+
         if ($users['tempat_lahir'] != null) {
 
             $user1 = $this->session->userdata('id');
             $has_vote = $this->vote_m->getByIdEventAndUser($event, $user1);
             // var_dump($has_vote);
             // die;
+<<<<<<< Updated upstream
             // $id_vote = $has_vote['id_vote'];
             // $vote = $this->vote_m->getid_vote($id_vote);
 
@@ -44,6 +44,15 @@ class Pemilihan extends CI_Controller
 
             if ($has_vote != null) {
                 $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan ' . $ket->nama_event);
+=======
+            $id_vote = $has_vote['id_vote'];
+            $vote = $this->vote_m->getid_vote($id_vote);
+
+            $ket = $this->event_m->getByid_event($event);
+
+            if ($vote != null) {
+                $this->session->set_flashdata('warning', 'Anda Sudah  ' . $ket->nama_event);
+>>>>>>> Stashed changes
                 redirect('Pemilihan');
             } else {
                 $data['event'] = $this->event_m->getByid($event);
