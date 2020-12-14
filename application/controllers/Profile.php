@@ -46,4 +46,40 @@ class Profile extends CI_Controller
             redirect('Profile/index');
         }
     }
+    public function ganti_profile()
+    {
+        $data['users'] = $this->user_m->getidBY_session();
+
+        $this->template->load('_layout/user', 'profile/ganti_profile', $data);
+    }
+
+    public function updateprofile()
+    {
+        $post = $this->input->post(null, true);
+        $foto = $_FILES['foto'];
+
+        if ($foto) {
+            $config['upload_path'] = './asset/images/foto_user/';
+            $config['allowed_types'] = 'jpeg|jpg|png';
+            $config['max_size']     = '10000';
+            $config['file_name']     = 'foto_users';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('foto')) {
+                $fot = $this->upload->data('file_name');
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+
+        $data = $this->user_m->getidBY_session();
+        $user = $data['id_user'];
+
+        $this->db->set('image', $fot);
+        $this->db->where('id_user', $user);
+        $this->db->update('users');
+
+        $this->session->set_flashdata('success', 'foto berhasil di ubah');
+        redirect('profile');
+    }
 }

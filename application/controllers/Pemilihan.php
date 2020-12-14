@@ -85,13 +85,15 @@ class Pemilihan extends CI_Controller
     {
 
 
-        $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
-        $data['vote'] = $this->vote_m->hasil_vote($id_event);
-        // $data['pie'] = $this->kandidat_m->getByid_event($id_event);
-        // var_dump($data['vote']);
-        // die;
+        $user = $this->vote_m->getid_uservote($id_event);
 
-        $this->template->load('_layout/user', 'pemilihan/hasilvote', $data);
+        if ($user['id_user'] != null) {
+            $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
+            $data['vote'] = $this->vote_m->hasil_vote($id_event);
+            $this->template->load('_layout/user', 'pemilihan/hasilvote', $data);
+        } else {
+            redirect('beranda');
+        }
     }
     public function detail_kandidat()
     {

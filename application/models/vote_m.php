@@ -56,4 +56,10 @@ class vote_m extends CI_Model
         $hasil = $query->result();
         return $hasil;
     }
+
+    public function getid_uservote($id_event)
+    {
+        $query = $this->db->get_where('vote', ['id_event' => $id_event])->row_array();
+        return $query;
+    }
 }
