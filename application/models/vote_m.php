@@ -52,10 +52,7 @@ class vote_m extends CI_Model
     }
     public function hasil_vote($id_event, $id_kandidat)
     {
-        // $query = $this->db->query("SELECT COUNT(id_kandidat) as hasil from vote where id_kandidat = '$id_kandidat' and id_event = '$id_event'");
-        // $hasil = $query->result();
-        // return $hasil;
-        $query = $this->db->query("SELECT *, COUNT(id_kandidat) as hasil_vote FROM vote  WHERE id_event = '$id_event' GROUP BY id_kandidat ASC ");
+        $query = $this->db->query("SELECT *, COUNT(vote.id_kandidat) as hasil_vote FROM vote  JOIN kandidat ON kandidat.id_kandidat=vote.id_kandidat  WHERE vote.id_event = '$id_event'  GROUP BY vote.id_kandidat");
         $hasil = $query->result();
         return $hasil;
     }

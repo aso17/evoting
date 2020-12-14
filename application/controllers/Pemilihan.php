@@ -80,16 +80,15 @@ class Pemilihan extends CI_Controller
         $this->template->load('_layout/user', 'pemilihan/end', $event);
     }
 
-    // public function end()
-    // {
-    //     $this->template->load('_layout/user', 'pemilihan/end');
-    // }
+
     public function hasilvote($id_event, $id_kandidat)
     {
 
 
         $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
         $data['vote'] = $this->vote_m->hasil_vote($id_event, $id_kandidat);
+        // $data['pie'] = $this->kandidat_m->getByid_event($id_event);
+
         // var_dump($data['vote']);
         // die;
 
