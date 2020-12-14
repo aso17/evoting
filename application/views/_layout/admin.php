@@ -127,7 +127,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('Event') ?>"
+                                        <a href="<?= base_url('event/index') ?>"
                                             class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>"
                                             class="nav-link">
                                             <i class="fas fa-tasks"></i>

@@ -29,7 +29,8 @@ class Pemilihan extends CI_Controller
     {
         $user = $this->session->userdata('id');
         $users = $this->user_m->getByid($user);
-
+        // var_dump($users);
+        // die;
         if ($users['tempat_lahir'] != null) {
 
             $user1 = $this->session->userdata('id');
@@ -44,6 +45,8 @@ class Pemilihan extends CI_Controller
                 $this->session->set_flashdata('warning', 'Anda Sudah Pernah Melakukan Pemilihan ' . $ket->nama_event);
                 redirect('Pemilihan');
             } else {
+                $data['event'] = $this->event_m->getByid($event);
+
                 $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($event);
                 $this->template->load('_layout/user', 'pemilihan/vote', $data);
             }
@@ -55,15 +58,17 @@ class Pemilihan extends CI_Controller
     public function proccess_vote($id_event, $id_kandidat)
     {
 
-        $id_user1 = $this->user_m->getidBY_session();
-        $id_user2 = $id_user1['id_user'];
+        $id_user = $this->user_m->getidBY_session();
+        $id_user1 = $id_user['id_user'];
+        $event['event'] = $this->event_m->getByid($id_event);
+        $event['kandidat'] = $this->kandidat_m->getkandidat_Byid($id_kandidat);
 
 
         $vote = "terpilih";
         $data = [
             "id_vote" => uniqid(''),
             "id_event" => $id_event,
-            "id_user" => $id_user2,
+            "id_user" => $id_user1,
             "id_kandidat" => $id_kandidat,
             "status" => $vote,
             "waktu_vote" => date('d F Y, h:i:s A')
@@ -72,19 +77,26 @@ class Pemilihan extends CI_Controller
 
         $this->db->insert('vote', $data);
         $this->session->set_flashdata('success', 'berhasil melakukan voting');
-        redirect('Pemilihan/end');
+        $this->template->load('_layout/user', 'pemilihan/end', $event);
     }
 
-    public function end()
+    // public function end()
+    // {
+    //     $this->template->load('_layout/user', 'pemilihan/end');
+    // }
+    public function hasilvote($id_event, $id_kandidat)
     {
-        $this->template->load('_layout/user', 'pemilihan/end');
+
+
+        $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
+        $data['vote'] = $this->vote_m->hasil_vote($id_event, $id_kandidat);
+        // var_dump($data['vote']);
+        // die;
+
+        $this->template->load('_layout/user', 'pemilihan/hasilvote', $data);
     }
     public function detail_kandidat()
     {
         $this->template->load('_layout/user', 'pemilihan/detail_kandidat');
-    }
-    public function hasilvote()
-    {
-        $this->template->load('_layout/user', 'pemilihan/hasilvote');
     }
 }

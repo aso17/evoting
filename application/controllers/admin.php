@@ -88,7 +88,7 @@ class Admin extends CI_Controller
             redirect('admin/user_log');
         }
     }
-    public function edit_user_log($id_auth = null, $id_user = null)
+    public function edit_user_log($id_auth, $id_user)
     {
         $post = $this->input->post(null, true);
         $this->form_validation->set_rules('role', 'role', 'required');
@@ -100,6 +100,8 @@ class Admin extends CI_Controller
             $post = $this->input->post(null, true);
             $id = $this->user_m->getByid($id_user);
             $user = $id['id_user'];
+            // var_dump($id);
+            // die;
             $this->admin_m->update_user_log($post, $user);
             $this->session->set_flashdata('success', 'role user berhasil di ubah');
             redirect('admin/user_log');

@@ -8,8 +8,14 @@
                         suara anda</p>
                     <hr class="my-4">
                     <p class="lead">Klick untuk melihat hasil perolehan sementara</p>
-                    <a class="btn btn-info btn-sm-6" href=" <?= base_url('pemilihan/hasil_vote') ?>"
+                    <?php foreach ($event as $ev) : ?>
+                    <?php foreach ($kandidat as $kan) : ?>
+                    <a class="btn btn-info btn-sm-6"
+                        href=" <?= base_url('pemilihan/hasilvote/') . $ev->id_event . '/' . $kan['id_kandidat']    ?>"
                         role="button">Lihat</a>
+                    <?php endforeach; ?>
+                    <?php endforeach;
+                    ?>
                 </div>
             </div>
 

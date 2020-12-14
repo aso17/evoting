@@ -85,7 +85,7 @@ class User_m extends CI_Model
     }
     public function getidBY_session()
     {
-        $query = $this->db->get_where('users', ['nik' => $this->session->userdata('nik')])->row_array();
+        $query = $this->db->get_where('users', ['id_user' => $this->session->userdata('id')])->row_array();
         return $query;
     }
 
@@ -101,6 +101,7 @@ class User_m extends CI_Model
 
     public function updateUser()
     {
+        //if ($this->session->userdata('role') == 1) {
         $post = $this->input->post(null, true);
         $foto = $_FILES['foto'];
 
@@ -117,8 +118,10 @@ class User_m extends CI_Model
             }
         }
 
+
         $role = 1;
         $data = [
+
             "nik" => $post['fnik'],
             "nama_lengkap" => $post['nm_lengkap'],
             "tempat_lahir" => $post['tmp_lahir'],
@@ -137,6 +140,28 @@ class User_m extends CI_Model
         ];
         $this->db->where('nik', $post['fnik']);
         $this->db->update('users', $data);
+        // } else {
+        //     $post = $this->input->post(null, true);
+        //     $data = [
+        //         "id_user" => uniqid('us'),
+        //         "nik" => $post['fnik'],
+        //         "nama_lengkap" => $post['nm_lengkap'],
+        //         "tempat_lahir" => $post['tmp_lahir'],
+        //         "tgl_lahir" => $post['tgl_lahir'],
+        //         "no_tlp" => $post['no_tlp'],
+        //         "jenis_kelamin" => $post['jenis_kelamin'],
+        //         "alamat" => $post['alamat'],
+        //         "rt" => $post['rt'],
+        //         "rw" => $post['rw'],
+        //         "kecamatan" => $post['kec'],
+        //         "kelurahan" => $post['kel'],
+        //         "kabupaten" => $post['kab'],
+        //         "agama" => $post['agama']
+
+        //     ];
+        //     $this->db->where('nik', $post['fnik']);
+        //     $this->db->update('users', $data);
+        // }
     }
     public function get_join_auth($id = null)
     {

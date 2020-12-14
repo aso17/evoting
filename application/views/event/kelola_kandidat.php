@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="card mt-3">
                     <div class="card-header bg-info">
-                        <h3 class="card-title">Kandidat <?= $kandidat[0]['keterangan'] ?></h3>
+                        <h3 class="card-title"></h3>
                     </div>
 
                     <!-- /.card-header -->

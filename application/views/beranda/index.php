@@ -44,7 +44,7 @@
             </div>
             <!-- /.col-md-6 -->
             <div class="col-lg-8">
-                <div class="card">
+                <div class="card card-primary card-outline ">
                     <div class="card-header">
                         <h5 class="card-title m-0">Pemilihan yang sedang berlangsung</h5>
                     </div>

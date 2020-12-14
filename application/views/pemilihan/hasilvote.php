@@ -1,34 +1,19 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
      <!-- Content Header (Page header) -->
-     <div class="content-header">
-         <div class="container">
-             <div class="row mb-2">
-                 <div class="col-sm-6 mt-3">
-                     <h1 class="m-0 text-dark">Hasil pemilihan Ketua RT</h1>
-                 </div><!-- /.col -->
-                 <div class="col-sm-6">
 
-                 </div>
-             </div><!-- /.row -->
-         </div><!-- /.container-fluid -->
-     </div>
      <!-- /.content-header -->
      <!-- Main content -->
      <div class="content">
-         <div class="container">
+         <div class="container ">
              <div class="row">
                  <div class="col-lg-12">
                      <!-- PIE CHART -->
-                     <div class="card card-info">
-                         <div class="card-header">
-                             <h3 class="card-title">hasil diagram</h3>
+                     <div class="card card mt-3 card-primary card-outline">
 
-
-                         </div>
                          <div class="card-body">
                              <canvas id="pieChart"
-                                 style="min-height: 300px; height: 300px; max-height: 250px; max-width: 100%;"></canvas>
+                                 style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
                          </div>
                          <!-- /.card-body -->
                      </div>
@@ -37,85 +22,114 @@
                  </div>
              </div>
              <div class="row">
+
+                 <?php
+                    foreach ($kandidat as $kan) :
+
+                    ?>
+
                  <div class="col-lg-3">
                      <div class="card">
-                         <div class="card-header">
-                             <h5 class="text-center"><strong>01</strong></h5>
+                         <div class="card-header ">
+                             <h5 class="text-center"><strong><?= $kan['nomer_urut'] ?></strong></h5>
                          </div>
                          <div class="card-body box-profile">
                              <div class="text-center">
-                                 <img class="profile-user-img img-fluid" style="width: 100%;"
-                                     src="../assets/img/profile1.jpg" alt="User profile picture">
+                                 <img class="profile-user-img img-fluid" style="width: 150px; height:150px;"
+                                     src="<?= base_url() . 'asset/images/kandidat/' . $kan['foto'] ?>"
+                                     alt="User profile picture">
                              </div>
 
-                             <h3 class="profile-username text-center mt-3">Dadang Sudrajat</h3>
+                             <h3 class="profile-username text-center mt-3"><?= $kan['nama_lengkap'] ?></h3>
 
-                             <p class="text-muted text-center">calon ketuan RW</p>
+                             <p class="text-muted text-center"><?= $kan['keterangan'] ?></p>
 
+                             <button type="button" class="btn btn-primary mx-5">
+                                 Jumlah vote <span class="badge badge-light">
+                                     <?php foreach ($vote as $vt) :
+                                                if ($vt->id_kandidat == $kan['id_kandidat']) {
+                                                    echo $vt->hasil_vote;
+                                                }
+                                            endforeach;
+                                            ?>
+                                 </span>
+                                 <span class="sr-only"></span>
+                             </button>
                          </div>
-                     </div><!-- /.card -->
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="card">
-                         <div class="card-header">
-                             <h5 class="text-center"><strong>02</strong></h5>
-                         </div>
-                         <div class="card-body box-profile">
-                             <div class="text-center">
-                                 <img class="profile-user-img img-fluid" style="width: 100%;"
-                                     src="../assets/img/profile2.jpg" alt="User profile picture">
-                             </div>
-
-                             <h3 class="profile-username text-center mt-3">Maman Sudrajat</h3>
-
-                             <p class="text-muted text-center">calon ketuan RW</p>
-
-                         </div>
-                     </div><!-- /.card -->
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="card">
-                         <div class="card-header">
-                             <h5 class="text-center"><strong>03</strong></h5>
-                         </div>
-                         <div class="card-body box-profile">
-                             <div class="text-center">
-                                 <img class="profile-user-img img-fluid" style="width: 100%;"
-                                     src="../assets/img/profile3.jpg" alt="User profile picture">
-                             </div>
-
-                             <h3 class="profile-username text-center mt-3">Selena Sudrajat</h3>
-
-                             <p class="text-muted text-center">calon ketuan RW</p>
-
-                         </div>
-                     </div><!-- /.card -->
-                 </div>
-                 <div class="col-lg-3">
-                     <div class="card">
-                         <div class="card-header">
-                             <h5 class="text-center"><strong>04</strong></h5>
-                         </div>
-                         <div class="card-body box-profile">
-                             <div class="text-center">
-                                 <img class="profile-user-img img-fluid" style="width: 100%;"
-                                     src="../assets/img/profile4.jpg" alt="User profile picture">
-                             </div>
-
-                             <h3 class="profile-username text-center mt-3">Rina Sudrajat</h3>
-
-                             <p class="text-muted text-center">calon ketuan RW</p>
-
-                         </div>
-                     </div><!-- /.card -->
+                     </div>
                  </div>
 
-
+                 <?php endforeach; ?>
              </div>
              <!-- /.row -->
          </div><!-- /.container-fluid -->
      </div>
      <!-- /.content -->
  </div>
+ <script>
+$(function() {
+
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var donutData = {
+        labels:
+
+            [
+                <?php foreach ($kandidat as $kan) : ?>
+
+                '<?= $kan['nama_lengkap'] ?>',
+
+                <?php endforeach; ?>
+            ],
+
+        datasets: [{
+            data: [
+                <?php foreach ($vote as $vt) : ?>
+                <?= $vt->hasil_vote ?>,
+                <?php endforeach; ?>
+
+
+
+
+            ],
+            backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc',
+
+            ],
+        }]
+    }
+
+    var donutOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(pieChartCanvas, {
+        type: 'doughnut',
+        data: donutData,
+        options: donutOptions
+    })
+    var pieData = donutData;
+    var pieOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+    })
+
+
+
+})
+ </script>
  <!-- /.content-wrapper
+
+ 
  

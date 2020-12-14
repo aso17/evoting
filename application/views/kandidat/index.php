@@ -2,26 +2,24 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-11">
+            <div class="col-lg-12">
                 <div class="card mt-3">
-                    <div class="card-header">
-                        <h3 class="card-title">Daftar Kandidat</h3>
+                    <div class="card-header bg-info">
+                        <h3 class="card-title font-weight-bold">Daftar Kandidat</h3>
                     </div>
 
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
-                                href="<?= base_url('Kandidat/tambah_kandidat') ?>" class="text-light   ">Tambah
-                                Kandidat</a></button>
+
                         <table id="nik" class="table  table-striped">
                             <thead>
                                 <tr>
                                     <th style="width: 4%;">No</th>
-                                    <th>Mengikuti event</th>
-                                    <th>Nama lengkap kandidat</th>
-                                    <th class="text-center">Foto Kndidat</th>
+                                    <th>event</th>
+                                    <th>Nama kandidat</th>
+                                    <th class="text-center">Foto</th>
                                     <th>Pekerjaan</th>
-                                    <th style="width:200px ;">Pendidikan terahir</th>
+                                    <th>Pendidikan terahir</th>
                                     <th style="width:200px ;">Status jabatan</th>
 
                                     <th style="width: 15%;" class="text-center">Aksi</th>
@@ -36,7 +34,8 @@
                                     <td><?= $kand['nomer_urut'] ?></td>
                                     <td><?= $kand['nama_lengkap'] ?></td>
                                     <td><img src="<?= base_url() . 'asset/images/kandidat/' . $kand['foto']; ?>"
-                                            alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
+                                            alt="foto kandidat" width="70px" height="70px"
+                                            class="rounded mx-auto d-block"></td>
                                     <td><?= $kand['pekerjaan'] ?></td>
                                     <td><?= $kand['pendidikan_terahir'] ?></td>
                                     <td><?= $kand['keterangan'] ?></td>

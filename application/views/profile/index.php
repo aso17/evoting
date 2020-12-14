@@ -24,7 +24,8 @@
                         <div class="card-body box-profile">
                             <div class="row">
                                 <div class="col-lg-3 d-flex py-3">
-                                    <img class="profile-user-img img-fluid img-circle" style="width: 200px;"
+                                    <img class="profile-user-img img-fluid img-circle"
+                                        style="width: 200px; height:200px;"
                                         src="<?= base_url() . '/asset/images/foto_user/' . $users['image']; ?>"
                                         alt="User profile picture">
                                 </div>

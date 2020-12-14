@@ -27,6 +27,15 @@ class kandidat_m extends CI_Model
 
     public function getAll_kandidat_Byid($id = null)
     {
+        // $this->db->select('*');
+        // $this->db->from('kandidat');
+        // $this->db->where('kandidat.id_event', $id);
+        // $this->db->join('vote', 'vote.id_kandidat = kandidat.id_kandidat');
+        // $this->db->group_by('vote.id_kandidat');
+
+
+        // $query = $this->db->get()->result();
+        // return $query;
         $query = $this->db->get_where('kandidat', ['id_event' => $id])->result_array();
         return $query;
     }
@@ -74,5 +83,10 @@ class kandidat_m extends CI_Model
 
 
         $this->db->insert('kandidat', $this);
+    }
+    public function getkandidat_Byid($id = null)
+    {
+        $query = $this->db->get_where('kandidat', ['id_kandidat' => $id])->result_array();
+        return $query;
     }
 }

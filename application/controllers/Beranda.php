@@ -21,11 +21,6 @@ class Beranda extends CI_Controller
         $data['event'] = $this->event_m->getAll_event();
         $this->template->load('_layout/user', 'beranda/index', $data);
     }
-
-    public function hasil_vote()
-    {
-        $this->template->load('_layout/user', 'pemilihan/hasil_vote');
-    }
 }
 
 /* End of file Beranda.php */

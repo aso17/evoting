@@ -19,7 +19,7 @@
          <div class="container">
              <div class="row">
                  <div class="col-lg-12">
-                     <div class="card">
+                     <div class="card card-primary card-outline">
                          <div class="card-header">
                              <h5>Pemilihan yang sedang berlangsung</h5>
                          </div>
