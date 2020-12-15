@@ -23,11 +23,13 @@
                                 <div class="col">
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
-                                            <a href="<?= base_url('Profile/update_user') . '/' . $users['id_user']; ?>">Lengkapi
+                                            <a href="<?= base_url('Profile/update_user') . '/' . $users['id_user']; ?>"
+                                                class="text-info font-weight-bold">Lengkapi
                                                 berkas</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <a href="<?= base_url('profile/ganti_profile/') . $users['id_user'] ?>">Ubah
+                                            <a href="<?= base_url('profile/ganti_profile/') . $users['id_user'] ?>"
+                                                class="text-info font-weight-bold">Ubah
                                                 foto profile</a>
                                         </li>
 

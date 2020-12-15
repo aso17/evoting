@@ -8,7 +8,7 @@
                     <h1 class="m-0 text-dark">Profile</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
-                    <button class="btn btn-primary btn-sm float-right">
+                    <button class="btn btn-info btn-sm float-right">
                         <a href="<?= base_url('Profile/pengaturan') ?>" class="text-light">Pengaturan</a>
                     </button>
                 </div>

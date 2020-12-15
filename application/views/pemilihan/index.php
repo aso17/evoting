@@ -90,7 +90,7 @@
 
                                          <td>
                                              <a href="<?= base_url('pemilihan/hasilvote/') . $vt->id_event ?>"
-                                                 class="btn btn-primary btn-sm float-right mr-3">Lihat Hasil</a>
+                                                 class="btn btn-info btn-sm float-right mr-3">Lihat Hasil</a>
                                          </td>
 
 

@@ -11,6 +11,14 @@
                     <div class="card card mt-3 card-primary card-outline">
 
                         <div class="card-body">
+                            <?php foreach ($event as $v) : ?>
+                            <h5 class="list-group-item list-group-item-action list-group-item text-info">
+                                <?= $v->nama_event ?>
+                            </h5>
+
+                            <?php endforeach; ?>
+                            <a href="<?= base_url('pemilihan') ?>" class="btn btn-info btn-sm float-right"><i
+                                    class="fas fa-chevron-circle-left pr-1"></i>kembali</a>
                             <canvas id="pieChart"
                                 style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
                         </div>
@@ -43,7 +51,7 @@
 
                             <p class="text-muted text-center"><?= $kan['keterangan'] ?></p>
 
-                            <button type="button" class="btn btn-primary mx-5">
+                            <button type="button" class="btn btn-info ml-5">
                                 Jumlah vote <span class="badge badge-light">
                                     <?php foreach ($vote as $vt) :
                                             if ($vt->id_kandidat == $kan['id_kandidat']) {
