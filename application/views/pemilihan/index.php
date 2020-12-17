@@ -52,8 +52,9 @@
                                          <td><?= $ev->tgl_berahir; ?></td>
                                          <td><?= $ev->priode; ?></td>
 
-                                         <td><button class="btn btn-info btn-sm" type="submit" name=""><i
-                                                     class="fa fa-eye"></i></button></td>
+                                         <td> <a href="<?= base_url('pemilihan/detail/') . $ev->id_event ?>">
+                                                 <button class="btn btn-info btn-sm" type="submit" name=""><i
+                                                         class="fa fa-eye"></i></button></a></td>
                                      </tr>
 
                                      <?php endforeach; ?>

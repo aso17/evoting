@@ -89,4 +89,14 @@ class kandidat_m extends CI_Model
         $query = $this->db->get_where('kandidat', ['id_kandidat' => $id])->result_array();
         return $query;
     }
+    public function get_join_event($id_event)
+    {
+        $this->db->select('*');
+        $this->db->from('kandidat');
+        $this->db->join('event', 'event.id_event=kandidat.id_event');
+        $this->db->where('kandidat.id_event', $id_event);
+        $this->db->where('event.id_event', $id_event);
+        $query = $this->db->get()->result();
+        return $query;
+    }
 }

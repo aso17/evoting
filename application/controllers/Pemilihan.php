@@ -25,6 +25,13 @@ class Pemilihan extends CI_Controller
             $this->template->load('_layout/user', 'pemilihan/index', $data);
         }
     }
+    public function detail($id_event)
+    {
+        $data['kandidat'] = $this->kandidat_m->get_join_event($id_event);
+        $data['event'] = $this->event_m->getByid($id_event);
+
+        $this->template->load('_layout/user', 'pemilihan/detail_pemilihan', $data);
+    }
     public function vote($event)
     {
         $user = $this->session->userdata('id');
