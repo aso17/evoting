@@ -5,20 +5,25 @@
             <div class="col-lg-12">
                 <div class="card mt-3">
                     <div class="card-header bg-info">
-                        <h3 class="card-title"></h3>
+                        <?php foreach ($event as $ev) : ?>
+                        <h3 class="card-title"><?= $ev->nama_event ?></h3>
+                        <?php endforeach; ?>
                     </div>
 
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <a href="<?= base_url('event') ?>" class="btn btn-info btn-sm float-right ml-4"><i
+                                class="fas fa-chevron-circle-left pr-1"></i>kembali</a>
                         <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
                                 href="<?= base_url('Kandidat/tambah_kandidat') ?>" class="text-light   ">Tambah
                                 Kandidat</a></button>
-                        <table id="nik" class="table  table-striped">
+                        <table id="kandidat" class="table  table-striped">
                             <thead>
                                 <tr>
                                     <th style="width: 4%;">No</th>
                                     <th>Nomer urut</th>
                                     <th>Nama lengkap</th>
+                                    <th>Tempat lahir</th>
                                     <th>Tgl lahir</th>
                                     <th class="text-center">Foto</th>
 
@@ -26,7 +31,7 @@
 
 
 
-                                    <th style="width: 15%;" class="text-center">Aksi</th>
+                                    <th style="width:7% ;" colspan="2" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +42,7 @@
                                     <td> <?= $i++; ?> </td>
                                     <td><?= $kand['nomer_urut'] ?></td>
                                     <td><?= $kand['nama_lengkap'] ?></td>
+                                    <td><?= $kand['tempat_lahir'] ?></td>
                                     <td><?= $kand['tgl_lahir'] ?></td>
                                     <td><img src="<?= base_url() . 'asset/images/kandidat/' . $kand['foto']; ?>"
                                             alt="foto kandidat" width="70px" class="rounded mx-auto d-block"></td>
@@ -45,14 +51,13 @@
 
 
                                     <td>
-                                        <button class="badge badge-danger   float-right  ml-2"
-                                            onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
-                                        <button class="badge badge-info float-right ml-2"><a
+                                        <button class="badge badge-danger float-right ml-2"
+                                            onclick="deleteConfirm('<?= base_url() . 'kandidat/delete/' . $kand['id_kandidat'] ?>')"><i
+                                                class="fa fa-trash-alt"></i></button>
+                                        <button class="badge badge-info ml-2"><a
                                                 href="<?= base_url('Kandidat/ubah') . '/' . $kand['id_kandidat']; ?>"
                                                 class=" text-light "><i class="fa fa-eye"></i></a></button>
-                                        <button class="badge badge-primary float-right  ml-2"><a
-                                                href=" <?= base_url('Kandidat/ubah') . '/' . $kand['id_kandidat'] ?>"
-                                                class=" text-light "><i class="fa fa-pen"></i></a></button>
+
 
                                     </td>
                                 </tr>
@@ -96,4 +101,29 @@ function deleteConfirm(url) {
     $('#btn-delete').attr('href', url);
     $('#deleteModal').modal();
 }
+</script>
+<script>
+$(function() {
+    // $("#pemilih").DataTable({
+    //     "responsive": true,
+    //     "autoWidth": false,
+    //     "autoWidth": false,
+    // });
+    $("#kandidat").DataTable({
+
+        "responsive": true,
+        "autoWidth": true,
+        "info": false,
+        "lengthChange": false,
+        "scrollY": 300,
+        "paging": false,
+        dom: 'Bfrtip',
+        buttons: [{
+            text: 'Tambah pemilih',
+            action: function() {
+                window.location.href = "user/tambah"
+            }
+        }]
+    });
+});
 </script>

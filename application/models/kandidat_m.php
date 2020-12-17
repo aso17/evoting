@@ -20,8 +20,11 @@ class kandidat_m extends CI_Model
 
     public function getAll()
     {
-        $query = $this->db->get('kandidat');
-        return $query->result_array();
+        $this->db->select('*');
+        $this->db->from('kandidat');
+        $this->db->join('event', 'event.id_event=kandidat.id_event');
+        $query = $this->db->get()->result_array();
+        return $query;
     }
 
 
@@ -98,5 +101,9 @@ class kandidat_m extends CI_Model
         $this->db->where('event.id_event', $id_event);
         $query = $this->db->get()->result();
         return $query;
+    }
+    public function hapus($id_kandidat)
+    {
+        return $this->db->delete('kandidat', ['id_kandidat' => $id_kandidat]);
     }
 }

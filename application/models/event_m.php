@@ -33,10 +33,14 @@ class event_m extends CI_Model
         $result = $query->result();
         return $result;
     }
-    public function getByid_row($id_event)
+    // public function getByid_row($id_event)
+    // {
+    //     $query = $this->db->get_where('event', ['id_event' => $id_event]);
+    //     $result = $query->result();
+    //     return $result;
+    // }
+    public function hapus($id_event)
     {
-        $query = $this->db->get_where('event', ['id_event' => $id_event]);
-        $result = $query->result();
-        return $result;
+        return $this->db->delete('event', ['id_event' => $id_event]);
     }
 }

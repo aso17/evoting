@@ -34,7 +34,11 @@
                                     <th>Tgl berahir</th>
 
                                     <th>Priode </th>
-                                    <th class="text-right">Kelola Kandidat</th>
+
+                                    <th class="" colspan="2">Kelola Kandidat</th>
+
+
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,9 +55,15 @@
                                     <td><?= $ev['priode']; ?></td>
 
 
-                                    <td><button class="btn btn-outline-info float-right"> <a
-                                                href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><i
-                                                    class="fas fa-directions"></i></a></button>
+
+                                    <td>
+                                        <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
+                                                class="btn btn-outline-info ml-2 "><i
+                                                    class="fas fa-directions"></i></button></a>
+                                    </td>
+                                    <td> <button class="btn btn-outline-danger"
+                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
+                                                class="fa fa-trash-alt"></i></button>
                                     </td>
 
 
@@ -109,4 +119,36 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
+<!--Delete Confirmation-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-center">
+                        <i class="fa  fa-exclamation-triangle" style="font-size: 70px; color:red;"></i>
+                    </div>
+                    <div class="col-9 pt-2">
+                        <h5>Apakah anda yakin?</h5>
+                        <span>Data yang dihapus tidak akan bisa dikembalikan.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
+                <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirm -->
+<script type="text/javascript">
+function deleteConfirm(url) {
+    $('#btn-delete').attr('href', url);
+    $('#deleteModal').modal();
+}
+</script>
 <!-- /.content -->

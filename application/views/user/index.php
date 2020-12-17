@@ -31,7 +31,7 @@
                                 <tr>
                                     <th style="width: 4%;">No</th>
                                     <th>NIK</th>
-                                    <th class="text-center">Aksi</th>
+                                    <th style="width: 7%;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,8 +42,9 @@
                                     <td><?= $i++ ?>.</td>
                                     <td><?= $dt->nik ?></td>
                                     <td>
-                                        <button class="btn btn-danger btn-sm float-right"
-                                            onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')">hapus</button>
+                                        <button class="btn btn-outline-danger btn-sm"
+                                            onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')"><i
+                                                class="fa fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                                 <?php } ?>
