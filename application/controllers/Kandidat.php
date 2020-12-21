@@ -54,4 +54,10 @@ class Kandidat extends CI_Controller
             redirect('Kandidat/index');
         }
     }
+    public function delete($id_kandidat)
+    {
+        $this->kandidat_m->hapus($id_kandidat);
+        $this->session->set_flashdata('success', 'Data kandidat berhasil di hapus');
+        redirect('Kandidat');
+    }
 }

@@ -54,10 +54,14 @@
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <a href="<?= base_url('Pemilihan/vote/') . $ev['id_event'] ?>"
                                     class="link"><?= $ev['nama_event'] ?></a>
-                                <a href=""><span class="badge badge-primary badge-pill">?</span></a>
+                                <a href="<?= base_url('beranda/detail_event/') . $ev['id_event'] ?>"
+                                    class="btn btn-info btn-sm rounded-pill"><i class="fas fa-question-circle"></i></a>
                             </li>
+
                             <?php endforeach; ?>
+
                         </ul>
+
                     </div>
                 </div>
             </div>

@@ -8,21 +8,29 @@
                         <h3 class="card-title font-weight-bold">Daftar Kandidat</h3>
                     </div>
 
+
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <div class="row pb-4">
+                            <div class="col">
+                                <a href="<?= base_url('event') ?>" class="btn btn-info btn-sm float-right ml-4"><i
+                                        class="fas fa-chevron-circle-left pr-1"></i>kembali</a>
+                            </div>
+                        </div>
 
-                        <table id="nik" class="table  table-striped">
+                        <table id="kandidat" class="table  table-striped">
                             <thead>
                                 <tr>
                                     <th style="width: 4%;">No</th>
-                                    <th>event</th>
+                                    <th>No urut</th>
+                                    <th>Mengikuti Event</th>
                                     <th>Nama kandidat</th>
                                     <th class="text-center">Foto</th>
                                     <th>Pekerjaan</th>
                                     <th>Pendidikan terahir</th>
                                     <th style="width:200px ;">Status jabatan</th>
 
-                                    <th style="width: 15%;" class="text-center">Aksi</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,6 +40,7 @@
                                 <tr>
                                     <td> <?= $i++; ?> </td>
                                     <td><?= $kand['nomer_urut'] ?></td>
+                                    <td><?= $kand['nama_event'] ?></td>
                                     <td><?= $kand['nama_lengkap'] ?></td>
                                     <td><img src="<?= base_url() . 'asset/images/kandidat/' . $kand['foto']; ?>"
                                             alt="foto kandidat" width="70px" height="70px"
@@ -39,17 +48,7 @@
                                     <td><?= $kand['pekerjaan'] ?></td>
                                     <td><?= $kand['pendidikan_terahir'] ?></td>
                                     <td><?= $kand['keterangan'] ?></td>
-                                    <td>
-                                        <button class="badge badge-danger   float-right  ml-2"
-                                            onclick="deleteConfirm('')"><i class="fa fa-trash-alt"></i></button>
-                                        <button class="badge badge-info float-right ml-2"><a
-                                                href="<?= base_url('Kandidat/ubah') . '/' . $kand['id_kandidat']; ?>"
-                                                class=" text-light "><i class="fa fa-eye"></i></a></button>
-                                        <button class="badge badge-primary float-right  ml-2"><a
-                                                href=" <?= base_url('Kandidat/ubah') . '/' . $kand['id_kandidat'] ?>"
-                                                class=" text-light "><i class="fa fa-pen"></i></a></button>
 
-                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -91,4 +90,19 @@ function deleteConfirm(url) {
     $('#btn-delete').attr('href', url);
     $('#deleteModal').modal();
 }
+</script>
+<script>
+$(function() {
+
+    $("#kandidat").DataTable({
+
+        "responsive": true,
+        "autoWidth": true,
+        "info": true,
+        "lengthChange": false,
+
+        "paging": true,
+
+    });
+});
 </script>

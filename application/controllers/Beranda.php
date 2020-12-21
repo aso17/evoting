@@ -13,13 +13,18 @@ class Beranda extends CI_Controller
 
     public function index()
     {
+
         $user = $this->session->userdata('id');
         $data['user'] = $this->user_m->getByid($user);
-        // var_dump($data);
-        // die;
 
         $data['event'] = $this->event_m->getAll_event();
         $this->template->load('_layout/user', 'beranda/index', $data);
+    }
+    public function detail_event($id_event)
+    {
+        $data['event'] = $this->event_m->getByid($id_event);
+
+        $this->template->load('_layout/user', 'beranda/detail_event', $data);
     }
 }
 

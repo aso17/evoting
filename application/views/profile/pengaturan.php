@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Pengaturan</h1>
                 </div><!-- /.col -->
-               
+
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -19,16 +19,20 @@
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="row">
-                                
+
                                 <div class="col">
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
-                                           <a href="<?=base_url('Profile/update_user').'/'.$users['id_user'];?>">Lengkapi berkas</a>
+                                            <a href="<?= base_url('Profile/update_user') . '/' . $users['id_user']; ?>"
+                                                class="text-info font-weight-bold">Lengkapi
+                                                berkas</a>
                                         </li>
                                         <li class="list-group-item">
-                                           <a href="http://">Ubah foto profile</a>
+                                            <a href="<?= base_url('profile/ganti_profile/') . $users['id_user'] ?>"
+                                                class="text-info font-weight-bold">Ubah
+                                                foto profile</a>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                             </div>

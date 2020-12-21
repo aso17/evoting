@@ -25,20 +25,23 @@ class Pemilihan extends CI_Controller
             $this->template->load('_layout/user', 'pemilihan/index', $data);
         }
     }
+    public function detail($id_event)
+    {
+        $data['kandidat'] = $this->kandidat_m->get_join_event($id_event);
+        $data['event'] = $this->event_m->getByid($id_event);
+
+        $this->template->load('_layout/user', 'pemilihan/detail_pemilihan', $data);
+    }
     public function vote($event)
     {
         $user = $this->session->userdata('id');
         $users = $this->user_m->getByid($user);
-        // var_dump($users);
-        // die;
+
         if ($users['tempat_lahir'] != null) {
 
             $user1 = $this->session->userdata('id');
             $has_vote = $this->vote_m->getByIdEventAndUser($event, $user1);
-            // var_dump($has_vote);
-            // die;
-            // $id_vote = $has_vote['id_vote'];
-            // $vote = $this->vote_m->getid_vote($id_vote);
+
 
             $ket = $this->event_m->getByid_event($event);
 
@@ -85,13 +88,17 @@ class Pemilihan extends CI_Controller
     {
 
 
-        $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
-        $data['vote'] = $this->vote_m->hasil_vote($id_event);
-        // $data['pie'] = $this->kandidat_m->getByid_event($id_event);
-        // var_dump($data['vote']);
-        // die;
+        $user = $this->vote_m->getid_uservote($id_event);
 
-        $this->template->load('_layout/user', 'pemilihan/hasilvote', $data);
+        if ($user['id_user'] != null) {
+            $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
+            $data['vote'] = $this->vote_m->hasil_vote($id_event);
+            $data['event'] = $this->event_m->getByid($id_event);
+
+            $this->template->load('_layout/user', 'pemilihan/hasilvote', $data);
+        } else {
+            redirect('beranda');
+        }
     }
     public function detail_kandidat()
     {
