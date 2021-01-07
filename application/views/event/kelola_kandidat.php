@@ -17,7 +17,7 @@
                         <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
                                 href="<?= base_url('Kandidat/tambah_kandidat') ?>" class="text-light   ">Tambah
                                 Kandidat</a></button>
-                        <table id="kandidat" class="table  table-striped">
+                        <table id="nik" class="table  table-striped">
                             <thead>
                                 <tr>
                                     <th style="width: 4%;">No</th>
@@ -101,29 +101,4 @@ function deleteConfirm(url) {
     $('#btn-delete').attr('href', url);
     $('#deleteModal').modal();
 }
-</script>
-<script>
-$(function() {
-    // $("#pemilih").DataTable({
-    //     "responsive": true,
-    //     "autoWidth": false,
-    //     "autoWidth": false,
-    // });
-    $("#kandidat").DataTable({
-
-        "responsive": true,
-        "autoWidth": true,
-        "info": false,
-        "lengthChange": false,
-        "scrollY": 300,
-        "paging": false,
-        dom: 'Bfrtip',
-        buttons: [{
-            text: 'Tambah pemilih',
-            action: function() {
-                window.location.href = "user/tambah"
-            }
-        }]
-    });
-});
 </script>
