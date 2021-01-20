@@ -42,7 +42,7 @@ class Kandidat extends CI_Controller
         $validation->set_rules('misi', 'Misi', 'trim|required');
 
         if ($validation->run() == false) {
-            $data['event'] = $this->event_m->getAllevent();
+            $data['event'] = $this->event_m->getAll_event();
             $this->template->load('_layout/admin', 'kandidat/tambah_kandidat', $data);
         } else {
 

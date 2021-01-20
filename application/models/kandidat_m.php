@@ -30,16 +30,13 @@ class kandidat_m extends CI_Model
 
     public function getAll_kandidat_Byid($id = null)
     {
-        // $this->db->select('*');
-        // $this->db->from('kandidat');
-        // $this->db->where('kandidat.id_event', $id);
-        // $this->db->join('vote', 'vote.id_kandidat = kandidat.id_kandidat');
-        // $this->db->group_by('vote.id_kandidat');
+        $this->db->select('*');
+        $this->db->from('kandidat');
+        $this->db->where('kandidat.id_event', $id);
+        $this->db->join('event', 'event.id_event = kandidat.id_event');
 
 
-        // $query = $this->db->get()->result();
-        // return $query;
-        $query = $this->db->get_where('kandidat', ['id_event' => $id])->result_array();
+        $query = $this->db->get()->result_array();
         return $query;
     }
     public function getByid_event($kand = null)

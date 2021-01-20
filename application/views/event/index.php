@@ -16,7 +16,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-info">
                         <h4>Daftar Event Desa Kadujaya</h4>
@@ -35,7 +35,7 @@
 
                                     <th>Priode </th>
 
-                                    <th class="" colspan="2">Kelola Kandidat</th>
+                                    <th class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
 
 
 
@@ -58,10 +58,10 @@
 
                                     <td>
                                         <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-outline-info ml-2 "><i
+                                                class="btn btn-outline-info  "><i
                                                     class="fas fa-directions"></i></button></a>
                                     </td>
-                                    <td> <button class="btn btn-outline-danger"
+                                    <td> <button class="btn btn-outline-danger mr-2"
                                             onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
                                     </td>
@@ -75,47 +75,7 @@
                 </div><!-- /.card -->
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Pemilihan yang sedang berlangsung</h5>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>Pemilihan</th>
-                                    <th>Tgl Memilih</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Pemilihan ketua RW kadujaya 2020</td>
-                                    <td>20 Oktober 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Pemilihan ketua RT</td>
-                                    <td>29 Oktober 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Pemilihan ketua DKM</td>
-                                    <td>29 Oktober 2020</td>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Pemilihan ketua karang taruna</td>
-                                    <td>11 November 2020</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div><!-- /.card -->
-            </div>
-        </div>
+
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>

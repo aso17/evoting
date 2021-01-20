@@ -21,14 +21,14 @@
                         <table id="kandidat" class="table  table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width: 4%;">No</th>
+                                    <th>No</th>
                                     <th>No urut</th>
-                                    <th>Mengikuti Event</th>
-                                    <th>Nama kandidat</th>
+                                    <th>Event</th>
+                                    <th>Nama lengkap</th>
                                     <th class="text-center">Foto</th>
                                     <th>Pekerjaan</th>
                                     <th>Pendidikan terahir</th>
-                                    <th style="width:200px ;">Status jabatan</th>
+
 
 
                                 </tr>
@@ -47,7 +47,7 @@
                                             class="rounded mx-auto d-block"></td>
                                     <td><?= $kand['pekerjaan'] ?></td>
                                     <td><?= $kand['pendidikan_terahir'] ?></td>
-                                    <td><?= $kand['keterangan'] ?></td>
+
 
                                 </tr>
                                 <?php endforeach; ?>
@@ -97,9 +97,9 @@ $(function() {
     $("#kandidat").DataTable({
 
         "responsive": true,
-        "autoWidth": true,
+        "autoWidth": false,
         "info": true,
-        "lengthChange": false,
+        "lengthChange": true,
 
         "paging": true,
 

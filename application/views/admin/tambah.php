@@ -106,7 +106,8 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info  "><i
                                             class="fas fa-paper-plane"></i>Save</button>
-                                    <button type="submit" class="btn btn-danger float-right">Cancel</button>
+                                    <a href="<?= base_url('admin/user_log') ?>">
+                                        <button type="button" class="btn btn-danger float-right">Cancel</button></a>
                                 </div>
 
                             </div>

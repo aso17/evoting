@@ -35,6 +35,8 @@ class Event  extends CI_Controller
     public function kelola_kandidat($id_event = null)
     {
         $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
+        // var_dump($data['kandidat']);
+        // die;
         $data['event'] = $this->event_m->getByid($id_event);
         $this->template->load('_layout/admin', 'event/kelola_kandidat', $data);
     }

@@ -31,7 +31,7 @@
 
 
 
-                                    <th style="width:7% ;" colspan="2" class="text-center">Aksi</th>
+                                    <th style="width:15%;" colspan="" class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,13 +50,24 @@
 
 
 
-                                    <td>
-                                        <button class="badge badge-danger float-right ml-2"
+                                    <td class="float-right">
+                                        <button class="btn btn-info mr-2" id="detail-kandidat" data-toggle="modal"
+                                            data-target="#modal-detail" data-nomer="<?= $kand['nomer_urut'] ?>"
+                                            data-nama-l="<?= $kand['nama_lengkap'] ?>" data-pict="<?= $kand['foto'] ?>"
+                                            data-tempat-lahir="<?= $kand['tempat_lahir'] ?>"
+                                            data-tgl-lahir="<?= date('l, d F Y', strtotime($kand['tgl_lahir']))  ?>"
+                                            data-pekerjaan="<?= $kand['pekerjaan'] ?>"
+                                            data-pendidikan="<?= $kand['pendidikan_terahir'] ?>"
+                                            data-pengalaman="<?= $kand['pengalaman'] ?>"
+                                            data-ket="<?= $kand['keterangan'] ?>" data-priode="<?= $kand['priode'] ?>"
+                                            data-event="<?= $kand['nama_event'] ?>" data-visi="<?= $kand['visi'] ?>"
+                                            data-misi="<?= $kand['misi'] ?>">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-danger sm mr-2"
                                             onclick="deleteConfirm('<?= base_url() . 'kandidat/delete/' . $kand['id_kandidat'] ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
-                                        <button class="badge badge-info ml-2"><a
-                                                href="<?= base_url('Kandidat/ubah') . '/' . $kand['id_kandidat']; ?>"
-                                                class=" text-light "><i class="fa fa-eye"></i></a></button>
+
 
 
                                     </td>
@@ -94,6 +105,114 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modal-detail" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable  lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Detail Kandidat</h4>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img id="gam" class="profile-user-img img-fluid" style="width:200px; height:200px;" src=""
+                                alt="User profile picture">
+                        </div>
+                        <strong>
+                            <p class="text-center mt-2" id="no"></p>
+                        </strong>
+                        <p class="text-center mt-2" id="calon"></p>
+                    </div>
+
+                </div>
+                <ul class="list-group">
+
+                    <li class="list-group-item mt-0">
+                        <p id="nm"></p>
+                    </li>
+
+                    <li class="list-group-item">
+                        <p id="tmp_lahir"></p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p id="pekerjaan"></p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="pendi"></p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="pengalaman"></p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="ev"></p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="prio"></p>
+                    </li>
+
+
+                    <div class="row mt-2">
+                        <div class="col-lg-6 ">
+
+                            <h5 class=""><strong>visi</strong></h5>
+
+                            <P id="visi" class="list-group-item"></P>
+                        </div>
+                        <div class="col-lg-6 ">
+
+                            <h5 class=""> <strong>misi</strong></h5>
+
+                            <p id="misi" class="list-group-item"></p>
+                        </div>
+                    </div>
+                </ul>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $(document).on('click', '#detail-kandidat', function() {
+        const no_urut = $(this).data('nomer');
+        const nama = $(this).data('nama-l');
+        const foto = $(this).data('pict');
+        const tempatlahir = $(this).data('tempat-lahir');
+        const tgllahir = $(this).data('tgl-lahir');
+        const pekerjaan = $(this).data('pekerjaan');
+        const pendidikan = $(this).data('pendidikan');
+        const pengalaman = $(this).data('pengalaman');
+        const cal = $(this).data('ket');
+        const prid = $(this).data('priode');
+        const eve = $(this).data('event');
+        const visi = $(this).data('visi');
+        const misi = $(this).data('misi');
+        $('#no').text(no_urut);
+        $('#nm').text(nama);
+        $('#gam').attr('src', '<?= base_url('asset/images/kandidat/') ?>' + foto);
+        $('#tmp_lahir').text(tempatlahir + ',' +
+            tgllahir);
+        //$('#tgl').text(tgllahir);
+        $('#pekerjaan').text(
+            pekerjaan);
+        $('#pendi').text(pendidikan);
+        $('#pengalaman').text(pengalaman);
+        $('#prio').text(prid);
+        $('#calon').text(cal);
+        $('#ev').text(eve);
+        $(
+            '#visi').text(visi);
+        $('#misi').text(misi);
+        console.log(gam);
+
+    })
+})
+</script>
 
 <!-- Delete Confirm -->
 <script type="text/javascript">
