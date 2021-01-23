@@ -61,7 +61,7 @@
                     <div class="card-footer">
                         <button type="submit" name="submit" class="btn btn-info"><i
                                 class="fas fa-paper-plane"></i>Save</button>
-                        <a href="<?= base_url('pemilihan') ?>"> <button type="button"
+                        <a href="<?= base_url('event') ?>"> <button type="button"
                                 class="btn btn-danger float-right">Cancel</button></a>
 
                     </div>

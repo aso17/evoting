@@ -76,8 +76,8 @@
             <!-- Brand Logo -->
             <a href="<?= base_url('dashboard') ?>" class="brand-link">
                 <img src=" <?= base_url() . 'asset/images/logo.png' ?>" alt="AdminLTE Logo"
-                    class="brand-image img-circle " style="opacity: .8">
-                <span class="brand-text font-weight-light font-weight-bold shadow">e-Voting</span>
+                    class="brand-image img-circle " style="opacity: .8 ">
+                <span class=" brand-text font-weight-light font-weight-bold shadow">e-Voting</span>
             </a>
 
             <!-- Sidebar -->
@@ -86,7 +86,7 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="<?= base_url() . 'asset/images/foto_user/' . $this->session->userdata('image') ?>"
-                            class="img-circle elevation-2" alt="User Image">
+                            class="img-circle elevation-2" alt="User Image" style="height:40px; width:40px">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?= $this->session->userdata('username')  ?></a>
@@ -146,6 +146,8 @@
                                     </p>
                                 </a>
                             </li>
+
+                            <?php if ($this->session->userdata('role') == 2) { ?>
                             <li class="nav-item ">
                                 <a href="" class="nav-link ">
                                     <i class="fab fa-accessible-icon"></i>
@@ -166,6 +168,7 @@
 
                                 </ul>
                             </li>
+                            <?php } ?>
                         </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

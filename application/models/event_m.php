@@ -43,4 +43,10 @@ class event_m extends CI_Model
     {
         return $this->db->delete('event', ['id_event' => $id_event]);
     }
+    public function get_row($id_event)
+    {
+        $query = $this->db->get_where('event', ['id_event' => $id_event]);
+        $query = $query->row();
+        return $query;
+    }
 }

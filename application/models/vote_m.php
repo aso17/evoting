@@ -62,4 +62,11 @@ class vote_m extends CI_Model
         $query = $this->db->get_where('vote', ['id_event' => $id_event])->row_array();
         return $query;
     }
+
+    public function export($id_event)
+    {
+        $query = $this->db->query("SELECT *, COUNT(vote.id_kandidat) as hasil_vote FROM vote  JOIN kandidat ON kandidat.id_kandidat=vote.id_kandidat  WHERE vote.id_event = '$id_event'  GROUP BY vote.id_kandidat");
+        $hasil = $query->row();
+        return $hasil;
+    }
 }
