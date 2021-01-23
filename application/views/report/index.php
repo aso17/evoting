@@ -23,7 +23,7 @@
                         <ul class="list-group list-group-flush">
                             <?php $i = 1; ?>
                             <?php foreach ($event as $ev) :  ?>
-                            <li class="list-group-item"># <a
+                            <li class="list-group-item"><a
                                     href="<?= base_url('report/hasil_pemilihan/') . $ev['id_event'] ?>"><?= $ev['nama_event'] ?></a>
                             </li>
 
