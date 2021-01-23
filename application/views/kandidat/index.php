@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mt-3">
-                    <div class="card-header bg-info">
-                        <h3 class="card-title font-weight-bold">Daftar Kandidat</h3>
+                    <div class="card-header">
+                        <h3 class="card-">Daftar Semua Kandidat</h3>
                     </div>
 
 
@@ -18,7 +18,7 @@
                             </div>
                         </div>
 
-                        <table id="kandidat" class="table  table-striped">
+                        <table id="kandidat" class="table  table-sm">
                             <thead>
                                 <tr>
                                     <th>No</th>

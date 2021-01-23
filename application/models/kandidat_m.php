@@ -103,4 +103,12 @@ class kandidat_m extends CI_Model
     {
         return $this->db->delete('kandidat', ['id_kandidat' => $id_kandidat]);
     }
+    public function get_count()
+    {
+        $query = $this->db->query(
+            "SELECT * ,COUNT(kandidat.nama_lengkap) as kand FROM kandidat"
+        );
+
+        return $query->row();
+    }
 }

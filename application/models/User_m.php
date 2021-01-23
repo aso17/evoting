@@ -140,28 +140,6 @@ class User_m extends CI_Model
         ];
         $this->db->where('nik', $post['fnik']);
         $this->db->update('users', $data);
-        // } else {
-        //     $post = $this->input->post(null, true);
-        //     $data = [
-        //         "id_user" => uniqid('us'),
-        //         "nik" => $post['fnik'],
-        //         "nama_lengkap" => $post['nm_lengkap'],
-        //         "tempat_lahir" => $post['tmp_lahir'],
-        //         "tgl_lahir" => $post['tgl_lahir'],
-        //         "no_tlp" => $post['no_tlp'],
-        //         "jenis_kelamin" => $post['jenis_kelamin'],
-        //         "alamat" => $post['alamat'],
-        //         "rt" => $post['rt'],
-        //         "rw" => $post['rw'],
-        //         "kecamatan" => $post['kec'],
-        //         "kelurahan" => $post['kel'],
-        //         "kabupaten" => $post['kab'],
-        //         "agama" => $post['agama']
-
-        //     ];
-        //     $this->db->where('nik', $post['fnik']);
-        //     $this->db->update('users', $data);
-        // }
     }
     public function get_join_auth($id = null)
     {
@@ -184,6 +162,25 @@ class User_m extends CI_Model
             IN (SELECT id_user FROM vote )"
         );
         return $query->result();
+    }
+
+    public function get_users_active()
+    {
+
+        $query = $this->db->query(
+            "SELECT * ,COUNT(users.id_user) as user FROM users WHERE id_user 
+            IN (SELECT id_user FROM vote )"
+        );
+
+        return $query->row();
+    }
+    public function get_count()
+    {
+        $query = $this->db->query(
+            "SELECT * ,COUNT(users.id_user) as user FROM users"
+        );
+
+        return $query->row();
     }
 }
 

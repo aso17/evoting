@@ -45,11 +45,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
                 <a href="#" class="navbar-brand ">
-                    <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="Evoting Logo" class="brand-image img-circle ">
-                    <span class="brand-text font-weight-light mx-3">E-Voting</span>
+                    <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="Evoting Logo"
+                        class="brand-image img-circle ">
+                    <marquee behavior="scroll" direction="right" width="140px"> <span
+                            class="brand-text font-weight mx-3">E-Voting</span></marquee>
                 </a>
 
-                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -73,18 +77,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="row pt-5">
                         <div class="col-lg-8 p-0 d-flex flex-column align-items-center justify-content-center">
-                            <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui <strong class="text-info">E-Voting</strong></h1>
-                            <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi</h4>
+                            <h1 class="display-3">Gunakan <strong class="text-info">hak pilih</strong> anda <br>melalui
+                                <strong class="text-info">E-Voting</strong>
+                            </h1>
+                            <h4 class="text-muted">sistem informasi voting ketua kepengurusan untuk berbagai organisasi
+                            </h4>
                         </div>
                         <div class="col-lg-4 pt-5">
                             <div class="card ">
                                 <div class="card-body login-card-body ">
                                     <p class="login-box-msg"></p>
                                     <form action=" <?= base_url('Landing/login') ?> " method="post" autocomplete="off">
-                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" style="display: none  ">
+                                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
+                                            value="<?= $this->security->get_csrf_hash(); ?>" style="display: none  ">
                                         <div class="form-group mb-3">
                                             <label for="femail">Email</label>
-                                            <input type="text" class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>" placeholder=" masukan Email" name="femail" id="femail">
+                                            <input type="text"
+                                                class="form-control <?= form_error('femail') ? 'is-invalid' : '' ?>"
+                                                placeholder=" masukan Email" name="femail" id="femail">
                                             <div class="invalid-feedback">
                                                 <?= form_error('femail') ?>
                                             </div>
@@ -92,7 +102,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="form-group mb-3">
                                             <label for="fnik">Password</label>
 
-                                            <input type="password" class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>" placeholder=" Password" name="fpassword">
+                                            <input type="password"
+                                                class="form-control <?= form_error('fpassword') ? 'is-invalid' : '' ?>"
+                                                placeholder=" Password" name="fpassword">
 
 
                                             <div class="invalid-feedback">
@@ -101,7 +113,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                         <div class="row">
                                             <div class="col-12 mx-auto">
-                                                <button type="submit" class="btn btn-info  btn-block" name="submit">Login</button>
+                                                <button type="submit" class="btn btn-info  btn-block"
+                                                    name="submit">Login</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
@@ -110,7 +123,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     <p class="mt-3 mb-1">
                                         <span class="text-muted ">Belum Punya Akun? </span>
-                                        <a href="  <?= base_url('Landing/register') ?> ">Daftar disini</a>
+                                        <a href="  <?= base_url('Landing/register') ?> ">
+                                            Daftar
+                                            disini
+                                        </a>
+
                                     </p>
 
                                 </div>
@@ -144,35 +161,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
     <script type="text/javascript">
-        $(function() {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 10000
-            });
-            <?php if ($this->session->flashdata('success')) { ?>
-                Toast.fire({
-                    icon: 'success',
-                    title: '<?= $this->session->flashdata('success'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('error')) {  ?>
-                Toast.fire({
-                    icon: 'error',
-                    title: '<?= $this->session->flashdata('error'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('warning')) {  ?>
-                Toast.fire({
-                    icon: 'warning',
-                    title: '<?= $this->session->flashdata('warning'); ?>'
-                });
-            <?php } else if ($this->session->flashdata('info')) {  ?>
-                Toast.fire({
-                    icon: 'info',
-                    title: '<?= $this->session->flashdata('info'); ?>'
-                });
-            <?php } ?>
+    $(function() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 10000
         });
+        <?php if ($this->session->flashdata('success')) { ?>
+        Toast.fire({
+            icon: 'success',
+            title: '<?= $this->session->flashdata('success'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('error')) {  ?>
+        Toast.fire({
+            icon: 'error',
+            title: '<?= $this->session->flashdata('error'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('warning')) {  ?>
+        Toast.fire({
+            icon: 'warning',
+            title: '<?= $this->session->flashdata('warning'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('info')) {  ?>
+        Toast.fire({
+            icon: 'info',
+            title: '<?= $this->session->flashdata('info'); ?>'
+        });
+        <?php } ?>
+    });
     </script>
 
 </body>

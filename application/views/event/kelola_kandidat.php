@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mt-3">
-                    <div class="card-header bg-info">
+                    <div class="card-header">
                         <?php foreach ($event as $ev) : ?>
-                        <h3 class="card-title"><?= $ev->nama_event ?></h3>
+                        <h3 class="card-"> kelola Kandidat <?= $ev->nama_event ?></h3>
                         <?php endforeach; ?>
                     </div>
 

@@ -63,7 +63,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="navbar-brand ">
                     <img src="<?= base_url() . 'asset/images/logo.png' ?>" alt="evoting Logo"
                         class="brand-image img-circle ">
-                    <span class="brand-text font-weight-light mx-3 ">E-Voting</span>
+                    <marquee behavior="scroll" direction="right" width="100px"> <span
+                            class="brand-text font-weight-info mx-3 ">E-Voting</span>
+                    </marquee>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse"

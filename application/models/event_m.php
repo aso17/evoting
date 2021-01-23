@@ -49,4 +49,12 @@ class event_m extends CI_Model
         $query = $query->row();
         return $query;
     }
+    public function get_count()
+    {
+        $query = $this->db->query(
+            "SELECT * ,COUNT(event.nama_event) as eve FROM event"
+        );
+
+        return $query->row();
+    }
 }
