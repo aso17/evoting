@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Pemilihan') ?>" class="nav-link">Bantuan</a>
+                            <a href="<?= base_url('bantuan') ?>" class="nav-link">Bantuan</a>
                         </li>
                     </ul>
                 </div>
