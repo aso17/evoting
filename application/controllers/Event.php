@@ -15,6 +15,11 @@ class Event  extends CI_Controller
 
         $this->template->load('_layout/admin', 'event/index', $data);
     }
+    public function kandidat()
+    {
+        $data['event'] = $this->event_m->getAll_event();
+        $this->template->load('_layout/admin', 'kandidat/kandidat', $data);
+    }
     public function tambah_event()
     {
         $validation = $this->form_validation;

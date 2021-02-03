@@ -21,8 +21,9 @@
                                     <th>Tgl berahir</th>
 
                                     <th>Priode </th>
-
-                                    <th class="text-center" colspan="3" style="width: 15%;">Kelola Kandidat</th>
+                                    <th class="text-center" colspan="3" style="width: 15%;">Kelola Kandidat</th <th
+                                        class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
+                                    <th class="" colspan="2">Kelola Event</th>
 
 
 
@@ -43,6 +44,7 @@
 
 
 
+
                                     <td>
                                         <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
                                                 class="btn btn-light border border-dark btn-sm "><i
@@ -53,6 +55,11 @@
                                                 class="btn btn-info btn-sm "><i class="fas fa-edit"></i></button></a>
                                     </td>
                                     <td> <button class="btn btn-danger btn-sm mr-2"
+                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
+                                                class="fa fa-trash-alt"></i></button>
+                                    </td>
+
+                                    <td> <button class="btn btn-outline-danger"
                                             onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
                                     </td>
