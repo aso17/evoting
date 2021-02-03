@@ -27,6 +27,22 @@ class event_m extends CI_Model
 
         $this->db->insert('event', $data);
     }
+
+    public function update_event($post, $id_event)
+    {
+        $data = [
+
+            "nama_event" => $post['nm_event'],
+            "tgl_mulai" => $post['tgl_mulai'],
+            "tgl_berahir" => $post['tgl_berahir'],
+            "priode" => $post['priode']
+        ];
+
+
+        $this->db->set($data);
+        $this->db->where('id_event', $id_event);
+        $this->db->update('event', $data);
+    }
     public function getByid($id_event)
     {
         $query = $this->db->get_where('event', ['id_event' => $id_event]);

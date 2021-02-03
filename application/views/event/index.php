@@ -22,7 +22,7 @@
 
                                     <th>Priode </th>
 
-                                    <th class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
+                                    <th class="text-center" colspan="3" style="width: 15%;">Kelola Kandidat</th>
 
 
 
@@ -45,9 +45,14 @@
 
                                     <td>
                                         <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-info  "><i class="fas fa-directions"></i></button></a>
+                                                class="btn btn-light border border-dark btn-sm "><i
+                                                    class="fas fa-indent"></i></button></a>
                                     </td>
-                                    <td> <button class="btn btn-danger mr-2"
+                                    <td>
+                                        <a href=" <?= base_url('event/edit/') . $ev['id_event'] ?>"><button
+                                                class="btn btn-info btn-sm "><i class="fas fa-edit"></i></button></a>
+                                    </td>
+                                    <td> <button class="btn btn-danger btn-sm mr-2"
                                             onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
                                     </td>

@@ -32,6 +32,32 @@ class Event  extends CI_Controller
         }
     }
 
+    public function edit($id_event)
+    {
+        $validation = $this->form_validation;
+        $validation->set_rules('nm_event', 'nama event', 'required|trim');
+        $validation->set_rules('tgl_mulai', 'tanggal mulai', 'required|trim');
+        $validation->set_rules('tgl_berahir', 'tanggal berahir', 'required|trim');
+        $validation->set_rules('priode', 'Priode', 'required|trim');
+
+        if ($validation->run() == true) {
+
+            $post = $this->input->post(null, true);
+            $this->event_m->update_event($post, $id_event);
+            if ($this->db->affected_rows() > 0) {
+
+                $this->session->set_flashdata('success', 'Event Baru Berhasil di ubah');
+                redirect('event/index');
+            } else {
+                $this->session->set_flashdata('warning', 'Event Tidak di ubah');
+                redirect('event/index');
+            }
+        } else {
+            $data['event'] = $this->event_m->get_row($id_event);
+            $this->template->load('_layout/admin', 'event/edit', $data);
+        }
+    }
+
     public function kelola_kandidat($id_event = null)
     {
         $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);

@@ -19,7 +19,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">NIK terdaftar</h3>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <th style="width: 4%;">No</th>
                                     <th>NIK</th>
-                                    <th style="width: 7%;">Aksi</th>
+                                    <th style="width: 20%;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,9 +42,12 @@
                                     <td><?= $i++ ?>.</td>
                                     <td><?= $dt->nik ?></td>
                                     <td>
-                                        <button class="btn btn-outline-danger btn-sm"
+                                        <button class="btn btn-outline-danger btn-sm float-right mr-2"
                                             onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
+                                        <a href="<?= base_url('user/edit/') . $dt->nik ?>"> <button
+                                                class="btn btn-outline-info btn-sm float-right mr-3"><i
+                                                    class="fas fa-user-edit"></i></button></a>
                                     </td>
                                 </tr>
                                 <?php } ?>

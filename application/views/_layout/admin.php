@@ -125,7 +125,7 @@
                                         <i class="right fas fa-angle-left"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview">
+                                <ul class="nav nav-treeview ml-2">
                                     <li class="nav-item">
                                         <a href="<?= base_url('event/index') ?>"
                                             class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>"
@@ -148,8 +148,8 @@
                             </li>
 
                             <?php if ($this->session->userdata('role') == 2) { ?>
-                            <li class="nav-item ">
-                                <a href="" class="nav-link ">
+                            <li class="nav-item ml-2">
+                                <a href="" class="nav-link">
                                     <i class="fab fa-accessible-icon"></i>
                                     <p>
                                         Utility
