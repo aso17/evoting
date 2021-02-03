@@ -16,8 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- DataTables -->
     <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' ?>">
-    <link rel="stylesheet"
-        href="<?= base_url() . 'asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' ?>">
+    <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' ?>">
     <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' ?>">
     <link rel="stylesheet" href="<?= base_url() . 'asset/plugins/datatables-buttons/css/buttons.dataTables.min.css' ?>">
     <!-- Sweetalert -->
@@ -64,8 +63,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button onclick="logConfirm('<?= base_url('admin/logout') ?>')" class="btn btn" class="nav-link "
-                        id=" logoutmodal" data-toggle="modal" data-target="#logoutmodal">Keluar</button>
+                    <button onclick="logConfirm('<?= base_url('admin/logout') ?>')" class="btn btn" class="nav-link " id=" logoutmodal" data-toggle="modal" data-target="#logoutmodal">Keluar</button>
                 </li>
             </ul>
         </nav>
@@ -75,9 +73,14 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url('dashboard') ?>" class="brand-link">
+<<<<<<< Updated upstream
                 <img src=" <?= base_url() . 'asset/images/logo.png' ?>" alt="AdminLTE Logo"
                     class="brand-image img-circle " style="opacity: .8 ">
                 <span class=" brand-text font-weight-light font-weight-bold shadow">e-Voting</span>
+=======
+                <img src=" <?= base_url() . 'asset/images/logo.png' ?>" alt="AdminLTE Logo" class="brand-image img-circle " style="opacity: .8">
+                <span class="brand-text font-weight-light font-weight-bold shadow">e-Voting</span>
+>>>>>>> Stashed changes
             </a>
 
             <!-- Sidebar -->
@@ -85,8 +88,12 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
+<<<<<<< Updated upstream
                         <img src="<?= base_url() . 'asset/images/foto_user/' . $this->session->userdata('image') ?>"
                             class="img-circle elevation-2" alt="User Image" style="height:40px; width:40px">
+=======
+                        <img src="<?= base_url() . 'asset/images/foto_user/' . $this->session->userdata('image') ?>" class="img-circle elevation-2" alt="User Image">
+>>>>>>> Stashed changes
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?= $this->session->userdata('username')  ?></a>
@@ -94,11 +101,9 @@
                 </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>"
-                                class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
+                            <a href="<?= base_url('Dashboard') ?>" class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
                                 <i class="nav-icon fa fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -106,16 +111,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('user') ?>"
-                                class="nav-link <?= $this->uri->segment(1) == 'user' ? 'active' : '' ?>">
+                            <a href="<?= base_url('user') ?>" class="nav-link <?= $this->uri->segment(1) == 'user' ? 'active' : '' ?>">
                                 <i class="nav-icon fa fa-users"></i>
                                 <p>
                                     Data Pemilih
                                 </p>
                             </a>
                         </li>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                             <li class="nav-item ">
                                 <a href="" class="nav-link ">
@@ -127,11 +130,15 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('event/index') ?>"
-                                            class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>"
-                                            class="nav-link">
+                                        <a href="<?= base_url('event/index') ?>" class="nav-link <?= $this->uri->segment(2) == 'index' ? 'active' : '' ?>" class="nav-link">
                                             <i class="fas fa-tasks"></i>
                                             <p>Event</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('event/kandidat') ?>" class="nav-link <?= $this->uri->segment(2) == 'kandidat' ? 'active' : '' ?>" class="nav-link">
+                                            <i class="fas fa-tasks"></i>
+                                            <p>Kandidat</p>
                                         </a>
                                     </li>
 
@@ -158,9 +165,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('admin/user_log') ?>"
-                                            class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>"
-                                            class="nav-link">
+                                        <a href="<?= base_url('admin/user_log') ?>" class="nav-link <?= $this->uri->segment(1) == 'event' ? 'active' : '' ?>" class="nav-link">
                                             <i class="fas fa-user-cog"></i>
                                             <p>User</p>
                                         </a>
@@ -196,8 +201,7 @@
             reserved.
         </footer>
     </div>
-    <div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -223,47 +227,47 @@
     <!-- ./wrapper -->
     <!-- Alert Config -->
     <script type="text/javascript">
-    function logConfirm(url) {
-        $('#btn-log').attr('href', url);
-        $('#logoutmodal').modal();
-    }
+        function logConfirm(url) {
+            $('#btn-log').attr('href', url);
+            $('#logoutmodal').modal();
+        }
     </script>
     <script type="text/javascript">
-    $(function() {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 10000
+        $(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 10000
+            });
+            <?php if ($this->session->flashdata('success')) { ?>
+                Toast.fire({
+                    icon: 'success',
+                    title: '<?= $this->session->flashdata('success'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('error')) {  ?>
+                Toast.fire({
+                    icon: 'error',
+                    title: '<?= $this->session->flashdata('error'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('warning')) {  ?>
+                Toast.fire({
+                    icon: 'warning',
+                    title: '<?= $this->session->flashdata('warning'); ?>'
+                });
+            <?php } else if ($this->session->flashdata('info')) {  ?>
+                Toast.fire({
+                    icon: 'info',
+                    title: '<?= $this->session->flashdata('info'); ?>'
+                });
+            <?php } ?>
         });
-        <?php if ($this->session->flashdata('success')) { ?>
-        Toast.fire({
-            icon: 'success',
-            title: '<?= $this->session->flashdata('success'); ?>'
-        });
-        <?php } else if ($this->session->flashdata('error')) {  ?>
-        Toast.fire({
-            icon: 'error',
-            title: '<?= $this->session->flashdata('error'); ?>'
-        });
-        <?php } else if ($this->session->flashdata('warning')) {  ?>
-        Toast.fire({
-            icon: 'warning',
-            title: '<?= $this->session->flashdata('warning'); ?>'
-        });
-        <?php } else if ($this->session->flashdata('info')) {  ?>
-        Toast.fire({
-            icon: 'info',
-            title: '<?= $this->session->flashdata('info'); ?>'
-        });
-        <?php } ?>
-    });
 
 
-    $('.custom-file-input').on('change', function() {
-        let filename = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass("selected").html(filename);
-    })
+        $('.custom-file-input').on('change', function() {
+            let filename = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(filename);
+        })
     </script>
 
 

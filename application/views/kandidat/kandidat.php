@@ -1,21 +1,28 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark"> Kelola Kandidats</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
 <!-- /.content-header -->
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-12">
-                <div class="card mt-3">
-                    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header bg-info">
                         <h4>Daftar Event Desa Kadujaya</h4>
                     </div>
                     <div class="card-body">
-<<<<<<< Updated upstream
-                        <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
-                                href="<?= base_url('Event/tambah_event') ?>" class="text-light"> Tambahkan
-=======
-                        <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url('Event/tambah_event') ?>" class="text-light   ">Tambahkan
->>>>>>> Stashed changes
-                                Event</a></button>
+
                         <table class="table table-sm mt-2">
                             <thead>
                                 <tr>
@@ -26,11 +33,7 @@
 
                                     <th>Priode </th>
 
-<<<<<<< Updated upstream
-                                    <th class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
-=======
-                                    <th class="" colspan="2">Kelola Event</th>
->>>>>>> Stashed changes
+                                    <th class="" colspan="2">Kelola Kandidat</th>
 
 
 
@@ -51,19 +54,9 @@
 
 
 
-<<<<<<< Updated upstream
-                                    <td>
-                                        <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-info  "><i class="fas fa-directions"></i></button></a>
-                                    </td>
-                                    <td> <button class="btn btn-danger mr-2"
-                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
-                                                class="fa fa-trash-alt"></i></button>
-                                    </td>
-=======
-                                        <td> <button class="btn btn-outline-danger" onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i class="fa fa-trash-alt"></i></button>
+                                        <td>
+                                            <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button class="btn btn-outline-info ml-2 "><i class="fas fa-directions"></i></button></a>
                                         </td>
->>>>>>> Stashed changes
 
 
                                     </tr>
