@@ -6,6 +6,7 @@
             <h3 class="card-title">Form Ubah Event</h3>
         </div>
         <!-- /.card-header -->
+
         <div class="card-body">
             <?= form_open_multipart('') ?>
 
@@ -56,6 +57,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-8">
                     <div class="card-footer">

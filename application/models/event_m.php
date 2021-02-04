@@ -22,7 +22,8 @@ class event_m extends CI_Model
             "nama_event" => $post['nm_event'],
             "tgl_mulai" => $post['tgl_mulai'],
             "tgl_berahir" => $post['tgl_berahir'],
-            "priode" => $post['priode']
+            "priode" => $post['priode'],
+            "keterangan" => $post['keterangan']
         ];
 
         $this->db->insert('event', $data);
@@ -36,6 +37,7 @@ class event_m extends CI_Model
             "tgl_mulai" => $post['tgl_mulai'],
             "tgl_berahir" => $post['tgl_berahir'],
             "priode" => $post['priode']
+
         ];
 
 

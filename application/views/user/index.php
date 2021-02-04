@@ -31,7 +31,7 @@
                                 <tr>
                                     <th style="width: 4%;">No</th>
                                     <th>NIK</th>
-                                    <th style="width: 20%;">Aksi</th>
+                                    <th class="text-center" style="width: 30%;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                                     <td><?= $i++ ?>.</td>
                                     <td><?= $dt->nik ?></td>
                                     <td>
-                                        <button class="btn btn-outline-danger btn-sm float-right mr-2"
+                                        <button class="btn btn-outline-danger btn-sm float-right mr-3"
                                             onclick="deleteConfirm('<?= base_url() . 'user/delete/' . $dt->id_user ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
                                         <a href="<?= base_url('user/edit/') . $dt->nik ?>"> <button

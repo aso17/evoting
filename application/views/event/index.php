@@ -9,21 +9,18 @@
                         <h4>Daftar Event Desa Kadujaya</h4>
                     </div>
                     <div class="card-body">
-                        <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
-                                href="<?= base_url('Event/tambah_event') ?>" class="text-light"> Tambahkan
-                                Event</a></button>
-                        <table class="table table-sm mt-2">
+
+                        <table class="table table-sm mt-2" id="tb_event">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th style="width: 10px"></th>
                                     <th>Pemilihan</th>
-                                    <th>Tgl mulia</th>
-                                    <th>Tgl berahir</th>
-
+                                    <th>Tanggal Mulia</th>
+                                    <th>Tanggal Berakhir</th>
                                     <th>Priode </th>
-                                    <th class="text-center" colspan="3" style="width: 15%;">Kelola Kandidat</th <th
-                                        class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
-                                    <th class="" colspan="2">Kelola Event</th>
+                                    <th class="text-center" style="width:15%;">Kelola Event</th>
+
+
 
 
 
@@ -35,34 +32,25 @@
 
                                 <tr>
                                     <td><?= $i++; ?>.</td>
-                                    <td><a href="#" class="text-info font-weight-bold"><?= $ev['nama_event']; ?></a>
-                                    </td>
-
+                                    <td><?= $ev['nama_event']; ?></td>
                                     <td><?= $ev['tgl_mulai']; ?></td>
                                     <td><?= $ev['tgl_berahir']; ?></td>
                                     <td><?= $ev['priode']; ?></td>
+                                    <td class="">
+                                        <a href=" <?= base_url('event/detail/') . $ev['id_event'] ?>"><button
+                                                class="btn btn-light border border-dark btn-sm mr-3 "><i
+                                                    class="fa fa-eye"></i></button></a>
 
 
-
-
-                                    <td>
-                                        <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-light border border-dark btn-sm "><i
-                                                    class="fas fa-indent"></i></button></a>
-                                    </td>
-                                    <td>
                                         <a href=" <?= base_url('event/edit/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-info btn-sm "><i class="fas fa-edit"></i></button></a>
-                                    </td>
-                                    <td> <button class="btn btn-danger btn-sm mr-2"
+                                                class="btn btn-outline-info btn-sm mr-2"><i class="fas fa-edit"></i>
+                                            </button></a>
+
+                                        <button class="btn btn-outline-danger btn-sm ml-2 "
                                             onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
                                                 class="fa fa-trash-alt"></i></button>
                                     </td>
 
-                                    <td> <button class="btn btn-outline-danger"
-                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
-                                                class="fa fa-trash-alt"></i></button>
-                                    </td>
 
 
                                 </tr>
@@ -73,6 +61,11 @@
                 </div><!-- /.card -->
             </div>
         </div>
+
+
+
+
+
 
         <!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -108,5 +101,27 @@ function deleteConfirm(url) {
     $('#btn-delete').attr('href', url);
     $('#deleteModal').modal();
 }
+</script>
+<script>
+$(function() {
+
+    $("#tb_event").DataTable({
+
+        "responsive": false,
+        "autoWidth": false,
+        "info": false,
+        "lengthChange": false,
+        "paging": false,
+        dom: 'Bfrtip',
+        buttons: [{
+            text: 'Tambah event',
+            action: function() {
+                window.location.href = "event/tambahEvent"
+            }
+        }]
+
+
+    });
+});
 </script>
 <!-- /.content -->
