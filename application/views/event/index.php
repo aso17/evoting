@@ -9,12 +9,7 @@
                         <h4>Daftar Event Desa Kadujaya</h4>
                     </div>
                     <div class="card-body">
-<<<<<<< Updated upstream
-                        <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a
-                                href="<?= base_url('Event/tambah_event') ?>" class="text-light"> Tambahkan
-=======
                         <button class="badge badge-dark pb-2 pt-2"><i class="fa fa-user-plus"></i><a href="<?= base_url('Event/tambah_event') ?>" class="text-light   ">Tambahkan
->>>>>>> Stashed changes
                                 Event</a></button>
                         <table class="table table-sm mt-2">
                             <thead>
@@ -26,11 +21,7 @@
 
                                     <th>Priode </th>
 
-<<<<<<< Updated upstream
-                                    <th class="" colspan="2" style="width: 15%;">Kelola Kandidat</th>
-=======
                                     <th class="" colspan="2">Kelola Event</th>
->>>>>>> Stashed changes
 
 
 
@@ -51,19 +42,8 @@
 
 
 
-<<<<<<< Updated upstream
-                                    <td>
-                                        <a href=" <?= base_url('event/kelola_kandidat/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-info  "><i class="fas fa-directions"></i></button></a>
-                                    </td>
-                                    <td> <button class="btn btn-danger mr-2"
-                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
-                                                class="fa fa-trash-alt"></i></button>
-                                    </td>
-=======
                                         <td> <button class="btn btn-outline-danger" onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i class="fa fa-trash-alt"></i></button>
                                         </td>
->>>>>>> Stashed changes
 
 
                                     </tr>
