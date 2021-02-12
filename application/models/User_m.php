@@ -93,10 +93,24 @@ class User_m extends CI_Model
     {
         return $this->db->where('nama_lengkap', null)->get($this->_table)->result();
     }
+    public function getnik($nik)
+    {
+        return $this->db->where('nik', $nik)->get($this->_table)->row();
+    }
 
     public function delete($id)
     {
         return $this->db->delete($this->_table, array('id_user' => $id));
+    }
+
+    public function update_nik_pemilih($post, $nik)
+    {
+        $data = [
+            "nik" => $post['fnik']
+        ];
+        $this->db->set('nik', $data);
+        $this->db->where('nik', $nik);
+        $this->db->update($this->_table, $data);
     }
 
     public function updateUser()

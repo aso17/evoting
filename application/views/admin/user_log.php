@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header bg-info">
+                    <div class="card-header">
                         <h3 class="card-title ">User log</h3>
                     </div>
                     <!-- /.card-header -->
@@ -44,13 +44,15 @@
                                     <td><?= $aut->role ?>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger float-right ml-2"
+                                        <button class="btn btn-outline-danger btn-sm float-right ml-2"
                                             onclick="deleteConfirm('<?= base_url('/')  ?>')"><i
                                                 class="fas fa-trash-alt"></i></button>
-                                        <button class="btn btn-info float-right"> <a
-                                                href="<?= base_url('admin/edit_user_log/') . $aut->id_auth . '/' . $aut->id_user ?>"
-                                                class="text-light"><i class="fas fa-pen-alt"></i></a>
-                                        </button>
+
+                                        <a href="<?= base_url('admin/edit_user_log/') . $aut->id_auth . '/' . $aut->id_user ?>"
+                                            class="text-light"> <button
+                                                class="btn btn-outline-info btn-sm float-right"><i
+                                                    class="fas fa-edit"></i> </button></a>
+
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -78,7 +80,7 @@ $("#user").DataTable({
     dom: 'Bfrtip',
     buttons: [{
         text: '<i class="fas fa-user-plus mr-2 "></i>' +
-            '<span class="font-weight-bold text-info">User log</span>',
+            '<span class="font-weight-bold text-info">User</span>',
 
 
         action: function() {

@@ -82,70 +82,12 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url() . 'asset/images/foto_user/' . $this->session->userdata('image') ?>" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block"><?= $this->session->userdata('username')  ?></a>
-                    </div>
-                </div>
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active' : '' ?> <?= $this->uri->segment(1) == '' ? 'active' : '' ?>">
-                                <i class="nav-icon fa fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('user') ?>" class="nav-link <?= $this->uri->segment(1) == 'user' ? 'active' : '' ?>">
-                                <i class="nav-icon fa fa-users"></i>
-                                <p>
-                                    Data Pemilih
-                                </p>
-                            </a>
-                        </li>
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <img src="<?= base_url() . 'asset/images/foto_user/' . $this->session->userdata('image') ?>" class="img-circle elevation-2" alt="User Image" style="height:40px; width:40px">
 
-                            <li class="nav-item ">
-                                <a href="" class="nav-link ">
-                                    <i class="nav-icon fa fa-calendar-check"></i>
-                                    <p>
-                                        Pemilihan
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('event/index') ?>" class="nav-link <?= $this->uri->segment(2) == 'index' ? 'active' : '' ?>" class="nav-link">
-                                            <i class="fas fa-tasks"></i>
-                                            <p>Event</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="<?= base_url('event/kandidat') ?>" class="nav-link <?= $this->uri->segment(2) == 'kandidat' ? 'active' : '' ?>" class="nav-link">
-                                            <i class="fas fa-tasks"></i>
-                                            <p>Kandidat</p>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="<?= base_url('report') ?>" class="nav-link">
-                                    <i class="nav-icon fa fa-check-double"></i>
-                                    <p>
-                                        Hasil Pemilihan
-                                    </p>
-                                </a>
-                            </li>
-
+                        <p>
                             <?php if ($this->session->userdata('role') == 2) { ?>
-                                <li class="nav-item ">
-                                    <a href="" class="nav-link ">
+                                <li class="nav-item ml-2">
+                                    <a href="" class="nav-link">
                                         <i class="fab fa-accessible-icon"></i>
                                         <p>
                                             Utility
@@ -163,11 +105,11 @@
                                     </ul>
                                 </li>
                             <?php } ?>
-                        </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
+                            </ul>
+                            </nav>
+                            <!-- /.sidebar-menu -->
+                    </div>
+                    <!-- /.sidebar -->
         </aside>
 
 

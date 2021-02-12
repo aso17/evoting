@@ -20,13 +20,14 @@ class Event  extends CI_Controller
         $data['event'] = $this->event_m->getAll_event();
         $this->template->load('_layout/admin', 'kandidat/kandidat', $data);
     }
-    public function tambah_event()
+    public function tambahEvent()
     {
         $validation = $this->form_validation;
         $validation->set_rules('nm_event', 'nama event', 'required|trim');
         $validation->set_rules('tgl_mulai', 'tanggal mulai', 'required|trim');
         $validation->set_rules('tgl_berahir', 'tanggal berahir', 'required|trim');
         $validation->set_rules('priode', 'Priode', 'required|trim');
+
 
         if ($validation->run() == false) {
             $this->template->load('_layout/admin', 'event/tambah_event');
@@ -37,13 +38,39 @@ class Event  extends CI_Controller
         }
     }
 
-    public function kelola_kandidat($id_event = null)
+    public function edit($id_event)
+    {
+        $validation = $this->form_validation;
+        $validation->set_rules('nm_event', 'nama event', 'required|trim');
+        $validation->set_rules('tgl_mulai', 'tanggal mulai', 'required|trim');
+        $validation->set_rules('tgl_berahir', 'tanggal berahir', 'required|trim');
+        $validation->set_rules('priode', 'Priode', 'required|trim');
+
+        if ($validation->run() == true) {
+
+            $post = $this->input->post(null, true);
+            $this->event_m->update_event($post, $id_event);
+            if ($this->db->affected_rows() > 0) {
+
+                $this->session->set_flashdata('success', 'Event Baru Berhasil di ubah');
+                redirect('event/index');
+            } else {
+                $this->session->set_flashdata('warning', 'Event Tidak di ubah');
+                redirect('event/index');
+            }
+        } else {
+            $data['event'] = $this->event_m->get_row($id_event);
+            $this->template->load('_layout/admin', 'event/edit', $data);
+        }
+    }
+
+    public function detail($id_event = null)
     {
         $data['kandidat'] = $this->kandidat_m->getAll_kandidat_Byid($id_event);
         // var_dump($data['kandidat']);
         // die;
         $data['event'] = $this->event_m->getByid($id_event);
-        $this->template->load('_layout/admin', 'event/kelola_kandidat', $data);
+        $this->template->load('_layout/admin', 'event/detail', $data);
     }
 
     public function delete($id_event)

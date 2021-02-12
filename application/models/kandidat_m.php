@@ -44,7 +44,15 @@ class kandidat_m extends CI_Model
         $query = $this->db->get_where('kandidat', ['id_event' => $kand])->row_array();
         return $query;
     }
-
+    public function getByid_join($id_kandidat)
+    {
+        $this->db->select('*');
+        $this->db->from('kandidat');
+        $this->db->join('event', 'event.id_event=kandidat.id_event');
+        $this->db->where('id_kandidat', $id_kandidat);
+        $query = $this->db->get()->row();
+        return $query;
+    }
     public function creat_kandidat($post = null, $file)
     {
 
@@ -83,6 +91,53 @@ class kandidat_m extends CI_Model
 
 
         $this->db->insert('kandidat', $this);
+    }
+    public function update($post, $file, $id_kandidat)
+    {
+        $foto = $file['name'];
+        if ($foto != null) {
+            $config['upload_path'] = './asset/images/kandidat/';
+            $config['allowed_types'] = 'jpeg|jpg|png';
+            $config['max_size']     = '10000';
+            $config['file_name']     = 'foto_kandidat';
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('foto')) {
+                $fot = $this->upload->data('file_name');
+            } else {
+                echo $this->upload->display_errors();
+            }
+            $data = [
+
+
+                "foto " => $fot,
+
+
+            ];
+            $this->db->set('foto', $data);
+            $this->db->where('id_kandidat', $id_kandidat);
+            $this->db->update('kandidat', $data);
+        } else {
+            $data = [
+
+                "id_event" => $post['event'],
+                "nomer_urut" => $post['nomer_urut'],
+                "nama_lengkap" => $post['nm_lengkap'],
+                "tempat_lahir" => $post['tempat_lahir'],
+                "tgl_lahir" => $post['tgl_lahir'],
+                "agama " => $post['agama'],
+                "alamat" => $post['alamat'],
+                "pekerjaan" => $post['pekerjaan'],
+                "pendidikan_terahir" => $post['pendidikan'],
+                "pengalaman " => $post['pengalaman'],
+                "visi" => $post['visi'],
+                "misi " => $post['misi'],
+                "keterangan " => $post['keterangan']
+
+            ];
+            $this->db->set($data);
+            $this->db->where('id_kandidat', $id_kandidat);
+            $this->db->update('kandidat', $data);
+        }
     }
     public function getkandidat_Byid($id = null)
     {
