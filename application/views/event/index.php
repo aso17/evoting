@@ -30,30 +30,25 @@
                                 <?php $i = 1; ?>
                                 <?php foreach ($event as $ev) :   ?>
 
-                                <tr>
-                                    <td><?= $i++; ?>.</td>
-                                    <td><?= $ev['nama_event']; ?></td>
-                                    <td><?= $ev['tgl_mulai']; ?></td>
-                                    <td><?= $ev['tgl_berahir']; ?></td>
-                                    <td><?= $ev['priode']; ?></td>
-                                    <td class="">
-                                        <a href=" <?= base_url('event/detail/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-light border border-dark btn-sm mr-3 "><i
-                                                    class="fa fa-eye"></i></button></a>
+                                    <tr>
+                                        <td><?= $i++; ?>.</td>
+                                        <td><?= $ev['nama_event']; ?></td>
+                                        <td><?= $ev['tgl_mulai']; ?></td>
+                                        <td><?= $ev['tgl_berahir']; ?></td>
+                                        <td><?= $ev['priode']; ?></td>
+                                        <td class="">
+                                            <a href=" <?= base_url('event/detail/') . $ev['id_event'] ?>"><button class="btn btn-light border border-dark btn-sm mr-3 "><i class="fa fa-eye"></i></button></a>
 
 
-                                        <a href=" <?= base_url('event/edit/') . $ev['id_event'] ?>"><button
-                                                class="btn btn-outline-info btn-sm mr-2"><i class="fas fa-edit"></i>
-                                            </button></a>
+                                            <a href=" <?= base_url('event/edit/') . $ev['id_event'] ?>"><button class="btn btn-outline-info btn-sm mr-2"><i class="fas fa-edit"></i>
+                                                </button></a>
 
-                                        <button class="btn btn-outline-danger btn-sm ml-2 "
-                                            onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i
-                                                class="fa fa-trash-alt"></i></button>
-                                    </td>
+                                            <button class="btn btn-outline-danger btn-sm ml-2 " onclick="deleteConfirm('<?= base_url() . 'event/delete/' . $ev['id_event'] ?>')"><i class="fa fa-trash-alt"></i></button>
+                                        </td>
 
 
 
-                                </tr>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -71,8 +66,7 @@
     </div><!-- /.container-fluid -->
 </div>
 <!--Delete Confirmation-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -97,31 +91,31 @@
 
 <!-- Delete Confirm -->
 <script type="text/javascript">
-function deleteConfirm(url) {
-    $('#btn-delete').attr('href', url);
-    $('#deleteModal').modal();
-}
+    function deleteConfirm(url) {
+        $('#btn-delete').attr('href', url);
+        $('#deleteModal').modal();
+    }
 </script>
 <script>
-$(function() {
+    $(function() {
 
-    $("#tb_event").DataTable({
+        $("#tb_event").DataTable({
 
-        "responsive": false,
-        "autoWidth": false,
-        "info": false,
-        "lengthChange": false,
-        "paging": false,
-        dom: 'Bfrtip',
-        buttons: [{
-            text: 'Tambah event',
-            action: function() {
-                window.location.href = "event/tambahEvent"
-            }
-        }]
+            "responsive": false,
+            "autoWidth": false,
+            "info": false,
+            "lengthChange": false,
+            "paging": false,
+            dom: 'Bfrtip',
+            buttons: [{
+                text: 'Tambah event',
+                action: function() {
+                    window.location.href = "event/tambahEvent"
+                }
+            }]
 
 
+        });
     });
-});
 </script>
 <!-- /.content -->
