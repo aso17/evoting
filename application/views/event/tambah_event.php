@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <?= form_open_multipart('Event/tambah_event') ?>
+            <?= form_open_multipart('Event/tambahEvent') ?>
 
             <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
                 value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
